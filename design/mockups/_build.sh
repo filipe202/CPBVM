@@ -52,7 +52,7 @@ cat <<'EOF'
     .hand{ font-family:Caveat,'Comic Sans MS',cursive; font-weight:700; color:#E9B949; }
     .mut{ color:#C6B6A8; }
     .dim{ color:#A2948A; }
-    .btn{ display:inline-flex; align-items:center; gap:10px; padding:16px 30px; border-radius:38px 34px 40px 32px;
+    .btn{ box-sizing:border-box; display:inline-flex; align-items:center; gap:10px; padding:16px 30px; border-radius:38px 34px 40px 32px;
       font-weight:800; font-size:15px; background:#D2261F; color:#fff; }
     .btn.k{ background:#E9B949; color:#28190C; }
     .btn.o{ background:transparent; border:2px solid rgba(246,237,225,.28); color:#F6EDE1; }
@@ -64,7 +64,7 @@ cat <<'EOF'
     .note{ position:relative; background:#170F0B; border:1px solid rgba(246,237,225,.12); border-radius:14px 12px 16px 10px; padding:26px; }
     .pin{ position:absolute; top:-9px; left:50%; margin-left:-8px; width:16px; height:16px; border-radius:50%;
       background:#D2261F; box-shadow:0 3px 8px rgba(0,0,0,.6); }
-    .chip{ display:inline-block; padding:7px 15px; border:2px solid rgba(233,185,73,.4); border-radius:999px;
+    .chip{ box-sizing:border-box; display:inline-block; padding:7px 15px; border:2px solid rgba(233,185,73,.4); border-radius:999px;
       font-size:11.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:#E9B949; }
     .chip.r{ border-color:rgba(255,46,31,.55); color:#FF8A76; }
     .chip.g{ border-color:rgba(18,105,59,.7); color:#5FC98C; }
@@ -87,7 +87,7 @@ nav_html() { # $1 chave ativa
   emblem 50 "n"
   printf '%s' '<div style="line-height:1.12;">
 <div style="font-family:Anton,sans-serif; font-size:21px; letter-spacing:.01em; text-transform:uppercase;">Patinagem BVM</div>
-<div class="lbl" style="color:#E9B949; font-size:10.5px;">Montijo · desde 2012</div>
+<div class="lbl" style="color:#E9B949; font-size:11px;">Montijo · desde 2012</div>
 </div>
 </div>
 <div style="display:flex; align-items:center; gap:26px;">'
@@ -98,7 +98,12 @@ nav_html() { # $1 chave ativa
     if [ "$k" = "$active" ]; then col="#E9B949; border-bottom:2px solid #FF2E1F"; else col="#F6EDE1"; fi
     printf '<span class="lbl" style="color:%s; padding-bottom:3px;">%s</span>' "$col" "$l"
   done
-  printf '%s' '<span class="btn k" style="padding:12px 22px; font-size:14px;">Inscrever</span>
+  if [ "$active" = "inscricoes" ]; then
+    printf '<span class="btn" style="padding:12px 22px; font-size:14px; background:#FF2E1F;">Inscrever</span>'
+  else
+    printf '<span class="btn k" style="padding:12px 22px; font-size:14px;">Inscrever</span>'
+  fi
+  printf '%s' '
 </div>
 </div>
 '
@@ -197,8 +202,8 @@ cat <<'EOF'
 
   <div style="display:grid; grid-template-columns:1.02fr .98fr; gap:50px; margin-top:40px; align-items:start;">
     <div>
-      <p style="font-size:21px; color:#C6B6A8; max-width:45ch;">Não é só andar de patins. É cair sessenta vezes, levantar sessenta e uma, e no dia da gala ouvir o pavilhão inteiro a gritar o teu nome.</p>
-      <div class="hand" style="font-size:38px; transform:rotate(-3deg); margin:14px 0 0 4px;">e aqui ninguém patina sozinho</div>
+      <p style="font-size:21px; color:#C6B6A8; max-width:45ch;">Treinamos no Pavilhão Municipal do Montijo: exercícios de escola, saltos, piruetas e os programas que levamos a prova. Começa-se aos 4 anos e sem saber nada.</p>
+      <div class="hand" style="font-size:38px; transform:rotate(-3deg); margin:14px 0 0 4px;">os patins emprestamos nós</div>
       <div style="display:flex; gap:13px; margin-top:30px;">
         <span class="btn">Marcar aula grátis</span>
         <span class="btn o">Conhecer o clube</span>
@@ -209,14 +214,14 @@ cat <<'EOF'
         <div style="flex:1; padding:20px 0 20px 24px; border-left:3px solid rgba(246,237,225,.18);"><div style="font-family:Anton,sans-serif; font-size:56px; color:#E9B949; line-height:.9;">14</div><span class="lbl dim">Anos de clube</span></div>
       </div>
     </div>
-    <div style="position:relative; height:520px;">
+    <div style="position:relative; height:560px;">
 EOF
 polaroid "atleta-01.jpg" "330px" "Beatriz, Cadetes" "-4" "position:absolute; right:66px; top:-30px; width:300px;"
 polaroid "gala-01.jpg" "210px" "Gala de Natal, 2025" "6" "position:absolute; left:0; top:230px; width:262px;" "rgba(210,38,31,.5)"
 cat <<'EOF'
       <div style="position:absolute; right:0; bottom:6px; width:138px; height:138px; border-radius:50%; background:#E9B949; color:#28190C; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; transform:rotate(-12deg); font-family:Anton,sans-serif; font-size:23px; line-height:.94; text-transform:uppercase;">
         Aula<br>grátis
-        <span class="lbl" style="font-size:9.5px; margin-top:6px;">sem compromisso</span>
+        <span class="lbl" style="font-size:11px; margin-top:6px;">é já!</span>
       </div>
     </div>
   </div>
@@ -286,7 +291,7 @@ cat <<'EOF'
       <p class="dim" style="font-size:14.5px;">21h00, aqui em casa. Bilhete 5 €, à venda na secretaria. Leva a família toda.</p>
     </div>
     <div class="note" style="transform:rotate(1.6deg); background:#E9B949; border-color:transparent;"><span class="pin" style="background:#0D0806;"></span>
-      <div class="lbl" style="color:#7A3B12;">Todo o ano</div>
+      <div class="lbl" style="color:#5C2B0C;">Todo o ano</div>
       <h3 style="font-size:27px; margin:10px 0 8px; color:#28190C;">Aula experimental</h3>
       <p style="font-size:14.5px; color:#4A3620;">Grátis e sem compromisso, em qualquer altura da época. Basta aparecer com meias altas.</p>
     </div>
@@ -334,7 +339,7 @@ cat <<'EOF'
 <div style="position:relative; padding:88px 58px 92px;">
   <div style="position:relative; border-radius:26px 22px 28px 20px; padding:64px; text-align:center; background:linear-gradient(140deg,#D2261F,#6E0C10);">
     <h2 style="font-size:74px;">Vem experimentar<br>num sábado.</h2>
-    <p style="font-size:18.5px; color:#FFE3DF; max-width:50ch; margin:18px auto 0;">Roupa confortável, meias altas e vontade de cair umas quantas vezes. Os patins são por nossa conta.</p>
+    <p style="font-size:18.5px; color:#FFF5F3; max-width:50ch; margin:18px auto 0;">Roupa confortável, meias altas e vontade de cair umas quantas vezes. Os patins são por nossa conta.</p>
     <div style="display:flex; gap:13px; justify-content:center; margin-top:32px;">
       <span class="btn k">Marcar aula grátis</span>
       <span class="btn o" style="border-color:rgba(255,255,255,.45);">212 345 678</span>
@@ -354,7 +359,7 @@ echo "Main ok"
 {
 head_html
 nav_html sobre
-pagehead "O clube" "Desde 2012 no Montijo" "O clube" "por dentro" "Começámos com dezoito miúdos e duas treinadoras num pavilhão emprestado. Hoje somos noventa e quatro — e continuamos a tratar-nos todos pelo nome." "isto é uma família com patins"
+pagehead "O clube" "Desde 2012 no Montijo" "O clube" "por dentro" "Começámos com dezoito miúdos e duas treinadoras num pavilhão emprestado. Hoje somos noventa e quatro e continuamos a conhecer-nos todos pelo nome." "somos noventa e quatro"
 cat <<'EOF'
 <div style="position:relative; padding:0 58px;">
   <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
@@ -369,12 +374,12 @@ cat <<'EOF'
   <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start;">
     <h2 style="font-size:72px;">Ensinar a cair.<br><span class="out-r" style="-webkit-text-stroke:2px #FF2E1F;">E a levantar</span><br>com estilo.</h2>
     <div>
-      <p class="mut" style="font-size:18px;">A patinagem artística ensina muito mais do que saltos e piruetas: ensina disciplina, paciência e a lidar com o palco. Por isso trabalhamos os dois lados — o técnico e o artístico — desde a primeira aula.</p>
-      <p class="mut" style="font-size:18px; margin-top:16px;">Cada atleta tem um plano adequado à idade e ao escalão, acompanhamento próximo da equipa técnica e uma época com objetivos claros, do treino de terça à gala de dezembro.</p>
+      <p class="mut" style="font-size:18px;">Metade do trabalho é técnico: apoios, quedas, saltos, piruetas. A outra metade é entrar em pista com a sala cheia e conseguir contar a música até ao fim. Trabalhamos as duas desde a primeira aula.</p>
+      <p class="mut" style="font-size:18px; margin-top:16px;">Cada atleta tem um plano à medida da idade e do escalão, definido em setembro com a família e revisto ao longo do ano — do primeiro treino de terça à gala de dezembro.</p>
       <div style="display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin-top:30px;">
-        <div class="note" style="transform:rotate(-1deg); padding:20px;"><div style="font-family:Anton,sans-serif; font-size:32px; color:#E9B949;">01</div><div style="font-weight:800; margin-top:6px;">Rigor sem medo</div><p class="dim" style="font-size:14px; margin-top:4px;">Técnica correta desde o início.</p></div>
-        <div class="note" style="transform:rotate(1.2deg); padding:20px;"><div style="font-family:Anton,sans-serif; font-size:32px; color:#E9B949;">02</div><div style="font-weight:800; margin-top:6px;">Equipa primeiro</div><p class="dim" style="font-size:14px; margin-top:4px;">Quem está há mais tempo ajuda quem chega.</p></div>
-        <div class="note" style="transform:rotate(-.6deg); padding:20px;"><div style="font-family:Anton,sans-serif; font-size:32px; color:#E9B949;">03</div><div style="font-weight:800; margin-top:6px;">Portas abertas</div><p class="dim" style="font-size:14px; margin-top:4px;">Do lazer à alta competição.</p></div>
+        <div class="note" style="transform:rotate(-1deg); padding:20px;"><div style="font-family:Anton,sans-serif; font-size:32px; color:#E9B949;">01</div><div style="font-weight:800; margin-top:6px;">Técnica primeiro</div><p class="dim" style="font-size:14px; margin-top:4px;">Dois anos de apoios e quedas antes dos saltos. Vêm mais tarde e vêm melhores.</p></div>
+        <div class="note" style="transform:rotate(1.2deg); padding:20px;"><div style="font-family:Anton,sans-serif; font-size:32px; color:#E9B949;">02</div><div style="font-weight:800; margin-top:6px;">As mais velhas ensinam</div><p class="dim" style="font-size:14px; margin-top:4px;">Às quintas, a equipa de competição fica meia hora com as turmas de iniciação.</p></div>
+        <div class="note" style="transform:rotate(-.6deg); padding:20px;"><div style="font-family:Anton,sans-serif; font-size:32px; color:#E9B949;">03</div><div style="font-weight:800; margin-top:6px;">Ninguém fica de fora</div><p class="dim" style="font-size:14px; margin-top:4px;">Quem não quer competir treina na mesma e entra na gala de dezembro.</p></div>
       </div>
     </div>
   </div>
@@ -382,14 +387,14 @@ cat <<'EOF'
 
 <div style="margin-top:84px;">
 EOF
-ticket "94 atletas" "7 escalões" "6 treinadores" "3 treinos por semana" "14 anos de clube"
+ticket "94 atletas" "7 escalões" "4 treinadores na pista" "4 treinos por semana" "14 anos de clube"
 cat <<'EOF'
 </div>
 
 <div style="position:relative; padding:84px 58px 0;">
   <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:40px; margin-bottom:46px;">
     <h2 style="font-size:72px;">Como aqui<br><span style="color:#FF2E1F;">chegámos</span></h2>
-    <span class="hand" style="font-size:30px; transform:rotate(-2deg);">catorze épocas, sempre no Montijo</span>
+    <span class="hand" style="font-size:30px; transform:rotate(-2deg);">catorze anos, sempre no Montijo</span>
   </div>
   <div style="position:relative; border-top:3px solid rgba(233,185,73,.45); padding-top:40px;">
     <div style="display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:18px;">
@@ -427,7 +432,7 @@ cat <<'EOF'
     <div>
       <span class="lbl" style="color:#FF2E1F;">Identidade</span>
       <h2 style="font-size:70px; margin-top:16px;">Preto, vermelho<br>e uma linha<br><span style="color:#E9B949;">dourada</span>.</h2>
-      <p class="mut" style="font-size:17.5px; margin-top:20px; max-width:46ch;">O equipamento de competição sai do emblema: o preto do fundo, o vermelho em degradé dos anéis e a linha dourada da patinadora. Cada atleta recebe-o ao entrar para a equipa de competição.</p>
+      <p class="mut" style="font-size:17.5px; margin-top:20px; max-width:46ch;">O emblema tem tudo: o preto do fundo, o anel vermelho, o traço verde por dentro, a patinadora e o dourado das letras. O fato de competição nasce daí — preto a abrir para vermelho, com uma linha dourada a atravessar. Cada atleta recebe-o ao entrar para a equipa.</p>
       <div style="display:flex; gap:12px; margin-top:26px;">
         <span style="width:52px; height:52px; border-radius:50%; background:#0D0806; border:2px solid rgba(246,237,225,.25);"></span>
         <span style="width:52px; height:52px; border-radius:50%; background:linear-gradient(140deg,#FF3A2A,#7C0E12);"></span>
@@ -438,7 +443,7 @@ cat <<'EOF'
 EOF
 ico_squiggle
 cat <<'EOF'
-        <span class="hand" style="font-size:26px;">as cores do emblema, desde o primeiro dia</span>
+        <span class="hand" style="font-size:26px;">as mesmas cores desde 2012</span>
       </div>
     </div>
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
@@ -454,7 +459,7 @@ cat <<'EOF'
   <div style="border-radius:24px 20px 26px 18px; padding:56px; background:linear-gradient(140deg,#D2261F,#6E0C10); display:grid; grid-template-columns:1fr auto; gap:40px; align-items:center;">
     <div>
       <h2 style="font-size:56px;">Queres fazer parte disto?</h2>
-      <p style="font-size:18px; color:#FFE3DF; margin-top:12px; max-width:46ch;">A aula experimental é grátis e não obriga a nada. Vem ver como é um treino.</p>
+      <p style="font-size:18px; color:#FFF5F3; margin-top:12px; max-width:46ch;">A aula experimental é grátis e não obriga a nada. Vem ver como é um treino.</p>
     </div>
     <span class="btn k" style="padding:19px 34px;">Marcar aula grátis</span>
   </div>
@@ -483,21 +488,21 @@ EOF
 {
 head_html
 nav_html equipa
-pagehead "Treinadores" "Equipa técnica" "Quem está" "na pista" "Seis pessoas: quatro na pista, uma na secretaria e uma a segurar o clube de pé desde 2012. Todos com o telemóvel aberto para as dúvidas dos pais." "conhece-os um a um"
+pagehead "Treinadores" "Equipa técnica" "Quem está" "na pista" "Seis pessoas: quatro na pista, uma na secretaria e uma a segurar o clube de pé desde 2012. Os contactos diretos estão na ficha de cada turma." "conhece-os um a um"
 cat <<'EOF'
 <div style="position:relative; padding:0 58px;">
   <div style="display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:34px;">
 EOF
-coach "treinador-01.jpg" "Sofia Marques" "Treinadora principal" "Patinou catorze anos em competição e treina no CPBVM desde 2014. Acompanha de Cadetes a Seniores e desenha os programas de prova." "Grau II · FPP" "-2"
-coach "treinador-02.jpg" "Ricardo Nunes" "Escola de patinagem" "É quem põe os mais pequenos de pé. Responsável pelas turmas de iniciação desde 2016 — e pela paciência infinita que isso exige." "Grau I · FPP" "1.6"
-coach "treinador-03.jpg" "Inês Carvalho" "Coreografia e expressão" "Formada em dança contemporânea. Trata dos programas livres e da parte que faz o público levantar-se da cadeira." "Coreografia" "-1"
+coach "treinador-01.jpg" "Sofia Marques" "Treinadora principal" "Patinou catorze anos em competição e está no clube desde 2014. Acompanha de Cadetes a Seniores e monta os programas de prova." "Grau II · FPP" "-2"
+coach "treinador-02.jpg" "Ricardo Nunes" "Escola de patinagem" "Dá as turmas de iniciação desde 2016. É com ele que se aprende a travar antes de aprender a andar." "Grau I · FPP" "1.6"
+coach "treinador-03.jpg" "Inês Carvalho" "Coreografia e expressão" "Formada em dança contemporânea. Escolhe as músicas, monta as coreografias e ensaia-as até saírem de olhos fechados." "Coreografia" "-1"
 cat <<'EOF'
   </div>
   <div style="display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:34px; margin-top:56px;">
 EOF
-coach "treinador-04.jpg" "Tiago Lopes" "Preparação física" "Licenciado em Ciências do Desporto. Condição física, prevenção de lesões e o trabalho chato que ninguém vê mas todos sentem." "Condição física" "1.2"
-coach "treinador-05.jpg" "Helena Duarte" "Presidente da direção" "Fundou o clube em 2012 e nunca mais saiu. Faz a ligação à federação e à câmara — e ainda aparece nos treinos de sábado." "Direção" "-1.8"
-coach "treinador-06.jpg" "Marta Ribeiro" "Secretaria e inscrições" "O primeiro contacto das famílias: inscrições, quotas, licenças federativas e toda a papelada da época." "Apoio às famílias" "2"
+coach "treinador-04.jpg" "Tiago Lopes" "Preparação física" "Licenciado em Ciências do Desporto. Força, mobilidade e prevenção de lesões, às segundas, fora da pista." "Condição física" "1.2"
+coach "treinador-05.jpg" "Helena Duarte" "Presidente da direção" "Fundou o clube em 2012 com mais duas famílias. Trata da federação, da câmara e dos autocarros para as provas." "Direção" "-1.8"
+coach "treinador-06.jpg" "Marta Ribeiro" "Secretaria e inscrições" "Inscrições, quotas, licenças e seguros. É quem responde ao email do clube, normalmente no próprio dia." "Apoio às famílias" "2"
 cat <<'EOF'
   </div>
 </div>
@@ -521,11 +526,11 @@ cat <<'EOF'
       </div>
       <div class="note" style="transform:rotate(.9deg);"><span class="pin" style="background:#E9B949;"></span>
         <h3 style="font-size:30px;">Acompanhamento contínuo</h3>
-        <p class="mut" style="font-size:16px; margin-top:8px;">Conversa com os encarregados de educação sempre que é preciso — e não só quando corre mal.</p>
+        <p class="mut" style="font-size:16px; margin-top:8px;">Ponto de situação com os encarregados de educação em janeiro e em junho, e sempre que alguma coisa mude.</p>
       </div>
       <div class="note" style="transform:rotate(-.5deg);"><span class="pin" style="background:#12693B;"></span>
         <h3 style="font-size:30px;">Competir com sentido</h3>
-        <p class="mut" style="font-size:16px; margin-top:8px;">Ninguém vai a uma prova sem estar preparado. A prova é a consequência do treino, não o contrário.</p>
+        <p class="mut" style="font-size:16px; margin-top:8px;">Vai a prova quem já faz o programa inteiro em treino, duas vezes seguidas e sem falhas.</p>
       </div>
     </div>
   </div>
@@ -553,7 +558,7 @@ EOF
 {
 head_html
 nav_html atletas
-pagehead "Atletas" "Noventa e quatro" "Quem veste o" "preto e vermelho" "Da turma de sábado aos escalões federados. Escolhe um escalão para veres o grupo — e sim, todos começaram sem saber patinar." "cada uma com a sua história"
+pagehead "Atletas" "Noventa e quatro" "Quem veste o" "preto e vermelho" "Da turma de sábado aos escalões federados. Escolhe um escalão para veres o grupo — e sim, todos começaram sem saber patinar." "cada um com a sua história"
 cat <<'EOF'
 <div style="position:relative; padding:0 58px;">
   <div style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:48px;">
@@ -566,7 +571,7 @@ cat <<'EOF'
   </div>
   <div style="display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:30px;">
 EOF
-athlete "atleta-01.jpg" "Beatriz Antunes" "Cadetes" "No clube desde 2017 · 2.º lugar na Taça Regional" "-2"
+athlete "atleta-01.jpg" "Beatriz Antunes" "Cadetes" "No clube desde 2017 · 2.ª no Regional de Setúbal" "-2"
 athlete "atleta-02.jpg" "Matilde Rocha" "Infantis" "No clube desde 2019" "1.6"
 athlete "atleta-03.jpg" "Leonor Pires" "Iniciados" "No clube desde 2021" "-1.2"
 athlete "atleta-04.jpg" "Carolina Mendes" "Juvenis" "No clube desde 2015 · Campeonato Nacional" "2"
@@ -584,7 +589,7 @@ cat <<'EOF'
 
 <div style="margin-top:90px;">
 EOF
-ticket "Época 2025/26" "3 pódios" "11 provas" "1 recorde pessoal atrás do outro"
+ticket "Época 2025/26" "3 pódios" "11 provas" "um recorde atrás do outro"
 cat <<'EOF'
 </div>
 
@@ -597,7 +602,7 @@ cat <<'EOF'
     <div style="position:relative; border:3px solid #E9B949; border-radius:4px; padding:34px; background:linear-gradient(150deg, rgba(233,185,73,.14), transparent);">
       <div style="font-family:Anton,sans-serif; font-size:72px; color:#E9B949; line-height:.86;">2.º</div>
       <h3 style="font-size:34px; margin-top:12px;">Beatriz Antunes</h3>
-      <p class="mut" style="font-size:15.5px; margin-top:8px;">Taça Regional de Setúbal · Cadetes<br>Palmela, maio de 2026</p>
+      <p class="mut" style="font-size:15.5px; margin-top:8px;">Campeonato Regional de Setúbal · Cadetes<br>Palmela, maio de 2026</p>
     </div>
     <div style="position:relative; border:3px solid rgba(246,237,225,.2); border-radius:4px; padding:34px;">
       <div style="font-family:Anton,sans-serif; font-size:72px; color:#F6EDE1; line-height:.86;">5.º</div>
@@ -676,7 +681,7 @@ cat <<'EOF'
 
 <div style="margin-top:80px;">
 EOF
-ticket "Treinos" "Terça 18h30" "Quinta 18h30" "Sábado 10h00" "Pavilhão Municipal"
+ticket "Treinos" "Terça 18h30" "Quinta 18h30" "Sexta 18h30" "Sábado 10h00"
 cat <<'EOF'
 </div>
 
@@ -684,9 +689,9 @@ cat <<'EOF'
   <h2 style="font-size:52px; color:#A2948A; margin-bottom:26px;">Já aconteceu</h2>
   <div style="border-top:3px solid rgba(246,237,225,.16);">
 EOF
+evrow "13" "Set" "Aulas abertas" "Pavilhão Municipal do Montijo · 27 novos inscritos" "g" "Escola" ".72"
 evrow "20" "Jun" "Gala de fim de época 2025/26" "Pavilhão Municipal do Montijo · 380 espectadores" "" "Exibição" ".72"
 evrow "9" "Mai" "Campeonato Regional de Setúbal" "Palmela · três pódios para o clube" "r" "Competição" ".72"
-evrow "13" "Set" "Aulas abertas de experimentação" "Pavilhão Municipal do Montijo · 27 novos inscritos" "g" "Escola" ".72"
 cat <<'EOF'
   </div>
 </div>
@@ -700,7 +705,7 @@ echo "Atletas + Agenda ok"
 #  INSCRIÇÕES
 # =========================================================
 pfield() { # $1 etiqueta, $2 valor, $3 "select"
-  printf '<div><div class="lbl" style="color:#7A6552; margin-bottom:8px;">%s</div>' "$1"
+  printf '<div><div class="lbl" style="color:#6A5643; margin-bottom:8px;">%s</div>' "$1"
   printf '<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 16px; border:2px solid #D9CBB8; border-radius:8px 7px 9px 6px; background:#FFFBF3; font-size:15.5px; color:#4A3620;"><span>%s</span>' "$2"
   [ "${3:-}" = "select" ] && printf '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B4471E" stroke-width="2.2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>'
   printf '</div></div>'
@@ -713,7 +718,7 @@ faq() { # $1 pergunta, $2 resposta, $3 rotação
 }
 {
 head_html
-nav_html contactos
+nav_html inscricoes
 pagehead "Inscrições" "Época 2026/27" "Começar é" "fácil" "Aula experimental grátis, sem compromisso, em qualquer altura do ano. Traz roupa confortável e meias altas — os patins emprestamos nós." "é só aparecer"
 cat <<'EOF'
 <div style="position:relative; padding:0 58px;">
@@ -730,7 +735,7 @@ cat <<'EOF'
     </div>
     <div class="note" style="transform:rotate(-.7deg);"><span class="pin" style="background:#12693B;"></span>
       <div style="font-family:Anton,sans-serif; font-size:64px; color:#E9B949; line-height:.86;">03</div>
-      <h3 style="font-size:30px; margin-top:12px;">Ficas do clube</h3>
+      <h3 style="font-size:30px; margin-top:12px;">Ficas sócio</h3>
       <p class="dim" style="font-size:15px; margin-top:8px;">Ficha de sócio, documentos e primeira mensalidade. A partir daí é preto e vermelho.</p>
     </div>
   </div>
@@ -738,7 +743,7 @@ cat <<'EOF'
 
 <div style="margin-top:80px;">
 EOF
-ticket "Escola 1x · 28 €" "Escola 2x · 42 €" "Competição · 65 €" "Joia anual 35 €" "Irmãos −15 %"
+ticket "Escola 1x · 28 €" "Escola 2x · 42 €" "Competição · 65 €" "Joia anual · 35 €" "Irmãos · −15 %"
 cat <<'EOF'
 </div>
 
@@ -766,7 +771,7 @@ cat <<'EOF'
         <div style="display:flex; justify-content:space-between; align-items:center; gap:20px; padding:26px 30px; border:3px solid rgba(255,46,31,.5); border-radius:4px;">
           <div>
             <h3 style="font-size:32px;">Competição</h3>
-            <p class="dim" style="font-size:14.5px; margin-top:4px;">Quatro treinos por semana · inclui provas</p>
+            <p class="dim" style="font-size:14.5px; margin-top:4px;">Terça, quinta, sexta e sábado · inclui provas</p>
           </div>
           <div style="font-family:Anton,sans-serif; font-size:50px; color:#E9B949; line-height:.9;">65 €</div>
         </div>
@@ -784,19 +789,19 @@ cat <<'EOF'
 
     <div style="position:relative; background:#F6EDE1; color:#2A1B12; padding:44px; border-radius:10px 8px 12px 7px; box-shadow:0 30px 70px rgba(0,0,0,.6); transform:rotate(-.6deg);">
       <span class="tape" style="background:rgba(210,38,31,.42); top:-14px; left:44px; margin-left:0;"></span>
-      <div class="lbl" style="color:#B4471E;">Ficha de inscrição</div>
+      <div class="lbl" style="color:#98360F;">Ficha de inscrição</div>
       <h2 style="font-size:46px; margin:12px 0 26px; color:#2A1B12;">Aula experimental</h2>
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px;">
 EOF
-pfield "Nome do atleta" "Matilde Rocha Silva"
+pfield "Nome do atleta" "Carlota Neves Ferreira"
 pfield "Data de nascimento" "14 / 03 / 2018"
-pfield "Encarregado de educação" "Ana Rocha Silva"
+pfield "Encarregado de educação" "Rita Neves Ferreira"
 pfield "Telemóvel" "962 118 340"
 cat <<'EOF'
       </div>
       <div style="margin-top:18px;">
 EOF
-pfield "E-mail" "ana.rocha@exemplo.pt"
+pfield "E-mail" "rita.neves@exemplo.pt"
 cat <<'EOF'
       </div>
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:18px;">
@@ -806,8 +811,8 @@ pfield "Horário preferido" "Terça e quinta, fim do dia" select
 cat <<'EOF'
       </div>
       <div style="margin-top:18px;">
-        <div class="lbl" style="color:#7A6552; margin-bottom:8px;">Alguma coisa que devamos saber?</div>
-        <div style="padding:14px 16px; height:92px; border:2px solid #D9CBB8; border-radius:8px 7px 9px 6px; background:#FFFBF3; font-size:15.5px; color:#4A3620;">A Matilde tem uma amiga na turma de sábado e gostava de ficar no mesmo grupo.</div>
+        <div class="lbl" style="color:#6A5643; margin-bottom:8px;">Alguma coisa que devamos saber?</div>
+        <div style="padding:14px 16px; height:92px; border:2px solid #D9CBB8; border-radius:8px 7px 9px 6px; background:#FFFBF3; font-size:15.5px; color:#4A3620;">A Carlota tem uma amiga na turma de sábado e gostava de ficar no mesmo grupo.</div>
       </div>
       <div style="display:flex; gap:12px; align-items:flex-start; margin-top:20px;">
         <span style="width:22px; height:22px; border:2px solid #B4471E; border-radius:5px; flex:none; display:flex; align-items:center; justify-content:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B4471E" stroke-width="3" aria-hidden="true"><path d="M5 12.5l5 5L19 7"/></svg></span>
@@ -828,14 +833,14 @@ cat <<'EOF'
 EOF
 faq "A partir de que idade se pode começar?" "A escola recebe crianças a partir dos 4 anos. Dos 4 aos 6 há turmas próprias, mais curtas e com duas treinadoras na pista." "-1.2"
 faq "É preciso ter patins?" "Nas primeiras semanas emprestamos nós. A partir do segundo mês vale a pena comprar — aconselhamos o modelo na secretaria." "1"
-faq "Quantos treinos tem cada escalão?" "" "-.6"
+faq "Quantos treinos tem cada escalão?" "A escola tem um ou dois treinos por semana, de hora e meia. A equipa de competição treina quatro vezes, incluindo a sessão de preparação física à segunda." "-.6"
 cat <<'EOF'
   </div>
   <div style="display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; margin-top:20px;">
 EOF
-faq "Que documentos são precisos?" "" "1.4"
-faq "Pode-se entrar a meio da época?" "" "-1"
-faq "E se a minha filha não gostar?" "" ".8"
+faq "Que documentos são precisos?" "Cartão de cidadão do atleta e do encarregado de educação, atestado médico, uma fotografia e o IBAN para o débito da mensalidade." "1.4"
+faq "Pode-se entrar a meio da época?" "Pode. A joia é proporcional aos meses que faltam e a turma é escolhida conforme o nível — há sempre quem entre em janeiro." "-1"
+faq "E se a minha filha não gostar?" "Avisa-nos e a mensalidade seguinte não é cobrada. Não há fidelização nem contratos: só o mês em curso." ".8"
 cat <<'EOF'
   </div>
 </div>
@@ -864,7 +869,7 @@ cat <<'EOF'
     </div>
     <div class="note" style="transform:rotate(-.6deg);"><span class="pin" style="background:#12693B;"></span>
       <div class="lbl" style="color:#FF2E1F;">Treinos</div>
-      <p style="font-size:16.5px; margin-top:10px;">Terça e quinta · 18h30–20h00<br>Sábado · 10h00–13h00</p>
+      <p style="font-size:16.5px; margin-top:10px;">Escola · terça e quinta, 18h30<br>Competição · sexta, 18h30<br>Escola · sábado, 10h00</p>
     </div>
     <div class="note" style="transform:rotate(1.5deg);"><span class="pin"></span>
       <div class="lbl" style="color:#FF2E1F;">Secretaria</div>
@@ -894,7 +899,7 @@ cat <<'EOF'
 
     <div style="position:relative; background:#F6EDE1; color:#2A1B12; padding:44px; border-radius:10px 8px 12px 7px; box-shadow:0 30px 70px rgba(0,0,0,.6); transform:rotate(.5deg);">
       <span class="tape" style="background:rgba(233,185,73,.55); top:-14px; left:46px; margin-left:0;"></span>
-      <div class="lbl" style="color:#B4471E;">Escreve-nos</div>
+      <div class="lbl" style="color:#98360F;">Escreve-nos</div>
       <h2 style="font-size:46px; margin:12px 0 26px; color:#2A1B12;">Manda recado</h2>
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px;">
 EOF
@@ -908,7 +913,7 @@ pfield "Assunto" "Horários da escola de patinagem" select
 cat <<'EOF'
       </div>
       <div style="margin-top:18px;">
-        <div class="lbl" style="color:#7A6552; margin-bottom:8px;">Mensagem</div>
+        <div class="lbl" style="color:#6A5643; margin-bottom:8px;">Mensagem</div>
         <div style="padding:14px 16px; height:190px; border:2px solid #D9CBB8; border-radius:8px 7px 9px 6px; background:#FFFBF3; font-size:15.5px; color:#4A3620;">Boa tarde. O meu filho tem 7 anos e queria perceber se ainda há vagas na turma de sábado. Obrigado!</div>
       </div>
       <div style="margin-top:26px;"><span class="btn" style="display:block; text-align:center; justify-content:center;">Enviar mensagem</span></div>
@@ -942,7 +947,7 @@ emblem 42 "m"
 cat <<'EOF'
       <div style="line-height:1.1;">
         <div style="font-family:Anton,sans-serif; font-size:17px; text-transform:uppercase;">Patinagem BVM</div>
-        <div class="lbl" style="color:#E9B949; font-size:9.5px;">Montijo</div>
+        <div class="lbl" style="color:#E9B949; font-size:11px;">Montijo</div>
       </div>
     </div>
     <span style="width:44px; height:44px; border:2px solid rgba(246,237,225,.2); border-radius:10px; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:4px; flex:none;">
@@ -957,13 +962,13 @@ cat <<'EOF'
     <h1 style="font-size:70px; margin-top:16px;">Patinagem</h1>
     <h1 class="out" style="font-size:70px; -webkit-text-stroke:1.6px #E9B949;">Artística</h1>
     <div style="font-family:Anton,sans-serif; font-size:34px; color:#FF2E1F; text-transform:uppercase; line-height:1;">Montijo</div>
-    <p class="mut" style="font-size:16.5px; margin-top:16px;">Não é só andar de patins. É cair sessenta vezes, levantar sessenta e uma, e ouvir o pavilhão a gritar o teu nome.</p>
-    <div class="hand" style="font-size:30px; transform:rotate(-3deg); margin-top:10px;">aqui ninguém patina sozinho</div>
+    <p class="mut" style="font-size:16.5px; margin-top:16px;">Exercícios de escola, saltos, piruetas e os programas que levamos a prova. Começa-se aos 4 anos e sem saber nada.</p>
+    <div class="hand" style="font-size:30px; transform:rotate(-3deg); margin-top:10px;">os patins emprestamos nós</div>
     <div style="display:flex; flex-direction:column; gap:10px; margin-top:24px;">
       <span class="btn" style="justify-content:center; padding:17px;">Marcar aula grátis</span>
       <span class="btn o" style="justify-content:center; padding:17px;">Conhecer o clube</span>
     </div>
-    <div style="position:relative; height:330px; margin-top:28px;">
+    <div style="position:relative; height:400px; margin-top:28px;">
 EOF
 polaroid "atleta-01.jpg" "230px" "Beatriz, Cadetes" "-4" "position:absolute; right:0; top:0; width:215px;"
 polaroid "gala-01.jpg" "150px" "Gala de Natal" "6" "position:absolute; left:0; top:120px; width:180px;" "rgba(210,38,31,.5)"
@@ -1007,7 +1012,7 @@ cat <<'EOF'
         <p class="dim" style="font-size:14px; margin-top:6px;">Pavilhão do Bonfim, Setúbal. Autocarro às 8h00.</p>
       </div>
       <div class="note" style="transform:rotate(1.2deg); background:#E9B949; border-color:transparent;"><span class="pin" style="background:#0D0806;"></span>
-        <div class="lbl" style="color:#7A3B12;">Todo o ano</div>
+        <div class="lbl" style="color:#5C2B0C;">Todo o ano</div>
         <h3 style="font-size:24px; margin-top:8px; color:#28190C;">Aula experimental</h3>
         <p style="font-size:14px; margin-top:6px; color:#4A3620;">Grátis, sem compromisso. Basta aparecer com meias altas.</p>
       </div>
@@ -1028,7 +1033,7 @@ cat <<'EOF'
   <div style="padding:40px 18px 44px;">
     <div style="border-radius:22px 18px 24px 16px; padding:34px 24px; text-align:center; background:linear-gradient(140deg,#D2261F,#6E0C10);">
       <h2 style="font-size:40px;">Vem experimentar num sábado.</h2>
-      <p style="font-size:15.5px; color:#FFE3DF; margin-top:12px;">Os patins são por nossa conta.</p>
+      <p style="font-size:15.5px; color:#FFF5F3; margin-top:12px;">Os patins são por nossa conta.</p>
       <span class="btn k" style="justify-content:center; padding:16px; margin-top:20px; display:flex;">Marcar aula grátis</span>
       <div class="hand" style="font-size:26px; margin-top:14px; color:#FFE08A;">até já!</div>
     </div>

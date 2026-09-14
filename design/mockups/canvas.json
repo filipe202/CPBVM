@@ -1,26 +1,126 @@
 {
   "pages": [
-    { "id": "page-1", "name": "Site" },
-    { "id": "page-2", "name": "Direções (referência)" }
+    {
+      "id": "page-1",
+      "name": "Site"
+    },
+    {
+      "id": "page-2",
+      "name": "Direções (referência)"
+    }
   ],
   "artboards": [
-    { "file": "Main.dc.html",          "page": "page-1", "x": 0,    "y": 0,    "w": 1440, "h": 4600, "title": "Homepage" },
-    { "file": "Sobre.dc.html",         "page": "page-1", "x": 1560, "y": 0,    "w": 1440, "h": 3700, "title": "O clube" },
-    { "file": "EquipaTecnica.dc.html", "page": "page-1", "x": 3120, "y": 0,    "w": 1440, "h": 3300, "title": "Treinadores" },
-    { "file": "Atletas.dc.html",       "page": "page-1", "x": 4680, "y": 0,    "w": 1440, "h": 2950, "title": "Atletas" },
-    { "file": "Eventos.dc.html",       "page": "page-1", "x": 0,    "y": 4800, "w": 1440, "h": 3250, "title": "Agenda" },
-    { "file": "Inscricoes.dc.html",    "page": "page-1", "x": 1560, "y": 4800, "w": 1440, "h": 3350, "title": "Inscrições" },
-    { "file": "Contactos.dc.html",     "page": "page-1", "x": 3120, "y": 4800, "w": 1440, "h": 2450, "title": "Contactos" },
-    { "file": "MobileHome.dc.html",    "page": "page-1", "x": 4680, "y": 4800, "w": 390,  "h": 3100, "title": "Homepage · telemóvel" },
-
-    { "file": "DirecaoA.dc.html", "page": "page-2", "x": 0,    "y": 0, "w": 1440, "h": 2500, "title": "A · Cartaz de gala" },
-    { "file": "DirecaoC.dc.html", "page": "page-2", "x": 1560, "y": 0, "w": 1440, "h": 2500, "title": "C · Clube de bairro" }
+    {
+      "file": "Main.dc.html",
+      "page": "page-1",
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 4600,
+      "title": "Homepage"
+    },
+    {
+      "file": "Sobre.dc.html",
+      "page": "page-1",
+      "x": 1560,
+      "y": 0,
+      "w": 1440,
+      "h": 3700,
+      "title": "O clube"
+    },
+    {
+      "file": "EquipaTecnica.dc.html",
+      "page": "page-1",
+      "x": 3120,
+      "y": 0,
+      "w": 1440,
+      "h": 3300,
+      "title": "Treinadores"
+    },
+    {
+      "file": "Atletas.dc.html",
+      "page": "page-1",
+      "x": 4680,
+      "y": 0,
+      "w": 1440,
+      "h": 2950,
+      "title": "Atletas"
+    },
+    {
+      "file": "Eventos.dc.html",
+      "page": "page-1",
+      "x": 0,
+      "y": 4800,
+      "w": 1440,
+      "h": 3500,
+      "title": "Agenda"
+    },
+    {
+      "file": "Inscricoes.dc.html",
+      "page": "page-1",
+      "x": 1560,
+      "y": 4800,
+      "w": 1440,
+      "h": 3450,
+      "title": "Inscrições"
+    },
+    {
+      "file": "Contactos.dc.html",
+      "page": "page-1",
+      "x": 3120,
+      "y": 4800,
+      "w": 1440,
+      "h": 2500,
+      "title": "Contactos"
+    },
+    {
+      "file": "MobileHome.dc.html",
+      "page": "page-1",
+      "x": 4680,
+      "y": 4800,
+      "w": 390,
+      "h": 3350,
+      "title": "Homepage · telemóvel"
+    },
+    {
+      "file": "DirecaoA.dc.html",
+      "page": "page-2",
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 2500,
+      "title": "A · Cartaz de gala"
+    },
+    {
+      "file": "DirecaoC.dc.html",
+      "page": "page-2",
+      "x": 1560,
+      "y": 0,
+      "w": 1440,
+      "h": 2500,
+      "title": "C · Clube de bairro"
+    }
   ],
   "annotations": [
-    { "id": "nota-site", "x": 0, "y": -250, "w": 1020, "page": "page-1",
-      "text": "Site completo na linguagem A+C: tipografia de cartaz (Anton em corpo enorme, metade em contorno), tarjas amarelas de bilhete, fotografias com fita-cola, notas afixadas no quadro de avisos e letra manuscrita a dourado.\nTUDO O QUE É CONTEÚDO É INVENTADO — nomes, datas, preços, resultados e contactos. As fotos são de bancos de imagem com licença livre, tratadas na paleta do clube." },
-    { "id": "nota-dir", "x": 0, "y": -190, "w": 800, "page": "page-2",
-      "text": "As duas direções que deram origem ao site: A (cartaz de espetáculo) e C (parede de clube). Ficam aqui para referência." }
+    {
+      "id": "nota-site",
+      "x": 0,
+      "y": -250,
+      "w": 1020,
+      "page": "page-1",
+      "text": "Site completo na linguagem A+C: tipografia de cartaz (Anton em corpo enorme, metade em contorno), tarjas amarelas de bilhete, fotografias com fita-cola, notas afixadas no quadro de avisos e letra manuscrita a dourado.\nTUDO O QUE É CONTEÚDO É INVENTADO — nomes, datas, preços, resultados e contactos. As fotos são de bancos de imagem com licença livre, tratadas na paleta do clube."
+    },
+    {
+      "id": "nota-dir",
+      "x": 0,
+      "y": -190,
+      "w": 800,
+      "page": "page-2",
+      "text": "As duas direções que deram origem ao site: A (cartaz de espetáculo) e C (parede de clube). Ficam aqui para referência."
+    }
   ],
-  "launch": { "view": "canvas", "page": "page-1" }
+  "launch": {
+    "view": "canvas",
+    "page": "page-1"
+  }
 }

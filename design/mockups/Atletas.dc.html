@@ -23,7 +23,7 @@
     .hand{ font-family:Caveat,'Comic Sans MS',cursive; font-weight:700; color:#E9B949; }
     .mut{ color:#C6B6A8; }
     .dim{ color:#A2948A; }
-    .btn{ display:inline-flex; align-items:center; gap:10px; padding:16px 30px; border-radius:38px 34px 40px 32px;
+    .btn{ box-sizing:border-box; display:inline-flex; align-items:center; gap:10px; padding:16px 30px; border-radius:38px 34px 40px 32px;
       font-weight:800; font-size:15px; background:#D2261F; color:#fff; }
     .btn.k{ background:#E9B949; color:#28190C; }
     .btn.o{ background:transparent; border:2px solid rgba(246,237,225,.28); color:#F6EDE1; }
@@ -35,7 +35,7 @@
     .note{ position:relative; background:#170F0B; border:1px solid rgba(246,237,225,.12); border-radius:14px 12px 16px 10px; padding:26px; }
     .pin{ position:absolute; top:-9px; left:50%; margin-left:-8px; width:16px; height:16px; border-radius:50%;
       background:#D2261F; box-shadow:0 3px 8px rgba(0,0,0,.6); }
-    .chip{ display:inline-block; padding:7px 15px; border:2px solid rgba(233,185,73,.4); border-radius:999px;
+    .chip{ box-sizing:border-box; display:inline-block; padding:7px 15px; border:2px solid rgba(233,185,73,.4); border-radius:999px;
       font-size:11.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:#E9B949; }
     .chip.r{ border-color:rgba(255,46,31,.55); color:#FF8A76; }
     .chip.g{ border-color:rgba(18,105,59,.7); color:#5FC98C; }
@@ -80,7 +80,7 @@
 </svg>
 <div style="line-height:1.12;">
 <div style="font-family:Anton,sans-serif; font-size:21px; letter-spacing:.01em; text-transform:uppercase;">Patinagem BVM</div>
-<div class="lbl" style="color:#E9B949; font-size:10.5px;">Montijo · desde 2012</div>
+<div class="lbl" style="color:#E9B949; font-size:11px;">Montijo · desde 2012</div>
 </div>
 </div>
 <div style="display:flex; align-items:center; gap:26px;"><span class="lbl" style="color:#F6EDE1; padding-bottom:3px;">Início</span><span class="lbl" style="color:#F6EDE1; padding-bottom:3px;">O clube</span><span class="lbl" style="color:#F6EDE1; padding-bottom:3px;">Treinadores</span><span class="lbl" style="color:#E9B949; border-bottom:2px solid #FF2E1F; padding-bottom:3px;">Atletas</span><span class="lbl" style="color:#F6EDE1; padding-bottom:3px;">Agenda</span><span class="lbl" style="color:#F6EDE1; padding-bottom:3px;">Contactos</span><span class="btn k" style="padding:12px 22px; font-size:14px;">Inscrever</span>
@@ -93,7 +93,7 @@
   <h1 class="out" style="font-size:124px; margin-top:-6px;">preto e vermelho</h1>
   <div style="display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:end; margin-top:26px;">
     <p style="font-size:19.5px; color:#C6B6A8; max-width:52ch;">Da turma de sábado aos escalões federados. Escolhe um escalão para veres o grupo — e sim, todos começaram sem saber patinar.</p>
-    <div class="hand" style="font-size:32px; transform:rotate(-2deg); text-align:right;">cada uma com a sua história</div>
+    <div class="hand" style="font-size:32px; transform:rotate(-2deg); text-align:right;">cada um com a sua história</div>
   </div>
 </div>
 <div style="position:relative; padding:0 58px;">
@@ -103,7 +103,7 @@
   <div style="display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:30px;">
 <div><div class="polaroid" style="transform:rotate(-2deg); "><span class="tape" style="background:rgba(233,185,73,.45)"></span><img src="atleta-01.jpg" alt="" style="height:260px; object-fit:cover;"><span>Beatriz Antunes</span></div>  <div style="padding:16px 4px 0;">
     <div class="lbl" style="color:#E9B949;">Cadetes</div>
-    <div class="dim" style="font-size:14.5px; margin-top:6px;">No clube desde 2017 · 2.º lugar na Taça Regional</div>
+    <div class="dim" style="font-size:14.5px; margin-top:6px;">No clube desde 2017 · 2.ª no Regional de Setúbal</div>
   </div>
 </div>
 <div><div class="polaroid" style="transform:rotate(1.6deg); "><span class="tape" style="background:rgba(233,185,73,.45)"></span><img src="atleta-02.jpg" alt="" style="height:260px; object-fit:cover;"><span>Matilde Rocha</span></div>  <div style="padding:16px 4px 0;">
@@ -147,7 +147,7 @@
 </div>
 
 <div style="margin-top:90px;">
-<div style="position:relative; background:#E9B949; color:#170A02; padding:15px 58px; display:flex; align-items:center; justify-content:space-between; gap:24px; font-family:Anton,sans-serif; font-size:25px; letter-spacing:.01em; text-transform:uppercase; white-space:nowrap;"><span>Época 2025/26</span><span>3 pódios</span><span>11 provas</span><span>1 recorde pessoal atrás do outro</span></div></div>
+<div style="position:relative; background:#E9B949; color:#170A02; padding:15px 58px; display:flex; align-items:center; justify-content:space-between; gap:24px; font-family:Anton,sans-serif; font-size:25px; letter-spacing:.01em; text-transform:uppercase; white-space:nowrap;"><span>Época 2025/26</span><span>3 pódios</span><span>11 provas</span><span>um recorde atrás do outro</span></div></div>
 
 <div style="position:relative; padding:84px 58px 92px;">
   <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:40px; margin-bottom:44px;">
@@ -158,7 +158,7 @@
     <div style="position:relative; border:3px solid #E9B949; border-radius:4px; padding:34px; background:linear-gradient(150deg, rgba(233,185,73,.14), transparent);">
       <div style="font-family:Anton,sans-serif; font-size:72px; color:#E9B949; line-height:.86;">2.º</div>
       <h3 style="font-size:34px; margin-top:12px;">Beatriz Antunes</h3>
-      <p class="mut" style="font-size:15.5px; margin-top:8px;">Taça Regional de Setúbal · Cadetes<br>Palmela, maio de 2026</p>
+      <p class="mut" style="font-size:15.5px; margin-top:8px;">Campeonato Regional de Setúbal · Cadetes<br>Palmela, maio de 2026</p>
     </div>
     <div style="position:relative; border:3px solid rgba(246,237,225,.2); border-radius:4px; padding:34px;">
       <div style="font-family:Anton,sans-serif; font-size:72px; color:#F6EDE1; line-height:.86;">5.º</div>

@@ -23,7 +23,7 @@
     .hand{ font-family:Caveat,'Comic Sans MS',cursive; font-weight:700; color:#E9B949; }
     .mut{ color:#C6B6A8; }
     .dim{ color:#A2948A; }
-    .btn{ display:inline-flex; align-items:center; gap:10px; padding:16px 30px; border-radius:38px 34px 40px 32px;
+    .btn{ box-sizing:border-box; display:inline-flex; align-items:center; gap:10px; padding:16px 30px; border-radius:38px 34px 40px 32px;
       font-weight:800; font-size:15px; background:#D2261F; color:#fff; }
     .btn.k{ background:#E9B949; color:#28190C; }
     .btn.o{ background:transparent; border:2px solid rgba(246,237,225,.28); color:#F6EDE1; }
@@ -35,7 +35,7 @@
     .note{ position:relative; background:#170F0B; border:1px solid rgba(246,237,225,.12); border-radius:14px 12px 16px 10px; padding:26px; }
     .pin{ position:absolute; top:-9px; left:50%; margin-left:-8px; width:16px; height:16px; border-radius:50%;
       background:#D2261F; box-shadow:0 3px 8px rgba(0,0,0,.6); }
-    .chip{ display:inline-block; padding:7px 15px; border:2px solid rgba(233,185,73,.4); border-radius:999px;
+    .chip{ box-sizing:border-box; display:inline-block; padding:7px 15px; border:2px solid rgba(233,185,73,.4); border-radius:999px;
       font-size:11.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:#E9B949; }
     .chip.r{ border-color:rgba(255,46,31,.55); color:#FF8A76; }
     .chip.g{ border-color:rgba(18,105,59,.7); color:#5FC98C; }
@@ -82,7 +82,7 @@
 </svg>
       <div style="line-height:1.1;">
         <div style="font-family:Anton,sans-serif; font-size:17px; text-transform:uppercase;">Patinagem BVM</div>
-        <div class="lbl" style="color:#E9B949; font-size:9.5px;">Montijo</div>
+        <div class="lbl" style="color:#E9B949; font-size:11px;">Montijo</div>
       </div>
     </div>
     <span style="width:44px; height:44px; border:2px solid rgba(246,237,225,.2); border-radius:10px; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:4px; flex:none;">
@@ -97,13 +97,13 @@
     <h1 style="font-size:70px; margin-top:16px;">Patinagem</h1>
     <h1 class="out" style="font-size:70px; -webkit-text-stroke:1.6px #E9B949;">Artística</h1>
     <div style="font-family:Anton,sans-serif; font-size:34px; color:#FF2E1F; text-transform:uppercase; line-height:1;">Montijo</div>
-    <p class="mut" style="font-size:16.5px; margin-top:16px;">Não é só andar de patins. É cair sessenta vezes, levantar sessenta e uma, e ouvir o pavilhão a gritar o teu nome.</p>
-    <div class="hand" style="font-size:30px; transform:rotate(-3deg); margin-top:10px;">aqui ninguém patina sozinho</div>
+    <p class="mut" style="font-size:16.5px; margin-top:16px;">Exercícios de escola, saltos, piruetas e os programas que levamos a prova. Começa-se aos 4 anos e sem saber nada.</p>
+    <div class="hand" style="font-size:30px; transform:rotate(-3deg); margin-top:10px;">os patins emprestamos nós</div>
     <div style="display:flex; flex-direction:column; gap:10px; margin-top:24px;">
       <span class="btn" style="justify-content:center; padding:17px;">Marcar aula grátis</span>
       <span class="btn o" style="justify-content:center; padding:17px;">Conhecer o clube</span>
     </div>
-    <div style="position:relative; height:330px; margin-top:28px;">
+    <div style="position:relative; height:400px; margin-top:28px;">
 <div class="polaroid" style="transform:rotate(-4deg); position:absolute; right:0; top:0; width:215px;"><span class="tape" style="background:rgba(233,185,73,.45)"></span><img src="atleta-01.jpg" alt="" style="height:230px; object-fit:cover;"><span>Beatriz, Cadetes</span></div><div class="polaroid" style="transform:rotate(6deg); position:absolute; left:0; top:120px; width:180px;"><span class="tape" style="background:rgba(210,38,31,.5)"></span><img src="gala-01.jpg" alt="" style="height:150px; object-fit:cover;"><span>Gala de Natal</span></div>    </div>
     <div style="display:flex; margin-top:10px; border-top:3px solid rgba(246,237,225,.18);">
       <div style="flex:1; padding:16px 0;"><div style="font-family:Anton,sans-serif; font-size:40px; color:#E9B949; line-height:.9;">94</div><span class="lbl dim" style="font-size:10.5px;">Atletas</span></div>
@@ -143,7 +143,7 @@
         <p class="dim" style="font-size:14px; margin-top:6px;">Pavilhão do Bonfim, Setúbal. Autocarro às 8h00.</p>
       </div>
       <div class="note" style="transform:rotate(1.2deg); background:#E9B949; border-color:transparent;"><span class="pin" style="background:#0D0806;"></span>
-        <div class="lbl" style="color:#7A3B12;">Todo o ano</div>
+        <div class="lbl" style="color:#5C2B0C;">Todo o ano</div>
         <h3 style="font-size:24px; margin-top:8px; color:#28190C;">Aula experimental</h3>
         <p style="font-size:14px; margin-top:6px; color:#4A3620;">Grátis, sem compromisso. Basta aparecer com meias altas.</p>
       </div>
@@ -158,7 +158,7 @@
   <div style="padding:40px 18px 44px;">
     <div style="border-radius:22px 18px 24px 16px; padding:34px 24px; text-align:center; background:linear-gradient(140deg,#D2261F,#6E0C10);">
       <h2 style="font-size:40px;">Vem experimentar num sábado.</h2>
-      <p style="font-size:15.5px; color:#FFE3DF; margin-top:12px;">Os patins são por nossa conta.</p>
+      <p style="font-size:15.5px; color:#FFF5F3; margin-top:12px;">Os patins são por nossa conta.</p>
       <span class="btn k" style="justify-content:center; padding:16px; margin-top:20px; display:flex;">Marcar aula grátis</span>
       <div class="hand" style="font-size:26px; margin-top:14px; color:#FFE08A;">até já!</div>
     </div>

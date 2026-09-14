@@ -23,7 +23,7 @@
     .hand{ font-family:Caveat,'Comic Sans MS',cursive; font-weight:700; color:#E9B949; }
     .mut{ color:#C6B6A8; }
     .dim{ color:#A2948A; }
-    .btn{ display:inline-flex; align-items:center; gap:10px; padding:16px 30px; border-radius:38px 34px 40px 32px;
+    .btn{ box-sizing:border-box; display:inline-flex; align-items:center; gap:10px; padding:16px 30px; border-radius:38px 34px 40px 32px;
       font-weight:800; font-size:15px; background:#D2261F; color:#fff; }
     .btn.k{ background:#E9B949; color:#28190C; }
     .btn.o{ background:transparent; border:2px solid rgba(246,237,225,.28); color:#F6EDE1; }
@@ -35,7 +35,7 @@
     .note{ position:relative; background:#170F0B; border:1px solid rgba(246,237,225,.12); border-radius:14px 12px 16px 10px; padding:26px; }
     .pin{ position:absolute; top:-9px; left:50%; margin-left:-8px; width:16px; height:16px; border-radius:50%;
       background:#D2261F; box-shadow:0 3px 8px rgba(0,0,0,.6); }
-    .chip{ display:inline-block; padding:7px 15px; border:2px solid rgba(233,185,73,.4); border-radius:999px;
+    .chip{ box-sizing:border-box; display:inline-block; padding:7px 15px; border:2px solid rgba(233,185,73,.4); border-radius:999px;
       font-size:11.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:#E9B949; }
     .chip.r{ border-color:rgba(255,46,31,.55); color:#FF8A76; }
     .chip.g{ border-color:rgba(18,105,59,.7); color:#5FC98C; }
@@ -80,7 +80,7 @@
 </svg>
 <div style="line-height:1.12;">
 <div style="font-family:Anton,sans-serif; font-size:21px; letter-spacing:.01em; text-transform:uppercase;">Patinagem BVM</div>
-<div class="lbl" style="color:#E9B949; font-size:10.5px;">Montijo · desde 2012</div>
+<div class="lbl" style="color:#E9B949; font-size:11px;">Montijo · desde 2012</div>
 </div>
 </div>
 <div style="display:flex; align-items:center; gap:26px;"><span class="lbl" style="color:#E9B949; border-bottom:2px solid #FF2E1F; padding-bottom:3px;">Início</span><span class="lbl" style="color:#F6EDE1; padding-bottom:3px;">O clube</span><span class="lbl" style="color:#F6EDE1; padding-bottom:3px;">Treinadores</span><span class="lbl" style="color:#F6EDE1; padding-bottom:3px;">Atletas</span><span class="lbl" style="color:#F6EDE1; padding-bottom:3px;">Agenda</span><span class="lbl" style="color:#F6EDE1; padding-bottom:3px;">Contactos</span><span class="btn k" style="padding:12px 22px; font-size:14px;">Inscrever</span>
@@ -99,8 +99,8 @@
 
   <div style="display:grid; grid-template-columns:1.02fr .98fr; gap:50px; margin-top:40px; align-items:start;">
     <div>
-      <p style="font-size:21px; color:#C6B6A8; max-width:45ch;">Não é só andar de patins. É cair sessenta vezes, levantar sessenta e uma, e no dia da gala ouvir o pavilhão inteiro a gritar o teu nome.</p>
-      <div class="hand" style="font-size:38px; transform:rotate(-3deg); margin:14px 0 0 4px;">e aqui ninguém patina sozinho</div>
+      <p style="font-size:21px; color:#C6B6A8; max-width:45ch;">Treinamos no Pavilhão Municipal do Montijo: exercícios de escola, saltos, piruetas e os programas que levamos a prova. Começa-se aos 4 anos e sem saber nada.</p>
+      <div class="hand" style="font-size:38px; transform:rotate(-3deg); margin:14px 0 0 4px;">os patins emprestamos nós</div>
       <div style="display:flex; gap:13px; margin-top:30px;">
         <span class="btn">Marcar aula grátis</span>
         <span class="btn o">Conhecer o clube</span>
@@ -111,10 +111,10 @@
         <div style="flex:1; padding:20px 0 20px 24px; border-left:3px solid rgba(246,237,225,.18);"><div style="font-family:Anton,sans-serif; font-size:56px; color:#E9B949; line-height:.9;">14</div><span class="lbl dim">Anos de clube</span></div>
       </div>
     </div>
-    <div style="position:relative; height:520px;">
+    <div style="position:relative; height:560px;">
 <div class="polaroid" style="transform:rotate(-4deg); position:absolute; right:66px; top:-30px; width:300px;"><span class="tape" style="background:rgba(233,185,73,.45)"></span><img src="atleta-01.jpg" alt="" style="height:330px; object-fit:cover;"><span>Beatriz, Cadetes</span></div><div class="polaroid" style="transform:rotate(6deg); position:absolute; left:0; top:230px; width:262px;"><span class="tape" style="background:rgba(210,38,31,.5)"></span><img src="gala-01.jpg" alt="" style="height:210px; object-fit:cover;"><span>Gala de Natal, 2025</span></div>      <div style="position:absolute; right:0; bottom:6px; width:138px; height:138px; border-radius:50%; background:#E9B949; color:#28190C; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; transform:rotate(-12deg); font-family:Anton,sans-serif; font-size:23px; line-height:.94; text-transform:uppercase;">
         Aula<br>grátis
-        <span class="lbl" style="font-size:9.5px; margin-top:6px;">sem compromisso</span>
+        <span class="lbl" style="font-size:11px; margin-top:6px;">é já!</span>
       </div>
     </div>
   </div>
@@ -172,7 +172,7 @@
       <p class="dim" style="font-size:14.5px;">21h00, aqui em casa. Bilhete 5 €, à venda na secretaria. Leva a família toda.</p>
     </div>
     <div class="note" style="transform:rotate(1.6deg); background:#E9B949; border-color:transparent;"><span class="pin" style="background:#0D0806;"></span>
-      <div class="lbl" style="color:#7A3B12;">Todo o ano</div>
+      <div class="lbl" style="color:#5C2B0C;">Todo o ano</div>
       <h3 style="font-size:27px; margin:10px 0 8px; color:#28190C;">Aula experimental</h3>
       <p style="font-size:14.5px; color:#4A3620;">Grátis e sem compromisso, em qualquer altura da época. Basta aparecer com meias altas.</p>
     </div>
@@ -210,7 +210,7 @@
 <div style="position:relative; padding:88px 58px 92px;">
   <div style="position:relative; border-radius:26px 22px 28px 20px; padding:64px; text-align:center; background:linear-gradient(140deg,#D2261F,#6E0C10);">
     <h2 style="font-size:74px;">Vem experimentar<br>num sábado.</h2>
-    <p style="font-size:18.5px; color:#FFE3DF; max-width:50ch; margin:18px auto 0;">Roupa confortável, meias altas e vontade de cair umas quantas vezes. Os patins são por nossa conta.</p>
+    <p style="font-size:18.5px; color:#FFF5F3; max-width:50ch; margin:18px auto 0;">Roupa confortável, meias altas e vontade de cair umas quantas vezes. Os patins são por nossa conta.</p>
     <div style="display:flex; gap:13px; justify-content:center; margin-top:32px;">
       <span class="btn k">Marcar aula grátis</span>
       <span class="btn o" style="border-color:rgba(255,255,255,.45);">212 345 678</span>

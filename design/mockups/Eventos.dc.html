@@ -23,7 +23,7 @@
     .hand{ font-family:Caveat,'Comic Sans MS',cursive; font-weight:700; color:#E9B949; }
     .mut{ color:#C6B6A8; }
     .dim{ color:#A2948A; }
-    .btn{ display:inline-flex; align-items:center; gap:10px; padding:16px 30px; border-radius:38px 34px 40px 32px;
+    .btn{ box-sizing:border-box; display:inline-flex; align-items:center; gap:10px; padding:16px 30px; border-radius:38px 34px 40px 32px;
       font-weight:800; font-size:15px; background:#D2261F; color:#fff; }
     .btn.k{ background:#E9B949; color:#28190C; }
     .btn.o{ background:transparent; border:2px solid rgba(246,237,225,.28); color:#F6EDE1; }
@@ -35,7 +35,7 @@
     .note{ position:relative; background:#170F0B; border:1px solid rgba(246,237,225,.12); border-radius:14px 12px 16px 10px; padding:26px; }
     .pin{ position:absolute; top:-9px; left:50%; margin-left:-8px; width:16px; height:16px; border-radius:50%;
       background:#D2261F; box-shadow:0 3px 8px rgba(0,0,0,.6); }
-    .chip{ display:inline-block; padding:7px 15px; border:2px solid rgba(233,185,73,.4); border-radius:999px;
+    .chip{ box-sizing:border-box; display:inline-block; padding:7px 15px; border:2px solid rgba(233,185,73,.4); border-radius:999px;
       font-size:11.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:#E9B949; }
     .chip.r{ border-color:rgba(255,46,31,.55); color:#FF8A76; }
     .chip.g{ border-color:rgba(18,105,59,.7); color:#5FC98C; }
@@ -80,7 +80,7 @@
 </svg>
 <div style="line-height:1.12;">
 <div style="font-family:Anton,sans-serif; font-size:21px; letter-spacing:.01em; text-transform:uppercase;">Patinagem BVM</div>
-<div class="lbl" style="color:#E9B949; font-size:10.5px;">Montijo · desde 2012</div>
+<div class="lbl" style="color:#E9B949; font-size:11px;">Montijo · desde 2012</div>
 </div>
 </div>
 <div style="display:flex; align-items:center; gap:26px;"><span class="lbl" style="color:#F6EDE1; padding-bottom:3px;">Início</span><span class="lbl" style="color:#F6EDE1; padding-bottom:3px;">O clube</span><span class="lbl" style="color:#F6EDE1; padding-bottom:3px;">Treinadores</span><span class="lbl" style="color:#F6EDE1; padding-bottom:3px;">Atletas</span><span class="lbl" style="color:#E9B949; border-bottom:2px solid #FF2E1F; padding-bottom:3px;">Agenda</span><span class="lbl" style="color:#F6EDE1; padding-bottom:3px;">Contactos</span><span class="btn k" style="padding:12px 22px; font-size:14px;">Inscrever</span>
@@ -187,11 +187,22 @@
 </div>
 
 <div style="margin-top:80px;">
-<div style="position:relative; background:#E9B949; color:#170A02; padding:15px 58px; display:flex; align-items:center; justify-content:space-between; gap:24px; font-family:Anton,sans-serif; font-size:25px; letter-spacing:.01em; text-transform:uppercase; white-space:nowrap;"><span>Treinos</span><span>Terça 18h30</span><span>Quinta 18h30</span><span>Sábado 10h00</span><span>Pavilhão Municipal</span></div></div>
+<div style="position:relative; background:#E9B949; color:#170A02; padding:15px 58px; display:flex; align-items:center; justify-content:space-between; gap:24px; font-family:Anton,sans-serif; font-size:25px; letter-spacing:.01em; text-transform:uppercase; white-space:nowrap;"><span>Treinos</span><span>Terça 18h30</span><span>Quinta 18h30</span><span>Sexta 18h30</span><span>Sábado 10h00</span></div></div>
 
 <div style="position:relative; padding:80px 58px 92px;">
   <h2 style="font-size:52px; color:#A2948A; margin-bottom:26px;">Já aconteceu</h2>
   <div style="border-top:3px solid rgba(246,237,225,.16);">
+<div style="display:grid; grid-template-columns:120px 1fr auto; gap:30px; align-items:center; padding:26px 0; border-bottom:3px solid rgba(246,237,225,.16); opacity:.72;">
+  <div style="font-family:Anton,sans-serif; line-height:.84;">
+    <span style="font-size:52px; color:#E9B949;">13</span>
+    <span style="display:block; font-size:20px; color:#FF2E1F; text-transform:uppercase;">Set</span>
+  </div>
+  <div>
+    <h3 style="font-size:40px;">Aulas abertas</h3>
+    <p class="dim" style="font-size:15px; margin-top:6px;">Pavilhão Municipal do Montijo · 27 novos inscritos</p>
+  </div>
+  <span class="chip g">Escola</span>
+</div>
 <div style="display:grid; grid-template-columns:120px 1fr auto; gap:30px; align-items:center; padding:26px 0; border-bottom:3px solid rgba(246,237,225,.16); opacity:.72;">
   <div style="font-family:Anton,sans-serif; line-height:.84;">
     <span style="font-size:52px; color:#E9B949;">20</span>
@@ -213,17 +224,6 @@
     <p class="dim" style="font-size:15px; margin-top:6px;">Palmela · três pódios para o clube</p>
   </div>
   <span class="chip r">Competição</span>
-</div>
-<div style="display:grid; grid-template-columns:120px 1fr auto; gap:30px; align-items:center; padding:26px 0; border-bottom:3px solid rgba(246,237,225,.16); opacity:.72;">
-  <div style="font-family:Anton,sans-serif; line-height:.84;">
-    <span style="font-size:52px; color:#E9B949;">13</span>
-    <span style="display:block; font-size:20px; color:#FF2E1F; text-transform:uppercase;">Set</span>
-  </div>
-  <div>
-    <h3 style="font-size:40px;">Aulas abertas de experimentação</h3>
-    <p class="dim" style="font-size:15px; margin-top:6px;">Pavilhão Municipal do Montijo · 27 novos inscritos</p>
-  </div>
-  <span class="chip g">Escola</span>
 </div>
   </div>
 </div>

@@ -23,7 +23,7 @@
     .hand{ font-family:Caveat,'Comic Sans MS',cursive; font-weight:700; color:#E9B949; }
     .mut{ color:#C6B6A8; }
     .dim{ color:#A2948A; }
-    .btn{ display:inline-flex; align-items:center; gap:10px; padding:16px 30px; border-radius:38px 34px 40px 32px;
+    .btn{ box-sizing:border-box; display:inline-flex; align-items:center; gap:10px; padding:16px 30px; border-radius:38px 34px 40px 32px;
       font-weight:800; font-size:15px; background:#D2261F; color:#fff; }
     .btn.k{ background:#E9B949; color:#28190C; }
     .btn.o{ background:transparent; border:2px solid rgba(246,237,225,.28); color:#F6EDE1; }
@@ -35,7 +35,7 @@
     .note{ position:relative; background:#170F0B; border:1px solid rgba(246,237,225,.12); border-radius:14px 12px 16px 10px; padding:26px; }
     .pin{ position:absolute; top:-9px; left:50%; margin-left:-8px; width:16px; height:16px; border-radius:50%;
       background:#D2261F; box-shadow:0 3px 8px rgba(0,0,0,.6); }
-    .chip{ display:inline-block; padding:7px 15px; border:2px solid rgba(233,185,73,.4); border-radius:999px;
+    .chip{ box-sizing:border-box; display:inline-block; padding:7px 15px; border:2px solid rgba(233,185,73,.4); border-radius:999px;
       font-size:11.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:#E9B949; }
     .chip.r{ border-color:rgba(255,46,31,.55); color:#FF8A76; }
     .chip.g{ border-color:rgba(18,105,59,.7); color:#5FC98C; }
@@ -80,7 +80,7 @@
 </svg>
 <div style="line-height:1.12;">
 <div style="font-family:Anton,sans-serif; font-size:21px; letter-spacing:.01em; text-transform:uppercase;">Patinagem BVM</div>
-<div class="lbl" style="color:#E9B949; font-size:10.5px;">Montijo · desde 2012</div>
+<div class="lbl" style="color:#E9B949; font-size:11px;">Montijo · desde 2012</div>
 </div>
 </div>
 <div style="display:flex; align-items:center; gap:26px;"><span class="lbl" style="color:#F6EDE1; padding-bottom:3px;">Início</span><span class="lbl" style="color:#F6EDE1; padding-bottom:3px;">O clube</span><span class="lbl" style="color:#F6EDE1; padding-bottom:3px;">Treinadores</span><span class="lbl" style="color:#F6EDE1; padding-bottom:3px;">Atletas</span><span class="lbl" style="color:#F6EDE1; padding-bottom:3px;">Agenda</span><span class="lbl" style="color:#E9B949; border-bottom:2px solid #FF2E1F; padding-bottom:3px;">Contactos</span><span class="btn k" style="padding:12px 22px; font-size:14px;">Inscrever</span>
@@ -108,7 +108,7 @@
     </div>
     <div class="note" style="transform:rotate(-.6deg);"><span class="pin" style="background:#12693B;"></span>
       <div class="lbl" style="color:#FF2E1F;">Treinos</div>
-      <p style="font-size:16.5px; margin-top:10px;">Terça e quinta · 18h30–20h00<br>Sábado · 10h00–13h00</p>
+      <p style="font-size:16.5px; margin-top:10px;">Escola · terça e quinta, 18h30<br>Competição · sexta, 18h30<br>Escola · sábado, 10h00</p>
     </div>
     <div class="note" style="transform:rotate(1.5deg);"><span class="pin"></span>
       <div class="lbl" style="color:#FF2E1F;">Secretaria</div>
@@ -138,14 +138,14 @@
 
     <div style="position:relative; background:#F6EDE1; color:#2A1B12; padding:44px; border-radius:10px 8px 12px 7px; box-shadow:0 30px 70px rgba(0,0,0,.6); transform:rotate(.5deg);">
       <span class="tape" style="background:rgba(233,185,73,.55); top:-14px; left:46px; margin-left:0;"></span>
-      <div class="lbl" style="color:#B4471E;">Escreve-nos</div>
+      <div class="lbl" style="color:#98360F;">Escreve-nos</div>
       <h2 style="font-size:46px; margin:12px 0 26px; color:#2A1B12;">Manda recado</h2>
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px;">
-<div><div class="lbl" style="color:#7A6552; margin-bottom:8px;">Nome</div><div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 16px; border:2px solid #D9CBB8; border-radius:8px 7px 9px 6px; background:#FFFBF3; font-size:15.5px; color:#4A3620;"><span>João Almeida</span></div></div><div><div class="lbl" style="color:#7A6552; margin-bottom:8px;">E-mail</div><div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 16px; border:2px solid #D9CBB8; border-radius:8px 7px 9px 6px; background:#FFFBF3; font-size:15.5px; color:#4A3620;"><span>joao.almeida@exemplo.pt</span></div></div>      </div>
+<div><div class="lbl" style="color:#6A5643; margin-bottom:8px;">Nome</div><div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 16px; border:2px solid #D9CBB8; border-radius:8px 7px 9px 6px; background:#FFFBF3; font-size:15.5px; color:#4A3620;"><span>João Almeida</span></div></div><div><div class="lbl" style="color:#6A5643; margin-bottom:8px;">E-mail</div><div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 16px; border:2px solid #D9CBB8; border-radius:8px 7px 9px 6px; background:#FFFBF3; font-size:15.5px; color:#4A3620;"><span>joao.almeida@exemplo.pt</span></div></div>      </div>
       <div style="margin-top:18px;">
-<div><div class="lbl" style="color:#7A6552; margin-bottom:8px;">Assunto</div><div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 16px; border:2px solid #D9CBB8; border-radius:8px 7px 9px 6px; background:#FFFBF3; font-size:15.5px; color:#4A3620;"><span>Horários da escola de patinagem</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B4471E" stroke-width="2.2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></div></div>      </div>
+<div><div class="lbl" style="color:#6A5643; margin-bottom:8px;">Assunto</div><div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 16px; border:2px solid #D9CBB8; border-radius:8px 7px 9px 6px; background:#FFFBF3; font-size:15.5px; color:#4A3620;"><span>Horários da escola de patinagem</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B4471E" stroke-width="2.2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></div></div>      </div>
       <div style="margin-top:18px;">
-        <div class="lbl" style="color:#7A6552; margin-bottom:8px;">Mensagem</div>
+        <div class="lbl" style="color:#6A5643; margin-bottom:8px;">Mensagem</div>
         <div style="padding:14px 16px; height:190px; border:2px solid #D9CBB8; border-radius:8px 7px 9px 6px; background:#FFFBF3; font-size:15.5px; color:#4A3620;">Boa tarde. O meu filho tem 7 anos e queria perceber se ainda há vagas na turma de sábado. Obrigado!</div>
       </div>
       <div style="margin-top:26px;"><span class="btn" style="display:block; text-align:center; justify-content:center;">Enviar mensagem</span></div>

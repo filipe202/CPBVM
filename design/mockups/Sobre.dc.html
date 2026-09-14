@@ -23,7 +23,7 @@
     .hand{ font-family:Caveat,'Comic Sans MS',cursive; font-weight:700; color:#E9B949; }
     .mut{ color:#C6B6A8; }
     .dim{ color:#A2948A; }
-    .btn{ display:inline-flex; align-items:center; gap:10px; padding:16px 30px; border-radius:38px 34px 40px 32px;
+    .btn{ box-sizing:border-box; display:inline-flex; align-items:center; gap:10px; padding:16px 30px; border-radius:38px 34px 40px 32px;
       font-weight:800; font-size:15px; background:#D2261F; color:#fff; }
     .btn.k{ background:#E9B949; color:#28190C; }
     .btn.o{ background:transparent; border:2px solid rgba(246,237,225,.28); color:#F6EDE1; }
@@ -35,7 +35,7 @@
     .note{ position:relative; background:#170F0B; border:1px solid rgba(246,237,225,.12); border-radius:14px 12px 16px 10px; padding:26px; }
     .pin{ position:absolute; top:-9px; left:50%; margin-left:-8px; width:16px; height:16px; border-radius:50%;
       background:#D2261F; box-shadow:0 3px 8px rgba(0,0,0,.6); }
-    .chip{ display:inline-block; padding:7px 15px; border:2px solid rgba(233,185,73,.4); border-radius:999px;
+    .chip{ box-sizing:border-box; display:inline-block; padding:7px 15px; border:2px solid rgba(233,185,73,.4); border-radius:999px;
       font-size:11.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:#E9B949; }
     .chip.r{ border-color:rgba(255,46,31,.55); color:#FF8A76; }
     .chip.g{ border-color:rgba(18,105,59,.7); color:#5FC98C; }
@@ -80,7 +80,7 @@
 </svg>
 <div style="line-height:1.12;">
 <div style="font-family:Anton,sans-serif; font-size:21px; letter-spacing:.01em; text-transform:uppercase;">Patinagem BVM</div>
-<div class="lbl" style="color:#E9B949; font-size:10.5px;">Montijo · desde 2012</div>
+<div class="lbl" style="color:#E9B949; font-size:11px;">Montijo · desde 2012</div>
 </div>
 </div>
 <div style="display:flex; align-items:center; gap:26px;"><span class="lbl" style="color:#F6EDE1; padding-bottom:3px;">Início</span><span class="lbl" style="color:#E9B949; border-bottom:2px solid #FF2E1F; padding-bottom:3px;">O clube</span><span class="lbl" style="color:#F6EDE1; padding-bottom:3px;">Treinadores</span><span class="lbl" style="color:#F6EDE1; padding-bottom:3px;">Atletas</span><span class="lbl" style="color:#F6EDE1; padding-bottom:3px;">Agenda</span><span class="lbl" style="color:#F6EDE1; padding-bottom:3px;">Contactos</span><span class="btn k" style="padding:12px 22px; font-size:14px;">Inscrever</span>
@@ -92,8 +92,8 @@
   <h1 style="font-size:124px;">O clube</h1>
   <h1 class="out" style="font-size:124px; margin-top:-6px;">por dentro</h1>
   <div style="display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:end; margin-top:26px;">
-    <p style="font-size:19.5px; color:#C6B6A8; max-width:52ch;">Começámos com dezoito miúdos e duas treinadoras num pavilhão emprestado. Hoje somos noventa e quatro — e continuamos a tratar-nos todos pelo nome.</p>
-    <div class="hand" style="font-size:32px; transform:rotate(-2deg); text-align:right;">isto é uma família com patins</div>
+    <p style="font-size:19.5px; color:#C6B6A8; max-width:52ch;">Começámos com dezoito miúdos e duas treinadoras num pavilhão emprestado. Hoje somos noventa e quatro e continuamos a conhecer-nos todos pelo nome.</p>
+    <div class="hand" style="font-size:32px; transform:rotate(-2deg); text-align:right;">somos noventa e quatro</div>
   </div>
 </div>
 <div style="position:relative; padding:0 58px;">
@@ -105,24 +105,24 @@
   <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start;">
     <h2 style="font-size:72px;">Ensinar a cair.<br><span class="out-r" style="-webkit-text-stroke:2px #FF2E1F;">E a levantar</span><br>com estilo.</h2>
     <div>
-      <p class="mut" style="font-size:18px;">A patinagem artística ensina muito mais do que saltos e piruetas: ensina disciplina, paciência e a lidar com o palco. Por isso trabalhamos os dois lados — o técnico e o artístico — desde a primeira aula.</p>
-      <p class="mut" style="font-size:18px; margin-top:16px;">Cada atleta tem um plano adequado à idade e ao escalão, acompanhamento próximo da equipa técnica e uma época com objetivos claros, do treino de terça à gala de dezembro.</p>
+      <p class="mut" style="font-size:18px;">Metade do trabalho é técnico: apoios, quedas, saltos, piruetas. A outra metade é entrar em pista com a sala cheia e conseguir contar a música até ao fim. Trabalhamos as duas desde a primeira aula.</p>
+      <p class="mut" style="font-size:18px; margin-top:16px;">Cada atleta tem um plano à medida da idade e do escalão, definido em setembro com a família e revisto ao longo do ano — do primeiro treino de terça à gala de dezembro.</p>
       <div style="display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin-top:30px;">
-        <div class="note" style="transform:rotate(-1deg); padding:20px;"><div style="font-family:Anton,sans-serif; font-size:32px; color:#E9B949;">01</div><div style="font-weight:800; margin-top:6px;">Rigor sem medo</div><p class="dim" style="font-size:14px; margin-top:4px;">Técnica correta desde o início.</p></div>
-        <div class="note" style="transform:rotate(1.2deg); padding:20px;"><div style="font-family:Anton,sans-serif; font-size:32px; color:#E9B949;">02</div><div style="font-weight:800; margin-top:6px;">Equipa primeiro</div><p class="dim" style="font-size:14px; margin-top:4px;">Quem está há mais tempo ajuda quem chega.</p></div>
-        <div class="note" style="transform:rotate(-.6deg); padding:20px;"><div style="font-family:Anton,sans-serif; font-size:32px; color:#E9B949;">03</div><div style="font-weight:800; margin-top:6px;">Portas abertas</div><p class="dim" style="font-size:14px; margin-top:4px;">Do lazer à alta competição.</p></div>
+        <div class="note" style="transform:rotate(-1deg); padding:20px;"><div style="font-family:Anton,sans-serif; font-size:32px; color:#E9B949;">01</div><div style="font-weight:800; margin-top:6px;">Técnica primeiro</div><p class="dim" style="font-size:14px; margin-top:4px;">Dois anos de apoios e quedas antes dos saltos. Vêm mais tarde e vêm melhores.</p></div>
+        <div class="note" style="transform:rotate(1.2deg); padding:20px;"><div style="font-family:Anton,sans-serif; font-size:32px; color:#E9B949;">02</div><div style="font-weight:800; margin-top:6px;">As mais velhas ensinam</div><p class="dim" style="font-size:14px; margin-top:4px;">Às quintas, a equipa de competição fica meia hora com as turmas de iniciação.</p></div>
+        <div class="note" style="transform:rotate(-.6deg); padding:20px;"><div style="font-family:Anton,sans-serif; font-size:32px; color:#E9B949;">03</div><div style="font-weight:800; margin-top:6px;">Ninguém fica de fora</div><p class="dim" style="font-size:14px; margin-top:4px;">Quem não quer competir treina na mesma e entra na gala de dezembro.</p></div>
       </div>
     </div>
   </div>
 </div>
 
 <div style="margin-top:84px;">
-<div style="position:relative; background:#E9B949; color:#170A02; padding:15px 58px; display:flex; align-items:center; justify-content:space-between; gap:24px; font-family:Anton,sans-serif; font-size:25px; letter-spacing:.01em; text-transform:uppercase; white-space:nowrap;"><span>94 atletas</span><span>7 escalões</span><span>6 treinadores</span><span>3 treinos por semana</span><span>14 anos de clube</span></div></div>
+<div style="position:relative; background:#E9B949; color:#170A02; padding:15px 58px; display:flex; align-items:center; justify-content:space-between; gap:24px; font-family:Anton,sans-serif; font-size:25px; letter-spacing:.01em; text-transform:uppercase; white-space:nowrap;"><span>94 atletas</span><span>7 escalões</span><span>4 treinadores na pista</span><span>4 treinos por semana</span><span>14 anos de clube</span></div></div>
 
 <div style="position:relative; padding:84px 58px 0;">
   <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:40px; margin-bottom:46px;">
     <h2 style="font-size:72px;">Como aqui<br><span style="color:#FF2E1F;">chegámos</span></h2>
-    <span class="hand" style="font-size:30px; transform:rotate(-2deg);">catorze épocas, sempre no Montijo</span>
+    <span class="hand" style="font-size:30px; transform:rotate(-2deg);">catorze anos, sempre no Montijo</span>
   </div>
   <div style="position:relative; border-top:3px solid rgba(233,185,73,.45); padding-top:40px;">
     <div style="display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:18px;">
@@ -160,7 +160,7 @@
     <div>
       <span class="lbl" style="color:#FF2E1F;">Identidade</span>
       <h2 style="font-size:70px; margin-top:16px;">Preto, vermelho<br>e uma linha<br><span style="color:#E9B949;">dourada</span>.</h2>
-      <p class="mut" style="font-size:17.5px; margin-top:20px; max-width:46ch;">O equipamento de competição sai do emblema: o preto do fundo, o vermelho em degradé dos anéis e a linha dourada da patinadora. Cada atleta recebe-o ao entrar para a equipa de competição.</p>
+      <p class="mut" style="font-size:17.5px; margin-top:20px; max-width:46ch;">O emblema tem tudo: o preto do fundo, o anel vermelho, o traço verde por dentro, a patinadora e o dourado das letras. O fato de competição nasce daí — preto a abrir para vermelho, com uma linha dourada a atravessar. Cada atleta recebe-o ao entrar para a equipa.</p>
       <div style="display:flex; gap:12px; margin-top:26px;">
         <span style="width:52px; height:52px; border-radius:50%; background:#0D0806; border:2px solid rgba(246,237,225,.25);"></span>
         <span style="width:52px; height:52px; border-radius:50%; background:linear-gradient(140deg,#FF3A2A,#7C0E12);"></span>
@@ -168,7 +168,7 @@
         <span style="width:52px; height:52px; border-radius:50%; background:#12693B;"></span>
       </div>
       <div style="display:flex; align-items:center; gap:12px; margin-top:22px;">
-<svg width="58" height="34" viewBox="0 0 58 34" fill="none" stroke="#E9B949" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M3 5c14 20 34 25 51 22"/><path d="M46 20l8 7-11 4"/></svg>        <span class="hand" style="font-size:26px;">as cores do emblema, desde o primeiro dia</span>
+<svg width="58" height="34" viewBox="0 0 58 34" fill="none" stroke="#E9B949" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M3 5c14 20 34 25 51 22"/><path d="M46 20l8 7-11 4"/></svg>        <span class="hand" style="font-size:26px;">as mesmas cores desde 2012</span>
       </div>
     </div>
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
@@ -180,7 +180,7 @@
   <div style="border-radius:24px 20px 26px 18px; padding:56px; background:linear-gradient(140deg,#D2261F,#6E0C10); display:grid; grid-template-columns:1fr auto; gap:40px; align-items:center;">
     <div>
       <h2 style="font-size:56px;">Queres fazer parte disto?</h2>
-      <p style="font-size:18px; color:#FFE3DF; margin-top:12px; max-width:46ch;">A aula experimental é grátis e não obriga a nada. Vem ver como é um treino.</p>
+      <p style="font-size:18px; color:#FFF5F3; margin-top:12px; max-width:46ch;">A aula experimental é grátis e não obriga a nada. Vem ver como é um treino.</p>
     </div>
     <span class="btn k" style="padding:19px 34px;">Marcar aula grátis</span>
   </div>

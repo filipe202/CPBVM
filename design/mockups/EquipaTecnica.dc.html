@@ -23,7 +23,7 @@
     .hand{ font-family:Caveat,'Comic Sans MS',cursive; font-weight:700; color:#E9B949; }
     .mut{ color:#C6B6A8; }
     .dim{ color:#A2948A; }
-    .btn{ display:inline-flex; align-items:center; gap:10px; padding:16px 30px; border-radius:38px 34px 40px 32px;
+    .btn{ box-sizing:border-box; display:inline-flex; align-items:center; gap:10px; padding:16px 30px; border-radius:38px 34px 40px 32px;
       font-weight:800; font-size:15px; background:#D2261F; color:#fff; }
     .btn.k{ background:#E9B949; color:#28190C; }
     .btn.o{ background:transparent; border:2px solid rgba(246,237,225,.28); color:#F6EDE1; }
@@ -35,7 +35,7 @@
     .note{ position:relative; background:#170F0B; border:1px solid rgba(246,237,225,.12); border-radius:14px 12px 16px 10px; padding:26px; }
     .pin{ position:absolute; top:-9px; left:50%; margin-left:-8px; width:16px; height:16px; border-radius:50%;
       background:#D2261F; box-shadow:0 3px 8px rgba(0,0,0,.6); }
-    .chip{ display:inline-block; padding:7px 15px; border:2px solid rgba(233,185,73,.4); border-radius:999px;
+    .chip{ box-sizing:border-box; display:inline-block; padding:7px 15px; border:2px solid rgba(233,185,73,.4); border-radius:999px;
       font-size:11.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:#E9B949; }
     .chip.r{ border-color:rgba(255,46,31,.55); color:#FF8A76; }
     .chip.g{ border-color:rgba(18,105,59,.7); color:#5FC98C; }
@@ -80,7 +80,7 @@
 </svg>
 <div style="line-height:1.12;">
 <div style="font-family:Anton,sans-serif; font-size:21px; letter-spacing:.01em; text-transform:uppercase;">Patinagem BVM</div>
-<div class="lbl" style="color:#E9B949; font-size:10.5px;">Montijo · desde 2012</div>
+<div class="lbl" style="color:#E9B949; font-size:11px;">Montijo · desde 2012</div>
 </div>
 </div>
 <div style="display:flex; align-items:center; gap:26px;"><span class="lbl" style="color:#F6EDE1; padding-bottom:3px;">Início</span><span class="lbl" style="color:#F6EDE1; padding-bottom:3px;">O clube</span><span class="lbl" style="color:#E9B949; border-bottom:2px solid #FF2E1F; padding-bottom:3px;">Treinadores</span><span class="lbl" style="color:#F6EDE1; padding-bottom:3px;">Atletas</span><span class="lbl" style="color:#F6EDE1; padding-bottom:3px;">Agenda</span><span class="lbl" style="color:#F6EDE1; padding-bottom:3px;">Contactos</span><span class="btn k" style="padding:12px 22px; font-size:14px;">Inscrever</span>
@@ -92,7 +92,7 @@
   <h1 style="font-size:124px;">Quem está</h1>
   <h1 class="out" style="font-size:124px; margin-top:-6px;">na pista</h1>
   <div style="display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:end; margin-top:26px;">
-    <p style="font-size:19.5px; color:#C6B6A8; max-width:52ch;">Seis pessoas: quatro na pista, uma na secretaria e uma a segurar o clube de pé desde 2012. Todos com o telemóvel aberto para as dúvidas dos pais.</p>
+    <p style="font-size:19.5px; color:#C6B6A8; max-width:52ch;">Seis pessoas: quatro na pista, uma na secretaria e uma a segurar o clube de pé desde 2012. Os contactos diretos estão na ficha de cada turma.</p>
     <div class="hand" style="font-size:32px; transform:rotate(-2deg); text-align:right;">conhece-os um a um</div>
   </div>
 </div>
@@ -101,21 +101,21 @@
 <div style="position:relative;"><div class="polaroid" style="transform:rotate(-2deg); "><span class="tape" style="background:rgba(233,185,73,.45)"></span><img src="treinador-01.jpg" alt="" style="height:300px; object-fit:cover;"><span>Sofia Marques</span></div>  <div style="padding:20px 6px 0;">
     <div class="lbl" style="color:#FF2E1F;">Treinadora principal</div>
     <h3 style="font-size:34px; margin-top:10px;">Sofia Marques</h3>
-    <p class="dim" style="font-size:15px; margin-top:10px;">Patinou catorze anos em competição e treina no CPBVM desde 2014. Acompanha de Cadetes a Seniores e desenha os programas de prova.</p>
+    <p class="dim" style="font-size:15px; margin-top:10px;">Patinou catorze anos em competição e está no clube desde 2014. Acompanha de Cadetes a Seniores e monta os programas de prova.</p>
     <div style="margin-top:14px;"><span class="chip">Grau II · FPP</span></div>
   </div>
 </div>
 <div style="position:relative;"><div class="polaroid" style="transform:rotate(1.6deg); "><span class="tape" style="background:rgba(233,185,73,.45)"></span><img src="treinador-02.jpg" alt="" style="height:300px; object-fit:cover;"><span>Ricardo Nunes</span></div>  <div style="padding:20px 6px 0;">
     <div class="lbl" style="color:#FF2E1F;">Escola de patinagem</div>
     <h3 style="font-size:34px; margin-top:10px;">Ricardo Nunes</h3>
-    <p class="dim" style="font-size:15px; margin-top:10px;">É quem põe os mais pequenos de pé. Responsável pelas turmas de iniciação desde 2016 — e pela paciência infinita que isso exige.</p>
+    <p class="dim" style="font-size:15px; margin-top:10px;">Dá as turmas de iniciação desde 2016. É com ele que se aprende a travar antes de aprender a andar.</p>
     <div style="margin-top:14px;"><span class="chip">Grau I · FPP</span></div>
   </div>
 </div>
 <div style="position:relative;"><div class="polaroid" style="transform:rotate(-1deg); "><span class="tape" style="background:rgba(233,185,73,.45)"></span><img src="treinador-03.jpg" alt="" style="height:300px; object-fit:cover;"><span>Inês Carvalho</span></div>  <div style="padding:20px 6px 0;">
     <div class="lbl" style="color:#FF2E1F;">Coreografia e expressão</div>
     <h3 style="font-size:34px; margin-top:10px;">Inês Carvalho</h3>
-    <p class="dim" style="font-size:15px; margin-top:10px;">Formada em dança contemporânea. Trata dos programas livres e da parte que faz o público levantar-se da cadeira.</p>
+    <p class="dim" style="font-size:15px; margin-top:10px;">Formada em dança contemporânea. Escolhe as músicas, monta as coreografias e ensaia-as até saírem de olhos fechados.</p>
     <div style="margin-top:14px;"><span class="chip">Coreografia</span></div>
   </div>
 </div>
@@ -124,21 +124,21 @@
 <div style="position:relative;"><div class="polaroid" style="transform:rotate(1.2deg); "><span class="tape" style="background:rgba(233,185,73,.45)"></span><img src="treinador-04.jpg" alt="" style="height:300px; object-fit:cover;"><span>Tiago Lopes</span></div>  <div style="padding:20px 6px 0;">
     <div class="lbl" style="color:#FF2E1F;">Preparação física</div>
     <h3 style="font-size:34px; margin-top:10px;">Tiago Lopes</h3>
-    <p class="dim" style="font-size:15px; margin-top:10px;">Licenciado em Ciências do Desporto. Condição física, prevenção de lesões e o trabalho chato que ninguém vê mas todos sentem.</p>
+    <p class="dim" style="font-size:15px; margin-top:10px;">Licenciado em Ciências do Desporto. Força, mobilidade e prevenção de lesões, às segundas, fora da pista.</p>
     <div style="margin-top:14px;"><span class="chip">Condição física</span></div>
   </div>
 </div>
 <div style="position:relative;"><div class="polaroid" style="transform:rotate(-1.8deg); "><span class="tape" style="background:rgba(233,185,73,.45)"></span><img src="treinador-05.jpg" alt="" style="height:300px; object-fit:cover;"><span>Helena Duarte</span></div>  <div style="padding:20px 6px 0;">
     <div class="lbl" style="color:#FF2E1F;">Presidente da direção</div>
     <h3 style="font-size:34px; margin-top:10px;">Helena Duarte</h3>
-    <p class="dim" style="font-size:15px; margin-top:10px;">Fundou o clube em 2012 e nunca mais saiu. Faz a ligação à federação e à câmara — e ainda aparece nos treinos de sábado.</p>
+    <p class="dim" style="font-size:15px; margin-top:10px;">Fundou o clube em 2012 com mais duas famílias. Trata da federação, da câmara e dos autocarros para as provas.</p>
     <div style="margin-top:14px;"><span class="chip">Direção</span></div>
   </div>
 </div>
 <div style="position:relative;"><div class="polaroid" style="transform:rotate(2deg); "><span class="tape" style="background:rgba(233,185,73,.45)"></span><img src="treinador-06.jpg" alt="" style="height:300px; object-fit:cover;"><span>Marta Ribeiro</span></div>  <div style="padding:20px 6px 0;">
     <div class="lbl" style="color:#FF2E1F;">Secretaria e inscrições</div>
     <h3 style="font-size:34px; margin-top:10px;">Marta Ribeiro</h3>
-    <p class="dim" style="font-size:15px; margin-top:10px;">O primeiro contacto das famílias: inscrições, quotas, licenças federativas e toda a papelada da época.</p>
+    <p class="dim" style="font-size:15px; margin-top:10px;">Inscrições, quotas, licenças e seguros. É quem responde ao email do clube, normalmente no próprio dia.</p>
     <div style="margin-top:14px;"><span class="chip">Apoio às famílias</span></div>
   </div>
 </div>
@@ -161,11 +161,11 @@
       </div>
       <div class="note" style="transform:rotate(.9deg);"><span class="pin" style="background:#E9B949;"></span>
         <h3 style="font-size:30px;">Acompanhamento contínuo</h3>
-        <p class="mut" style="font-size:16px; margin-top:8px;">Conversa com os encarregados de educação sempre que é preciso — e não só quando corre mal.</p>
+        <p class="mut" style="font-size:16px; margin-top:8px;">Ponto de situação com os encarregados de educação em janeiro e em junho, e sempre que alguma coisa mude.</p>
       </div>
       <div class="note" style="transform:rotate(-.5deg);"><span class="pin" style="background:#12693B;"></span>
         <h3 style="font-size:30px;">Competir com sentido</h3>
-        <p class="mut" style="font-size:16px; margin-top:8px;">Ninguém vai a uma prova sem estar preparado. A prova é a consequência do treino, não o contrário.</p>
+        <p class="mut" style="font-size:16px; margin-top:8px;">Vai a prova quem já faz o programa inteiro em treino, duas vezes seguidas e sem falhas.</p>
       </div>
     </div>
   </div>
