@@ -40,15 +40,9 @@ body::after{
 .mut{ color:var(--mut); } .dim{ color:var(--dim); }
 .out{ color:transparent; -webkit-text-stroke:2px var(--gold); }
 
-/* ============ barra de progresso + cursor ============ */
+/* ============ barra de progresso ============ */
 #progress{ position:fixed; top:0; left:0; height:3px; width:0%; z-index:1000;
   background:linear-gradient(90deg,var(--red),var(--gold)); transition:width .1s linear; }
-#cursor{ position:fixed; top:0; left:0; width:26px; height:26px; border-radius:50%; z-index:995;
-  border:2px solid var(--gold); pointer-events:none; transform:translate(-50%,-50%);
-  transition:width .25s var(--ease), height .25s var(--ease), background .25s, opacity .3s; opacity:0; }
-#cursor.on{ opacity:1; }
-#cursor.big{ width:64px; height:64px; background:rgba(240,196,69,.16); }
-@media (hover:none),(max-width:900px){ #cursor{ display:none; } }
 
 /* ============ intro ============ */
 #intro{ position:fixed; inset:0; z-index:1100; background:var(--ink);
@@ -329,7 +323,6 @@ footer li:hover{ color:var(--gold); transform:translateX(4px); }
 @media (max-width:640px){ .sched{ grid-template-columns:1fr; } }
 </style>
 <div id="progress"></div>
-<div id="cursor"></div>
 
 <div id="intro">
   <div style="text-align:center">
@@ -669,18 +662,6 @@ footer li:hover{ color:var(--gold); transform:translateX(4px); }
   window.addEventListener('load', function(){ setTimeout(dropIntro, reduce ? 0 : 1150); });
   setTimeout(dropIntro, 2600);                 // rede de segurança
   intro.addEventListener('click', dropIntro);
-
-  /* ---------- cursor ---------- */
-  var cur = document.getElementById('cursor'), cx=0, cy=0, tx=0, ty=0;
-  if (matchMedia('(hover:hover)').matches){
-    addEventListener('mousemove', function(e){ tx=e.clientX; ty=e.clientY; cur.classList.add('on'); });
-    (function loop(){ cx+=(tx-cx)*.18; cy+=(ty-cy)*.18;
-      cur.style.transform='translate('+(cx-13)+'px,'+(cy-13)+'px)'; requestAnimationFrame(loop); })();
-    document.querySelectorAll('a,button,.path,.pola,.price,.note,.mem').forEach(function(el){
-      el.addEventListener('mouseenter', function(){ cur.classList.add('big'); });
-      el.addEventListener('mouseleave', function(){ cur.classList.remove('big'); });
-    });
-  }
 
   /* ---------- nav ---------- */
   var hdr=document.getElementById('hdr'), nav=document.getElementById('nav'),

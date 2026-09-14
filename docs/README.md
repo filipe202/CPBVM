@@ -5,7 +5,7 @@ Página única, sem dependências de build: `index.html` (HTML + CSS + JS), `img
 
 ## O que tem
 
-- Intro animada com o emblema, barra de progresso de leitura e cursor dourado.
+- Intro animada com o emblema e barra de progresso de leitura.
 - Herói em ecrã inteiro com fotografia em ken burns e paralaxe.
 - Tarjas em movimento (gala e horários), inclinadas.
 - Manifesto que acende palavra a palavra à medida que se desce.
