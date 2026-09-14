@@ -1,0 +1,853 @@
+<title>Clube de Patinagem BVM · Montijo</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=Caveat:wght@600;700&display=swap">
+<!-- alternativa sem dependências externas para alojamento próprio: <link rel="stylesheet" href="fonts.css"> -->
+<style>
+/* ============ tokens ============ */
+:root{
+  --ink:#080506; --ink2:#110B09; --ink3:#1A110D;
+  --red:#E01B15; --red-hot:#FF3A21; --red-deep:#6E0A0C;
+  --gold:#F0C445; --gold-lt:#FFE9A8; --green:#12693B;
+  --cream:#F7EFE3; --txt:#F7EFE3; --mut:#C9B8A8; --dim:#9C8C7E;
+  --nav-h:76px;
+  --ease:cubic-bezier(.2,.7,.25,1);
+}
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; overflow-x:clip; }
+body{
+  margin:0; background:var(--ink); color:var(--txt);
+  font-family:'Bricolage Grotesque','Trebuchet MS',sans-serif; font-size:17px; line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{ margin:0; font-family:Anton,'Arial Narrow',Impact,sans-serif; font-weight:400;
+  text-transform:uppercase; line-height:.86; letter-spacing:-.01em; }
+p{ margin:0; }
+img{ display:block; max-width:100%; }
+a{ color:inherit; text-decoration:none; }
+button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; }
+::selection{ background:var(--red); color:#fff; }
+:focus-visible{ outline:3px solid var(--gold); outline-offset:3px; }
+
+/* grão global */
+body::after{
+  content:""; position:fixed; inset:0; z-index:900; pointer-events:none; opacity:.30; mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.wrap{ width:min(100% - 44px, 1320px); margin-inline:auto; }
+.lbl{ font-size:11.5px; font-weight:700; letter-spacing:.24em; text-transform:uppercase; }
+.hand{ font-family:Caveat,cursive; font-weight:700; color:var(--gold); }
+.mut{ color:var(--mut); } .dim{ color:var(--dim); }
+.out{ color:transparent; -webkit-text-stroke:2px var(--gold); }
+
+/* ============ barra de progresso + cursor ============ */
+#progress{ position:fixed; top:0; left:0; height:3px; width:0%; z-index:1000;
+  background:linear-gradient(90deg,var(--red),var(--gold)); transition:width .1s linear; }
+#cursor{ position:fixed; top:0; left:0; width:26px; height:26px; border-radius:50%; z-index:995;
+  border:2px solid var(--gold); pointer-events:none; transform:translate(-50%,-50%);
+  transition:width .25s var(--ease), height .25s var(--ease), background .25s, opacity .3s; opacity:0; }
+#cursor.on{ opacity:1; }
+#cursor.big{ width:64px; height:64px; background:rgba(240,196,69,.16); }
+@media (hover:none),(max-width:900px){ #cursor{ display:none; } }
+
+/* ============ intro ============ */
+#intro{ position:fixed; inset:0; z-index:1100; background:var(--ink);
+  display:grid; place-items:center; transition:opacity .6s var(--ease), visibility .6s; }
+#intro.gone{ opacity:0; visibility:hidden; }
+#intro .em{ animation:introPop 1s var(--ease) both; }
+#intro .bar{ width:200px; height:3px; background:rgba(247,239,227,.15); margin-top:28px; overflow:hidden; }
+#intro .bar i{ display:block; height:100%; width:0; background:var(--gold); animation:load 1.25s var(--ease) forwards; }
+@keyframes introPop{ from{ transform:scale(.82) rotate(-12deg); opacity:0; } to{ transform:none; opacity:1; } }
+@keyframes load{ to{ width:100%; } }
+
+/* ============ nav ============ */
+header{
+  position:fixed; top:0; left:0; right:0; z-index:800; height:var(--nav-h);
+  display:flex; align-items:center; border-bottom:2px solid transparent;
+  transition:background .4s var(--ease), border-color .4s, transform .45s var(--ease), height .4s;
+}
+header.stuck{ background:rgba(8,5,6,.88); backdrop-filter:blur(14px); border-bottom-color:var(--gold); height:64px; }
+header.hide{ transform:translateY(-110%); }
+header .wrap{ display:flex; align-items:center; justify-content:space-between; gap:24px; }
+.brand{ display:flex; align-items:center; gap:12px; }
+.brand .nm{ font-family:Anton,sans-serif; font-size:20px; text-transform:uppercase; line-height:1; }
+.brand .sb{ color:var(--gold); font-size:11px; letter-spacing:.24em; text-transform:uppercase; font-weight:700; }
+nav{ display:flex; align-items:center; gap:26px; }
+nav a{ position:relative; font-size:11.5px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; padding:6px 0; }
+nav a::after{ content:""; position:absolute; left:0; bottom:0; height:2px; width:0; background:var(--red-hot);
+  transition:width .35s var(--ease); }
+nav a:hover::after, nav a.active::after{ width:100%; }
+.burger{ display:none; width:46px; height:46px; border:2px solid rgba(247,239,227,.25); border-radius:10px;
+  flex-direction:column; align-items:center; justify-content:center; gap:5px; }
+.burger i{ width:18px; height:2px; background:var(--gold); display:block; transition:.3s var(--ease); }
+.burger.x i:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+.burger.x i:nth-child(2){ opacity:0; }
+.burger.x i:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+.btn{ display:inline-flex; align-items:center; gap:10px; padding:15px 28px; border-radius:36px 32px 38px 30px;
+  font-weight:800; font-size:14.5px; background:var(--red); color:#fff; border:2px solid var(--red);
+  transition:transform .3s var(--ease), background .3s, color .3s, box-shadow .3s; }
+.btn:hover{ transform:translateY(-3px) rotate(-1deg); box-shadow:0 16px 40px rgba(224,27,21,.45); }
+.btn.k{ background:var(--gold); border-color:var(--gold); color:#251504; }
+.btn.k:hover{ box-shadow:0 16px 40px rgba(240,196,69,.4); }
+.btn.o{ background:transparent; border-color:rgba(247,239,227,.3); color:var(--txt); }
+.btn.o:hover{ border-color:var(--gold); color:var(--gold); box-shadow:none; }
+.btn.sm{ padding:11px 20px; font-size:13px; }
+
+@media (max-width:900px){
+  .burger{ display:flex; }
+  nav{ position:fixed; inset:var(--nav-h) 0 auto; flex-direction:column; align-items:stretch; gap:0;
+    background:rgba(8,5,6,.98); backdrop-filter:blur(16px); padding:12px 22px 26px; border-bottom:2px solid var(--gold);
+    transform:translateY(-130%); transition:transform .5s var(--ease); max-height:calc(100vh - var(--nav-h)); overflow:auto; }
+  nav.open{ transform:none; }
+  nav a{ font-size:15px; padding:16px 0; border-bottom:1px solid rgba(247,239,227,.1); letter-spacing:.14em; }
+  nav .btn{ margin-top:16px; justify-content:center; }
+}
+
+/* ============ hero ============ */
+.hero{ position:relative; min-height:100svh; display:flex; align-items:flex-end; overflow:hidden;
+  padding-bottom:52px; padding-top:calc(var(--nav-h) + 20px); }
+.hero-bg{ position:absolute; inset:-6%; z-index:0; }
+.hero-bg img{ width:100%; height:100%; object-fit:cover; filter:grayscale(.35) contrast(1.1); animation:kb 22s ease-in-out infinite alternate; }
+@keyframes kb{ from{ transform:scale(1.05) translateY(0); } to{ transform:scale(1.16) translateY(-2%); } }
+.hero-bg::after{ content:""; position:absolute; inset:0;
+  background:
+    radial-gradient(70% 60% at 20% 20%, rgba(224,27,21,.55), transparent 62%),
+    linear-gradient(180deg, rgba(8,5,6,.75) 0%, rgba(8,5,6,.35) 38%, rgba(8,5,6,.94) 88%); }
+.hero .wrap{ position:relative; z-index:2; width:min(100% - 44px, 1440px); }
+.hero h1{ font-size:clamp(58px, 13.2vw, 205px); }
+.hero .ln{ display:block; overflow:hidden; }
+.hero .ln span{ display:block; transform:translateY(105%); animation:up 1.05s var(--ease) forwards; }
+.hero .ln:nth-child(2) span{ animation-delay:.1s; }
+.hero .ln:nth-child(3) span{ animation-delay:.2s; padding-top:.16em; }
+@media (max-width:700px){
+  .hero{ padding-bottom:74px; }
+  .hero .ln:nth-child(3) span{ font-size:.30em !important; padding-top:.3em; }
+  .cue{ display:none; }
+}
+@keyframes up{ to{ transform:none; } }
+.hero-foot{ display:flex; flex-wrap:wrap; gap:26px 46px; align-items:flex-end; justify-content:space-between;
+  margin-top:34px; opacity:0; animation:fade 1s var(--ease) .55s forwards; }
+@keyframes fade{ to{ opacity:1; } }
+.hero-foot p{ max-width:44ch; font-size:clamp(16px,1.6vw,20px); color:var(--mut); }
+.stats{ display:flex; gap:34px; }
+.stats b{ display:block; font-family:Anton,sans-serif; font-size:clamp(34px,4.4vw,60px); color:var(--gold); line-height:.9; font-weight:400; }
+.emblem-float{ position:absolute; right:3%; top:18%; z-index:2; width:clamp(120px,17vw,240px);
+  animation:spin 46s linear infinite, fade 1.2s var(--ease) .4s both; }
+@keyframes spin{ to{ transform:rotate(360deg); } }
+@media (max-width:900px){ .emblem-float{ right:-34px; top:9%; width:116px; opacity:.34; } }
+.cue{ position:absolute; left:50%; bottom:18px; z-index:3; transform:translateX(-50%); display:flex; flex-direction:column;
+  align-items:center; gap:8px; font-size:10px; letter-spacing:.3em; text-transform:uppercase; color:var(--dim); }
+.cue i{ width:1px; height:40px; background:linear-gradient(var(--gold),transparent); animation:cue 2s ease-in-out infinite; }
+@keyframes cue{ 0%,100%{ opacity:.2; transform:scaleY(.35); transform-origin:top; } 50%{ opacity:1; transform:scaleY(1); } }
+
+/* ============ ticker ============ */
+.ticker{ background:var(--gold); color:#170A02; padding:14px 0; overflow:hidden; transform:rotate(-1.2deg);
+  width:104%; margin-left:-2%; border-block:3px solid var(--ink); }
+.ticker.red{ background:var(--red); color:#fff; transform:rotate(1deg); }
+.ticker .run{ display:flex; gap:44px; width:max-content; animation:run 26s linear infinite; }
+.ticker.red .run{ animation-duration:32s; animation-direction:reverse; }
+.ticker span{ font-family:Anton,sans-serif; font-size:clamp(18px,2.4vw,30px); text-transform:uppercase;
+  white-space:nowrap; display:flex; align-items:center; gap:44px; }
+@keyframes run{ to{ transform:translateX(-50%); } }
+
+/* ============ secções ============ */
+section{ position:relative; }
+.pad{ padding-block:clamp(72px,9vw,140px); }
+.eyebrow{ display:inline-flex; align-items:center; gap:12px; color:var(--red-hot); margin-bottom:20px; }
+.eyebrow::before{ content:""; width:44px; height:3px; background:var(--red-hot); display:block; }
+.h2{ font-size:clamp(40px,7.4vw,104px); }
+
+/* revelações */
+.rv{ opacity:0; transform:translateY(38px); transition:opacity .9s var(--ease), transform .9s var(--ease); }
+.rv.in{ opacity:1; transform:none; }
+.rv.d1{ transition-delay:.1s; } .rv.d2{ transition-delay:.2s; } .rv.d3{ transition-delay:.3s; }
+.rv-mask{ overflow:hidden; display:block; }
+.rv-mask > *{ transform:translateY(100%); transition:transform 1s var(--ease); display:block; }
+.rv-mask.in > *{ transform:none; }
+
+/* manifesto com palavras que acendem */
+.manifesto{ font-family:Anton,sans-serif; text-transform:uppercase; line-height:.95;
+  font-size:clamp(30px,5.4vw,76px); max-width:22ch; }
+.manifesto w{ color:rgba(247,239,227,.16); transition:color .5s var(--ease); }
+.manifesto w.on{ color:var(--txt); }
+.manifesto w.hi.on{ color:var(--gold); }
+
+/* caminhos */
+.paths{ display:flex; gap:14px; min-height:520px; }
+.path{ position:relative; flex:1; overflow:hidden; border:2px solid rgba(247,239,227,.14);
+  transition:flex .7s var(--ease); cursor:pointer; }
+.path img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  filter:grayscale(.6) brightness(.5); transition:filter .7s var(--ease), transform 1.2s var(--ease); }
+.path::after{ content:""; position:absolute; inset:0; background:linear-gradient(0deg, rgba(8,5,6,.94), transparent 70%); }
+.path .body{ position:relative; z-index:2; height:100%; display:flex; flex-direction:column; justify-content:flex-end; padding:30px; }
+.path .n{ font-family:Anton,sans-serif; font-size:44px; color:var(--gold); line-height:1; }
+.path h3{ font-size:clamp(26px,2.4vw,40px); margin-top:10px; }
+.path p{ font-size:15px; color:var(--mut); max-width:34ch; max-height:0; overflow:hidden; opacity:0;
+  transition:max-height .7s var(--ease), opacity .5s var(--ease), margin .5s; }
+.path.on{ flex:2.1; border-color:var(--gold); }
+.path.on img{ filter:grayscale(0) brightness(.72); transform:scale(1.06); }
+.path.on p{ max-height:140px; opacity:1; margin-top:12px; }
+@media (max-width:900px){ .paths{ flex-direction:column; min-height:0; } .path{ min-height:230px; } .path.on{ flex:1; } }
+
+/* números */
+.nums{ display:grid; grid-template-columns:repeat(4,1fr); gap:2px; background:rgba(247,239,227,.14);
+  border:2px solid rgba(247,239,227,.14); }
+.nums div{ background:var(--ink); padding:38px 20px; text-align:center; }
+.nums b{ display:block; font-family:Anton,sans-serif; font-size:clamp(44px,6vw,88px); color:var(--gold); line-height:.9; font-weight:400; }
+@media (max-width:700px){ .nums{ grid-template-columns:repeat(2,1fr); } }
+
+/* galeria horizontal */
+.sticky{ height:300vh; }
+.sticky .pin{ position:sticky; top:0; height:100svh; display:flex; align-items:center; overflow:hidden; }
+.gal-title{ position:absolute; left:0; top:0; bottom:0; z-index:3; pointer-events:none;
+  width:min(52vw,700px); display:flex; flex-direction:column; justify-content:center; padding-left:5vw;
+  background:linear-gradient(90deg, var(--ink) 42%, rgba(8,5,6,.86) 62%, transparent 100%); }
+@media (max-width:900px){ .gal-title{ width:100%; bottom:auto; height:auto; padding-block:28px 18px;
+  background:linear-gradient(180deg, var(--ink) 55%, transparent); } }
+.rail{ display:flex; gap:34px; padding-left:min(46vw,620px); padding-right:6vw; will-change:transform; align-items:center; }
+.pola{ position:relative; background:var(--cream); padding:14px 14px 44px; box-shadow:0 30px 70px rgba(0,0,0,.65);
+  flex:none; width:clamp(230px,26vw,340px); transition:transform .5s var(--ease); }
+.pola img{ width:100%; height:clamp(250px,30vw,390px); object-fit:cover; }
+.pola figcaption{ margin-top:12px; font-family:Caveat,cursive; font-weight:700; font-size:22px; color:#2A1B12; text-align:center; }
+.pola .tp{ position:absolute; top:-14px; left:50%; margin-left:-54px; width:108px; height:28px;
+  background:rgba(240,196,69,.5); transform:rotate(-5deg); }
+.pola:nth-child(even) .tp{ background:rgba(224,27,21,.45); transform:rotate(6deg); }
+.pola:hover{ transform:translateY(-14px) rotate(-1.5deg) scale(1.02); }
+
+/* equipa */
+.team{ display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:24px; }
+.mem{ position:relative; overflow:hidden; border:2px solid rgba(247,239,227,.12); transition:border-color .4s, transform .4s var(--ease); }
+.mem img{ width:100%; height:330px; object-fit:cover; filter:grayscale(.5) brightness(.78); transition:.7s var(--ease); }
+.mem .b{ padding:20px 22px 26px; }
+.mem h3{ font-size:30px; } .mem .r{ color:var(--gold); margin-top:6px; }
+.mem:hover{ border-color:var(--gold); transform:translateY(-8px); }
+.mem:hover img{ filter:none; transform:scale(1.05); }
+
+/* avisos */
+.board{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:22px; }
+.note{ position:relative; background:var(--ink2); border:2px solid rgba(247,239,227,.12); border-radius:14px 12px 16px 10px;
+  padding:28px; transition:transform .45s var(--ease), border-color .4s; }
+.note::before{ content:""; position:absolute; top:-9px; left:50%; margin-left:-8px; width:16px; height:16px;
+  border-radius:50%; background:var(--red); box-shadow:0 3px 10px rgba(0,0,0,.7); }
+.note:nth-child(2)::before{ background:var(--gold); } .note:nth-child(3)::before{ background:var(--green); }
+.note:nth-child(odd){ transform:rotate(-1.2deg); } .note:nth-child(even){ transform:rotate(1deg); }
+.note:hover{ transform:rotate(0) translateY(-8px); border-color:var(--gold); }
+.note.gold{ background:var(--gold); border-color:transparent; color:#28190C; }
+.note.gold .dim, .note.gold .mut{ color:#4A3620; }
+
+/* gala parallax */
+.gala{ position:relative; min-height:88svh; display:flex; align-items:center; overflow:hidden; }
+.gala .bg{ position:absolute; inset:-12% 0; }
+.gala .bg img{ width:100%; height:100%; object-fit:cover; filter:grayscale(.3) contrast(1.05); }
+.gala .bg::after{ content:""; position:absolute; inset:0;
+  background:linear-gradient(90deg, rgba(8,5,6,.95) 22%, rgba(8,5,6,.35) 70%, rgba(8,5,6,.7)); }
+.gala .wrap{ position:relative; z-index:2; }
+.gala-info{ display:flex; flex-wrap:wrap; gap:22px 46px; margin-top:30px; }
+.gala-info b{ display:block; font-family:Anton,sans-serif; font-size:26px; margin-top:4px; font-weight:400; }
+
+/* preços */
+.prices{ display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:20px; }
+.price{ border:3px solid rgba(247,239,227,.16); padding:32px; transition:.45s var(--ease); position:relative; }
+.price:hover{ border-color:var(--gold); transform:translateY(-8px); }
+.price.hot{ border-color:var(--gold); background:linear-gradient(160deg, rgba(240,196,69,.14), transparent); }
+.price .tag{ position:absolute; top:-13px; left:26px; background:var(--gold); color:#28190C; padding:3px 12px; }
+.price .v{ font-family:Anton,sans-serif; font-size:58px; color:var(--gold); line-height:.9; margin-top:14px; }
+
+/* CTA final */
+.final{ position:relative; overflow:hidden; text-align:center; padding-block:clamp(80px,11vw,160px);
+  background:linear-gradient(150deg,var(--red),var(--red-deep)); }
+.final h2{ font-size:clamp(44px,9vw,132px); }
+.final::before{ content:""; position:absolute; inset:0; opacity:.16;
+  background-image:radial-gradient(rgba(255,255,255,.9) 1.2px, transparent 1.2px); background-size:22px 22px; }
+
+footer{ background:#050304; padding-block:64px 30px; border-top:3px solid var(--gold); }
+.fgrid{ display:grid; grid-template-columns:1.5fr 1fr 1fr 1.2fr; gap:44px; }
+@media (max-width:860px){ .fgrid{ grid-template-columns:1fr 1fr; } }
+@media (max-width:520px){ .fgrid{ grid-template-columns:1fr; } }
+footer h4{ color:var(--gold); margin:0 0 14px; }
+footer ul{ list-style:none; margin:0; padding:0; display:grid; gap:9px; color:var(--mut); font-size:15px; }
+footer li{ transition:color .3s, transform .3s var(--ease); }
+footer li:hover{ color:var(--gold); transform:translateX(4px); }
+.fbig{ font-family:Anton,sans-serif; font-size:clamp(56px,13vw,180px); line-height:.8; text-transform:uppercase;
+  color:transparent; -webkit-text-stroke:2px rgba(247,239,227,.18); margin-top:48px; text-align:center; }
+
+@media (prefers-reduced-motion:reduce){
+  *{ animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; }
+  .rv{ opacity:1; transform:none; } .rv-mask > *{ transform:none; } .hero .ln span{ transform:none; }
+  .manifesto w{ color:var(--txt); }
+}
+
+/* ---- ajustes finais de telemóvel (no fim para ganharem a cascata) ---- */
+@media (max-width:700px){
+  .cue{ display:none !important; }
+  .hero{ padding-bottom:64px; }
+  .hero .ln:nth-child(3){ margin-top:10px; }
+  .hero .ln:nth-child(3) span{ font-size:.30em !important; padding-top:0; }
+  .hero-foot{ gap:22px; }
+  .stats{ gap:24px; }
+  .wrap{ width:min(100% - 36px, 1320px); }
+}
+</style>
+
+<div id="progress"></div>
+<div id="cursor"></div>
+
+<div id="intro">
+  <div style="text-align:center">
+    <div class="em">
+<svg viewBox="0 0 200 200" width="150" height="150" role="img" aria-label="Emblema do Clube de Patinagem BVM Montijo" style="display:block">
+  <defs>
+    <path id="tpi" d="M100,100 m-77,0 a77,77 0 1,1 154,0" fill="none"/>
+    <path id="bpi" d="M100,100 m-74,0 a74,74 0 1,0 148,0" fill="none"/>
+  </defs>
+  <circle cx="100" cy="100" r="100" fill="#000000"/>
+  <circle cx="100" cy="100" r="94" fill="none" stroke="#F0401C" stroke-width="6"/>
+  <g fill="none" stroke="#0C5A34" stroke-linecap="round">
+    <path d="M100,100 m-63,0 a63,63 0 1,1 44,58" stroke-width="3.4" opacity=".95"/>
+    <path d="M100,100 m-57,0 a57,57 0 1,1 52,34" stroke-width="2.4" opacity=".8" transform="rotate(24 100 100)"/>
+    <path d="M100,100 m-52,0 a52,52 0 1,1 46,30" stroke-width="1.8" opacity=".6" transform="rotate(-38 100 100)"/>
+    <path d="M100,100 m-67,0 a67,67 0 0,1 40,-58" stroke-width="2" opacity=".55" transform="rotate(140 100 100)"/>
+  </g>
+  <g fill="#E63917">
+    <circle cx="99" cy="55" r="7.4"/>
+    <path d="M92.5 51.5c-3.4-1.2-5.6-.2-6.2 1.6-.5 1.7 1 3.2 3.6 3.3z"/>
+    <path d="M92.6 64.5c3.8-1.6 8.4-1.6 12.2.2 2.2 1 3.3 3 3.1 5.6l-1.6 22c-.2 2.4-1.6 3.7-4.2 3.9l-8.4.2c-2.6 0-4-1.2-4.2-3.6l-1.6-22.4c-.2-2.7 1-4.7 4.7-5.9z"/>
+    <path d="M104.4 68.6l3.4-3.1 12.8-13.6 2.6-3.6c1-1.4 2.6-1.7 3.9-.7 1.3 1 1.5 2.6.6 4l-3 4.2-13.6 14.6-3.6 3.3z"/>
+    <path d="M124.2 44.4l2.6-3.4c.9-1.2 2.3-1.5 3.4-.7 1.1.8 1.3 2.2.5 3.4l-2.5 3.6z"/>
+    <path d="M91.6 72.2l-4.4.4-17.6 2.1-4.2.9c-1.6.3-3-.6-3.2-2.2-.2-1.6.8-2.8 2.4-3.1l4.6-.8 18-1.9 4.3-.2z"/>
+    <path d="M65.2 69.6l-4.3.6c-1.4.2-2.6-.6-2.8-1.9-.2-1.3.7-2.4 2.1-2.6l4.2-.6z"/>
+    <path d="M89.6 92.4l12.4-.3c2.6 0 4.4 1.2 5.4 3.6l8.6 21.4c.9 2.2.4 3.9-1.5 5l-4.6 2.6-10.7 4.8c-2.6 1.1-4.8 1-6.6-.6l-9.4-8.6-8.2-8.4 3.2-4.1 9.6 7.2-4.8 8.4-6.6 10.6 6-1.6 12.4-5.2c2.3-1 3.4-2.7 3.2-5l-1-12.6z"/>
+    <path d="M97.4 122.6l3.2 20.4.8 14.2-6.2.3-1.2-14.8-2.6-19.4z"/>
+    <path d="M108.6 120.2l6.4 19.6 5 13.4-5.7 2.2-5.4-13.8-6.5-18.6z"/>
+    <path d="M87.6 155.4l10.8-.4.3 4.6-11 .4z"/>
+    <path d="M112.8 151.6l10.2-3.8 1.6 4.3-10.2 3.9z"/>
+    <circle cx="89.4" cy="163.4" r="3.2"/><circle cx="97.6" cy="163" r="3.2"/>
+    <circle cx="115.4" cy="159.6" r="3.2"/><circle cx="123.2" cy="156.8" r="3.2"/>
+  </g>
+  <text fill="#F2C200" font-family="Archivo, Helvetica, Arial, sans-serif" font-size="17" font-weight="700" letter-spacing="1.2" stroke="#8A5A00" stroke-width=".5">
+    <textPath href="#tpi" startOffset="50%" text-anchor="middle">CLUBE PATINAGEM BVM</textPath>
+  </text>
+  <text fill="#FFFFFF" font-family="Archivo, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4">
+    <textPath href="#bpi" startOffset="50%" text-anchor="middle">MONTIJO</textPath>
+  </text>
+</svg>
+    </div>
+    <div class="bar"><i></i></div>
+  </div>
+</div>
+
+<header id="hdr">
+  <div class="wrap">
+    <a class="brand" href="#topo">
+<svg viewBox="0 0 200 200" width="48" height="48" role="img" aria-label="Emblema do Clube de Patinagem BVM Montijo" style="display:block">
+  <defs>
+    <path id="tpn" d="M100,100 m-77,0 a77,77 0 1,1 154,0" fill="none"/>
+    <path id="bpn" d="M100,100 m-74,0 a74,74 0 1,0 148,0" fill="none"/>
+  </defs>
+  <circle cx="100" cy="100" r="100" fill="#000000"/>
+  <circle cx="100" cy="100" r="94" fill="none" stroke="#F0401C" stroke-width="6"/>
+  <g fill="none" stroke="#0C5A34" stroke-linecap="round">
+    <path d="M100,100 m-63,0 a63,63 0 1,1 44,58" stroke-width="3.4" opacity=".95"/>
+    <path d="M100,100 m-57,0 a57,57 0 1,1 52,34" stroke-width="2.4" opacity=".8" transform="rotate(24 100 100)"/>
+    <path d="M100,100 m-52,0 a52,52 0 1,1 46,30" stroke-width="1.8" opacity=".6" transform="rotate(-38 100 100)"/>
+    <path d="M100,100 m-67,0 a67,67 0 0,1 40,-58" stroke-width="2" opacity=".55" transform="rotate(140 100 100)"/>
+  </g>
+  <g fill="#E63917">
+    <circle cx="99" cy="55" r="7.4"/>
+    <path d="M92.5 51.5c-3.4-1.2-5.6-.2-6.2 1.6-.5 1.7 1 3.2 3.6 3.3z"/>
+    <path d="M92.6 64.5c3.8-1.6 8.4-1.6 12.2.2 2.2 1 3.3 3 3.1 5.6l-1.6 22c-.2 2.4-1.6 3.7-4.2 3.9l-8.4.2c-2.6 0-4-1.2-4.2-3.6l-1.6-22.4c-.2-2.7 1-4.7 4.7-5.9z"/>
+    <path d="M104.4 68.6l3.4-3.1 12.8-13.6 2.6-3.6c1-1.4 2.6-1.7 3.9-.7 1.3 1 1.5 2.6.6 4l-3 4.2-13.6 14.6-3.6 3.3z"/>
+    <path d="M124.2 44.4l2.6-3.4c.9-1.2 2.3-1.5 3.4-.7 1.1.8 1.3 2.2.5 3.4l-2.5 3.6z"/>
+    <path d="M91.6 72.2l-4.4.4-17.6 2.1-4.2.9c-1.6.3-3-.6-3.2-2.2-.2-1.6.8-2.8 2.4-3.1l4.6-.8 18-1.9 4.3-.2z"/>
+    <path d="M65.2 69.6l-4.3.6c-1.4.2-2.6-.6-2.8-1.9-.2-1.3.7-2.4 2.1-2.6l4.2-.6z"/>
+    <path d="M89.6 92.4l12.4-.3c2.6 0 4.4 1.2 5.4 3.6l8.6 21.4c.9 2.2.4 3.9-1.5 5l-4.6 2.6-10.7 4.8c-2.6 1.1-4.8 1-6.6-.6l-9.4-8.6-8.2-8.4 3.2-4.1 9.6 7.2-4.8 8.4-6.6 10.6 6-1.6 12.4-5.2c2.3-1 3.4-2.7 3.2-5l-1-12.6z"/>
+    <path d="M97.4 122.6l3.2 20.4.8 14.2-6.2.3-1.2-14.8-2.6-19.4z"/>
+    <path d="M108.6 120.2l6.4 19.6 5 13.4-5.7 2.2-5.4-13.8-6.5-18.6z"/>
+    <path d="M87.6 155.4l10.8-.4.3 4.6-11 .4z"/>
+    <path d="M112.8 151.6l10.2-3.8 1.6 4.3-10.2 3.9z"/>
+    <circle cx="89.4" cy="163.4" r="3.2"/><circle cx="97.6" cy="163" r="3.2"/>
+    <circle cx="115.4" cy="159.6" r="3.2"/><circle cx="123.2" cy="156.8" r="3.2"/>
+  </g>
+</svg>
+      <span>
+        <span class="nm">Patinagem BVM</span><br>
+        <span class="sb">Montijo · desde 2012</span>
+      </span>
+    </a>
+    <nav id="nav">
+      <a href="#clube">O clube</a>
+      <a href="#caminhos">Patinar</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#equipa">Treinadores</a>
+      <a href="#agenda">Agenda</a>
+      <a href="#inscricoes">Inscrições</a>
+      <a class="btn k sm" href="#inscricoes">Aula grátis</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false"><i></i><i></i><i></i></button>
+  </div>
+</header>
+
+<main id="topo">
+
+<section class="hero">
+  <div class="hero-bg" data-par="0.18"><img src="img/gala-02.jpg" alt="Atletas do clube em pista durante a gala"></div>
+  <div class="emblem-float">
+<svg viewBox="0 0 200 200" width="240" height="240" role="img" aria-label="Emblema do Clube de Patinagem BVM Montijo" style="display:block">
+  <defs>
+    <path id="tph" d="M100,100 m-77,0 a77,77 0 1,1 154,0" fill="none"/>
+    <path id="bph" d="M100,100 m-74,0 a74,74 0 1,0 148,0" fill="none"/>
+  </defs>
+  <circle cx="100" cy="100" r="100" fill="#000000"/>
+  <circle cx="100" cy="100" r="94" fill="none" stroke="#F0401C" stroke-width="6"/>
+  <g fill="none" stroke="#0C5A34" stroke-linecap="round">
+    <path d="M100,100 m-63,0 a63,63 0 1,1 44,58" stroke-width="3.4" opacity=".95"/>
+    <path d="M100,100 m-57,0 a57,57 0 1,1 52,34" stroke-width="2.4" opacity=".8" transform="rotate(24 100 100)"/>
+    <path d="M100,100 m-52,0 a52,52 0 1,1 46,30" stroke-width="1.8" opacity=".6" transform="rotate(-38 100 100)"/>
+    <path d="M100,100 m-67,0 a67,67 0 0,1 40,-58" stroke-width="2" opacity=".55" transform="rotate(140 100 100)"/>
+  </g>
+  <g fill="#E63917">
+    <circle cx="99" cy="55" r="7.4"/>
+    <path d="M92.5 51.5c-3.4-1.2-5.6-.2-6.2 1.6-.5 1.7 1 3.2 3.6 3.3z"/>
+    <path d="M92.6 64.5c3.8-1.6 8.4-1.6 12.2.2 2.2 1 3.3 3 3.1 5.6l-1.6 22c-.2 2.4-1.6 3.7-4.2 3.9l-8.4.2c-2.6 0-4-1.2-4.2-3.6l-1.6-22.4c-.2-2.7 1-4.7 4.7-5.9z"/>
+    <path d="M104.4 68.6l3.4-3.1 12.8-13.6 2.6-3.6c1-1.4 2.6-1.7 3.9-.7 1.3 1 1.5 2.6.6 4l-3 4.2-13.6 14.6-3.6 3.3z"/>
+    <path d="M124.2 44.4l2.6-3.4c.9-1.2 2.3-1.5 3.4-.7 1.1.8 1.3 2.2.5 3.4l-2.5 3.6z"/>
+    <path d="M91.6 72.2l-4.4.4-17.6 2.1-4.2.9c-1.6.3-3-.6-3.2-2.2-.2-1.6.8-2.8 2.4-3.1l4.6-.8 18-1.9 4.3-.2z"/>
+    <path d="M65.2 69.6l-4.3.6c-1.4.2-2.6-.6-2.8-1.9-.2-1.3.7-2.4 2.1-2.6l4.2-.6z"/>
+    <path d="M89.6 92.4l12.4-.3c2.6 0 4.4 1.2 5.4 3.6l8.6 21.4c.9 2.2.4 3.9-1.5 5l-4.6 2.6-10.7 4.8c-2.6 1.1-4.8 1-6.6-.6l-9.4-8.6-8.2-8.4 3.2-4.1 9.6 7.2-4.8 8.4-6.6 10.6 6-1.6 12.4-5.2c2.3-1 3.4-2.7 3.2-5l-1-12.6z"/>
+    <path d="M97.4 122.6l3.2 20.4.8 14.2-6.2.3-1.2-14.8-2.6-19.4z"/>
+    <path d="M108.6 120.2l6.4 19.6 5 13.4-5.7 2.2-5.4-13.8-6.5-18.6z"/>
+    <path d="M87.6 155.4l10.8-.4.3 4.6-11 .4z"/>
+    <path d="M112.8 151.6l10.2-3.8 1.6 4.3-10.2 3.9z"/>
+    <circle cx="89.4" cy="163.4" r="3.2"/><circle cx="97.6" cy="163" r="3.2"/>
+    <circle cx="115.4" cy="159.6" r="3.2"/><circle cx="123.2" cy="156.8" r="3.2"/>
+  </g>
+  <text fill="#F2C200" font-family="Archivo, Helvetica, Arial, sans-serif" font-size="17" font-weight="700" letter-spacing="1.2" stroke="#8A5A00" stroke-width=".5">
+    <textPath href="#tph" startOffset="50%" text-anchor="middle">CLUBE PATINAGEM BVM</textPath>
+  </text>
+  <text fill="#FFFFFF" font-family="Archivo, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4">
+    <textPath href="#bph" startOffset="50%" text-anchor="middle">MONTIJO</textPath>
+  </text>
+</svg>
+  </div>
+  <div class="wrap">
+    <h1>
+      <span class="ln"><span>Patinagem</span></span>
+      <span class="ln"><span class="out">Artística</span></span>
+      <span class="ln"><span style="color:var(--red-hot); font-size:.36em; letter-spacing:.02em;">Montijo · 2026/27</span></span>
+    </h1>
+    <div class="hero-foot">
+      <div>
+        <p>Treinamos no Pavilhão Municipal do Montijo: exercícios de escola, saltos, piruetas e os programas que levamos a prova. Começa-se aos 4 anos e sem saber nada.</p>
+        <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:22px;">
+          <a class="btn" href="#inscricoes">Marcar aula grátis</a>
+          <a class="btn o" href="#clube">Conhecer o clube</a>
+        </div>
+      </div>
+      <div class="stats">
+        <div><b data-count="94">0</b><span class="lbl dim">Atletas</span></div>
+        <div><b data-count="7">0</b><span class="lbl dim">Escalões</span></div>
+        <div><b data-count="14">0</b><span class="lbl dim">Anos</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="cue">Scroll<i></i></div>
+</section>
+
+<div class="ticker"><div class="run">
+  <span>Gala de Natal <em style="font-style:normal;color:#B4120C">◆</em> 12 dez <em style="font-style:normal;color:#B4120C">◆</em> 21h00 <em style="font-style:normal;color:#B4120C">◆</em> Pavilhão Municipal <em style="font-style:normal;color:#B4120C">◆</em> Bilhete 5 € <em style="font-style:normal;color:#B4120C">◆</em></span>
+  <span>Gala de Natal <em style="font-style:normal;color:#B4120C">◆</em> 12 dez <em style="font-style:normal;color:#B4120C">◆</em> 21h00 <em style="font-style:normal;color:#B4120C">◆</em> Pavilhão Municipal <em style="font-style:normal;color:#B4120C">◆</em> Bilhete 5 € <em style="font-style:normal;color:#B4120C">◆</em></span>
+</div></div>
+
+<section id="clube" class="pad">
+  <div class="wrap">
+    <div class="eyebrow lbl">O clube</div>
+    <p class="manifesto" id="manif">Começámos com dezoito miúdos e um pavilhão emprestado. Hoje somos <w class="hi">noventa e quatro</w> e conhecemo-nos todos <w class="hi">pelo nome</w>.</p>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:26px; margin-top:56px;">
+      <div class="rv">
+        <h3 style="font-size:30px; color:var(--gold)">Técnica primeiro</h3>
+        <p class="mut" style="margin-top:10px">Dois anos de apoios e quedas antes dos saltos. Vêm mais tarde e vêm melhores.</p>
+      </div>
+      <div class="rv d1">
+        <h3 style="font-size:30px; color:var(--gold)">As mais velhas ensinam</h3>
+        <p class="mut" style="margin-top:10px">Às quintas, a equipa de competição fica meia hora com as turmas de iniciação.</p>
+      </div>
+      <div class="rv d2">
+        <h3 style="font-size:30px; color:var(--gold)">Ninguém fica de fora</h3>
+        <p class="mut" style="margin-top:10px">Quem não quer competir treina na mesma e entra na gala de dezembro.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="caminhos" class="pad" style="padding-top:0">
+  <div class="wrap">
+    <div class="rv-mask"><h2 class="h2">Três caminhos,<br><span style="color:var(--red-hot)">a mesma pista</span></h2></div>
+    <div class="paths" style="margin-top:46px" id="paths">
+      <article class="path on">
+        <img src="img/escola-01.jpg" alt="Turma de iniciação em treino">
+        <div class="body">
+          <span class="n">01</span>
+          <h3>Escola de patinagem</h3>
+          <p>A partir dos 4 anos, sem saber nada. Uma ou duas vezes por semana, e os patins são emprestados pelo clube.</p>
+        </div>
+      </article>
+      <article class="path">
+        <img src="img/atleta-03.jpg" alt="Atleta em programa de competição">
+        <div class="body">
+          <span class="n">02</span>
+          <h3>Competição</h3>
+          <p>Quatro treinos por semana, exercícios de escola e programa livre. Provas regionais e nacionais com a federação.</p>
+        </div>
+      </article>
+      <article class="path">
+        <img src="img/gala-01.jpg" alt="Coreografia de conjunto na gala">
+        <div class="body">
+          <span class="n">03</span>
+          <h3>Grupos e galas</h3>
+          <p>Coreografias de conjunto e o espetáculo de dezembro, com todas as turmas em palco e a sala cheia.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="ticker red"><div class="run">
+  <span>Terça 18h30 ◆ Quinta 18h30 ◆ Sexta 18h30 ◆ Sábado 10h00 ◆ Aula experimental grátis ◆</span>
+  <span>Terça 18h30 ◆ Quinta 18h30 ◆ Sexta 18h30 ◆ Sábado 10h00 ◆ Aula experimental grátis ◆</span>
+</div></div>
+
+<section class="pad">
+  <div class="wrap">
+    <div class="nums rv">
+      <div><b data-count="94">0</b><span class="lbl dim">Atletas</span></div>
+      <div><b data-count="7">0</b><span class="lbl dim">Escalões</span></div>
+      <div><b data-count="11">0</b><span class="lbl dim">Provas por época</span></div>
+      <div><b data-count="380">0</b><span class="lbl dim">Lugares na gala</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="galeria" class="sticky">
+  <div class="pin">
+    <div class="gal-title">
+      <div class="eyebrow lbl">Galeria</div>
+      <h2 class="h2" style="font-size:clamp(36px,6vw,86px)">A época,<br>por dentro</h2>
+    </div>
+    <div class="rail" id="rail">
+      <figure class="pola"><span class="tp"></span><img src="img/treino-01.jpg" alt=""><figcaption>Treino de terça</figcaption></figure>
+      <figure class="pola"><span class="tp"></span><img src="img/atleta-01.jpg" alt=""><figcaption>Beatriz, Cadetes</figcaption></figure>
+      <figure class="pola"><span class="tp"></span><img src="img/patins-01.jpg" alt=""><figcaption>Os patins de sempre</figcaption></figure>
+      <figure class="pola"><span class="tp"></span><img src="img/gala-03.jpg" alt=""><figcaption>Fim de época</figcaption></figure>
+      <figure class="pola"><span class="tp"></span><img src="img/atleta-02.jpg" alt=""><figcaption>Matilde, Infantis</figcaption></figure>
+      <figure class="pola"><span class="tp"></span><img src="img/gala-02.jpg" alt=""><figcaption>A equipa, 2026</figcaption></figure>
+      <figure class="pola"><span class="tp"></span><img src="img/atleta-07.jpg" alt=""><figcaption>Turma de sábado</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="equipa" class="pad">
+  <div class="wrap">
+    <div style="display:flex; flex-wrap:wrap; gap:20px; align-items:flex-end; justify-content:space-between; margin-bottom:44px">
+      <div class="rv-mask"><h2 class="h2">Quem está<br><span style="color:var(--gold)">na pista</span></h2></div>
+      <span class="hand" style="font-size:30px; transform:rotate(-2deg)">seis, e conhecem toda a gente</span>
+    </div>
+    <div class="team">
+      <article class="mem rv"><img src="img/treinador-01.jpg" alt="Sofia Marques">
+        <div class="b"><h3>Sofia Marques</h3><div class="r lbl">Treinadora principal</div>
+        <p class="mut" style="font-size:15px; margin-top:10px">Patinou catorze anos em competição. Monta os programas de prova de Cadetes a Seniores.</p></div></article>
+      <article class="mem rv d1"><img src="img/treinador-02.jpg" alt="Ricardo Nunes">
+        <div class="b"><h3>Ricardo Nunes</h3><div class="r lbl">Escola de patinagem</div>
+        <p class="mut" style="font-size:15px; margin-top:10px">Dá as turmas de iniciação desde 2016. É com ele que se aprende a travar antes de andar.</p></div></article>
+      <article class="mem rv d2"><img src="img/treinador-03.jpg" alt="Inês Carvalho">
+        <div class="b"><h3>Inês Carvalho</h3><div class="r lbl">Coreografia</div>
+        <p class="mut" style="font-size:15px; margin-top:10px">Escolhe as músicas e ensaia as coreografias até saírem de olhos fechados.</p></div></article>
+      <article class="mem rv d3"><img src="img/treinador-05.jpg" alt="Helena Duarte">
+        <div class="b"><h3>Helena Duarte</h3><div class="r lbl">Presidente</div>
+        <p class="mut" style="font-size:15px; margin-top:10px">Fundou o clube em 2012. Trata da federação, da câmara e dos autocarros para as provas.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="agenda" class="pad" style="padding-top:0">
+  <div class="wrap">
+    <div style="display:flex; flex-wrap:wrap; gap:20px; align-items:flex-end; justify-content:space-between; margin-bottom:42px">
+      <div class="rv-mask"><h2 class="h2">Quadro de<br><span style="color:var(--gold)">avisos</span></h2></div>
+      <span class="hand" style="font-size:30px; transform:rotate(2deg)">o que aí vem →</span>
+    </div>
+    <div class="board">
+      <article class="note rv"><div class="lbl" style="color:var(--red-hot)">17 out · sábado</div>
+        <h3 style="font-size:28px; margin-top:10px">Torneio de abertura</h3>
+        <p class="mut" style="font-size:15px; margin-top:8px">Pavilhão do Bonfim, Setúbal. Autocarro às 8h00 — boleias combinam-se no grupo.</p></article>
+      <article class="note rv d1"><div class="lbl" style="color:var(--red-hot)">21 nov</div>
+        <h3 style="font-size:28px; margin-top:10px">Estágio de inverno</h3>
+        <p class="mut" style="font-size:15px; margin-top:8px">Dois dias de trabalho técnico em casa. Inscrições até 7 de novembro.</p></article>
+      <article class="note rv d2"><div class="lbl" style="color:var(--red-hot)">23 jan</div>
+        <h3 style="font-size:28px; margin-top:10px">Taça Regional</h3>
+        <p class="mut" style="font-size:15px; margin-top:8px">Primeira jornada, no Pavilhão da Quinta dos Bacelos, em Palmela.</p></article>
+      <article class="note gold rv d3"><div class="lbl" style="color:#7A3B12">Todo o ano</div>
+        <h3 style="font-size:28px; margin-top:10px; color:#28190C">Aula experimental</h3>
+        <p style="font-size:15px; margin-top:8px; color:#4A3620">Grátis, em qualquer altura da época. Basta aparecer com meias altas.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="gala">
+  <div class="bg" data-par="0.22"><img src="img/gala-01.jpg" alt="Gala de Natal do clube"></div>
+  <div class="wrap">
+    <div class="eyebrow lbl">Próximo em pista</div>
+    <div class="rv-mask"><h2 class="h2">Gala de Natal</h2></div>
+    <p class="mut" style="max-width:46ch; margin-top:20px; font-size:18px">Todas as turmas em palco, das mais pequenas à equipa de competição. Dura cerca de duas horas e a sala enche sempre — vem cedo.</p>
+    <div class="gala-info">
+      <div><span class="lbl dim">Data</span><b>12 dez · 21h00</b></div>
+      <div><span class="lbl dim">Onde</span><b>Pavilhão Municipal</b></div>
+      <div><span class="lbl dim">Bilhete</span><b>5 €</b></div>
+      <div><span class="lbl dim">Lugares</span><b>380</b></div>
+    </div>
+    <a class="btn k" href="#inscricoes" style="margin-top:30px">Reservar bilhete</a>
+  </div>
+</section>
+
+<section id="inscricoes" class="pad">
+  <div class="wrap">
+    <div class="eyebrow lbl">Inscrições 2026/27</div>
+    <div class="rv-mask"><h2 class="h2">Escolhe o ritmo</h2></div>
+    <div class="prices" style="margin-top:46px">
+      <div class="price rv">
+        <h3 style="font-size:30px">Escola · 1 vez</h3>
+        <p class="dim" style="font-size:14.5px; margin-top:6px">Sábado, 10h00–11h30 · a partir dos 4 anos</p>
+        <div class="v">28 €</div><span class="lbl dim">por mês</span>
+      </div>
+      <div class="price hot rv d1"><span class="tag lbl">O mais escolhido</span>
+        <h3 style="font-size:30px">Escola · 2 vezes</h3>
+        <p class="dim" style="font-size:14.5px; margin-top:6px">Terça e quinta, 18h30–20h00</p>
+        <div class="v">42 €</div><span class="lbl dim">por mês</span>
+      </div>
+      <div class="price rv d2">
+        <h3 style="font-size:30px">Competição</h3>
+        <p class="dim" style="font-size:14.5px; margin-top:6px">Terça, quinta, sexta e sábado · inclui provas</p>
+        <div class="v">65 €</div><span class="lbl dim">por mês</span>
+      </div>
+    </div>
+    <p class="dim" style="font-size:15px; margin-top:22px">Joia anual de 35 € com seguro incluído · 15 % de desconto para irmãos · equipamento de competição 120 €, uma vez por época.</p>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap" style="position:relative; z-index:2">
+    <div class="rv-mask"><h2>Vem num sábado</h2></div>
+    <p style="color:#FFF5F3; max-width:50ch; margin:20px auto 0; font-size:19px">Roupa confortável, meias altas e vontade de cair umas quantas vezes. Os patins são por nossa conta.</p>
+    <div style="display:flex; gap:13px; justify-content:center; flex-wrap:wrap; margin-top:32px">
+      <a class="btn k" href="mailto:geral@cpbvm.pt">geral@cpbvm.pt</a>
+      <a class="btn o" href="tel:+351212345678" style="border-color:rgba(255,255,255,.5)">212 345 678</a>
+    </div>
+    <div class="hand" style="font-size:32px; margin-top:22px; color:#FFE08A">até já!</div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div style="display:flex; align-items:center; gap:14px">
+<svg viewBox="0 0 200 200" width="64" height="64" role="img" aria-label="Emblema do Clube de Patinagem BVM Montijo" style="display:block">
+  <defs>
+    <path id="tpf" d="M100,100 m-77,0 a77,77 0 1,1 154,0" fill="none"/>
+    <path id="bpf" d="M100,100 m-74,0 a74,74 0 1,0 148,0" fill="none"/>
+  </defs>
+  <circle cx="100" cy="100" r="100" fill="#000000"/>
+  <circle cx="100" cy="100" r="94" fill="none" stroke="#F0401C" stroke-width="6"/>
+  <g fill="none" stroke="#0C5A34" stroke-linecap="round">
+    <path d="M100,100 m-63,0 a63,63 0 1,1 44,58" stroke-width="3.4" opacity=".95"/>
+    <path d="M100,100 m-57,0 a57,57 0 1,1 52,34" stroke-width="2.4" opacity=".8" transform="rotate(24 100 100)"/>
+    <path d="M100,100 m-52,0 a52,52 0 1,1 46,30" stroke-width="1.8" opacity=".6" transform="rotate(-38 100 100)"/>
+    <path d="M100,100 m-67,0 a67,67 0 0,1 40,-58" stroke-width="2" opacity=".55" transform="rotate(140 100 100)"/>
+  </g>
+  <g fill="#E63917">
+    <circle cx="99" cy="55" r="7.4"/>
+    <path d="M92.5 51.5c-3.4-1.2-5.6-.2-6.2 1.6-.5 1.7 1 3.2 3.6 3.3z"/>
+    <path d="M92.6 64.5c3.8-1.6 8.4-1.6 12.2.2 2.2 1 3.3 3 3.1 5.6l-1.6 22c-.2 2.4-1.6 3.7-4.2 3.9l-8.4.2c-2.6 0-4-1.2-4.2-3.6l-1.6-22.4c-.2-2.7 1-4.7 4.7-5.9z"/>
+    <path d="M104.4 68.6l3.4-3.1 12.8-13.6 2.6-3.6c1-1.4 2.6-1.7 3.9-.7 1.3 1 1.5 2.6.6 4l-3 4.2-13.6 14.6-3.6 3.3z"/>
+    <path d="M124.2 44.4l2.6-3.4c.9-1.2 2.3-1.5 3.4-.7 1.1.8 1.3 2.2.5 3.4l-2.5 3.6z"/>
+    <path d="M91.6 72.2l-4.4.4-17.6 2.1-4.2.9c-1.6.3-3-.6-3.2-2.2-.2-1.6.8-2.8 2.4-3.1l4.6-.8 18-1.9 4.3-.2z"/>
+    <path d="M65.2 69.6l-4.3.6c-1.4.2-2.6-.6-2.8-1.9-.2-1.3.7-2.4 2.1-2.6l4.2-.6z"/>
+    <path d="M89.6 92.4l12.4-.3c2.6 0 4.4 1.2 5.4 3.6l8.6 21.4c.9 2.2.4 3.9-1.5 5l-4.6 2.6-10.7 4.8c-2.6 1.1-4.8 1-6.6-.6l-9.4-8.6-8.2-8.4 3.2-4.1 9.6 7.2-4.8 8.4-6.6 10.6 6-1.6 12.4-5.2c2.3-1 3.4-2.7 3.2-5l-1-12.6z"/>
+    <path d="M97.4 122.6l3.2 20.4.8 14.2-6.2.3-1.2-14.8-2.6-19.4z"/>
+    <path d="M108.6 120.2l6.4 19.6 5 13.4-5.7 2.2-5.4-13.8-6.5-18.6z"/>
+    <path d="M87.6 155.4l10.8-.4.3 4.6-11 .4z"/>
+    <path d="M112.8 151.6l10.2-3.8 1.6 4.3-10.2 3.9z"/>
+    <circle cx="89.4" cy="163.4" r="3.2"/><circle cx="97.6" cy="163" r="3.2"/>
+    <circle cx="115.4" cy="159.6" r="3.2"/><circle cx="123.2" cy="156.8" r="3.2"/>
+  </g>
+  <text fill="#F2C200" font-family="Archivo, Helvetica, Arial, sans-serif" font-size="17" font-weight="700" letter-spacing="1.2" stroke="#8A5A00" stroke-width=".5">
+    <textPath href="#tpf" startOffset="50%" text-anchor="middle">CLUBE PATINAGEM BVM</textPath>
+  </text>
+  <text fill="#FFFFFF" font-family="Archivo, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4">
+    <textPath href="#bpf" startOffset="50%" text-anchor="middle">MONTIJO</textPath>
+  </text>
+</svg>
+          <span style="font-family:Anton,sans-serif; font-size:32px; line-height:.9; text-transform:uppercase">Patinagem<br>BVM</span>
+        </div>
+        <p class="mut" style="font-size:15px; max-width:33ch; margin-top:18px">Clube de patinagem artística do Montijo. Escola, competição e a gala que enche o pavilhão todos os dezembros desde 2012.</p>
+      </div>
+      <div><h4 class="lbl">O clube</h4><ul><li>Quem somos</li><li>Treinadores</li><li>Atletas</li><li>Direção</li></ul></div>
+      <div><h4 class="lbl">Patinar</h4><ul><li>Escola</li><li>Competição</li><li>Agenda</li><li>Inscrições</li></ul></div>
+      <div><h4 class="lbl">Encontrar-nos</h4><ul><li>Pavilhão Municipal do Montijo</li><li>Rua das Palmeiras 12, 2870-355</li><li>geral@cpbvm.pt</li><li>212 345 678</li></ul></div>
+    </div>
+    <div class="fbig">Patinagem BVM</div>
+    <div style="display:flex; flex-wrap:wrap; gap:10px 24px; justify-content:space-between; margin-top:34px; padding-top:20px; border-top:1px solid rgba(247,239,227,.12); font-size:13px; color:var(--dim)">
+      <span>© 2026 Clube de Patinagem BVM · Montijo</span>
+      <span>Conteúdo de demonstração — nomes, datas e valores são fictícios</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- intro ---------- */
+  var intro = document.getElementById('intro');
+  function dropIntro(){ intro.classList.add('gone'); document.body.style.overflow=''; }
+  document.body.style.overflow = 'hidden';
+  window.addEventListener('load', function(){ setTimeout(dropIntro, reduce ? 0 : 1150); });
+  setTimeout(dropIntro, 2600);                 // rede de segurança
+  intro.addEventListener('click', dropIntro);
+
+  /* ---------- cursor ---------- */
+  var cur = document.getElementById('cursor'), cx=0, cy=0, tx=0, ty=0;
+  if (matchMedia('(hover:hover)').matches){
+    addEventListener('mousemove', function(e){ tx=e.clientX; ty=e.clientY; cur.classList.add('on'); });
+    (function loop(){ cx+=(tx-cx)*.18; cy+=(ty-cy)*.18;
+      cur.style.transform='translate('+(cx-13)+'px,'+(cy-13)+'px)'; requestAnimationFrame(loop); })();
+    document.querySelectorAll('a,button,.path,.pola,.price,.note,.mem').forEach(function(el){
+      el.addEventListener('mouseenter', function(){ cur.classList.add('big'); });
+      el.addEventListener('mouseleave', function(){ cur.classList.remove('big'); });
+    });
+  }
+
+  /* ---------- nav ---------- */
+  var hdr=document.getElementById('hdr'), nav=document.getElementById('nav'),
+      burger=document.getElementById('burger'), last=0;
+  burger.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    burger.classList.toggle('x', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ nav.classList.remove('open'); burger.classList.remove('x'); });
+  });
+
+  var secs = [].slice.call(document.querySelectorAll('main section[id]'));
+  var links = [].slice.call(nav.querySelectorAll('a[href^="#"]'));
+
+  function onScroll(){
+    var y = scrollY, h = document.body.scrollHeight - innerHeight;
+    document.getElementById('progress').style.width = (h>0 ? (y/h)*100 : 0) + '%';
+    hdr.classList.toggle('stuck', y > 60);
+    hdr.classList.toggle('hide', y > last && y > 400 && !nav.classList.contains('open'));
+    last = y;
+
+    /* secção ativa */
+    var cur = null;
+    secs.forEach(function(s){ if (s.getBoundingClientRect().top <= innerHeight*0.4) cur = s.id; });
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href') === '#'+cur); });
+
+    /* paralaxe */
+    pars.forEach(function(el){
+      var r = el.parentElement.getBoundingClientRect();
+      if (r.bottom < -200 || r.top > innerHeight+200) return;
+      var off = (r.top + r.height/2 - innerHeight/2) * parseFloat(el.dataset.par);
+      el.style.transform = 'translate3d(0,'+ off.toFixed(1) +'px,0)';
+    });
+
+    /* galeria horizontal */
+    if (rail){
+      var st = rail.closest('.sticky').getBoundingClientRect();
+      var total = st.height - innerHeight;
+      var p = Math.min(1, Math.max(0, -st.top / total));
+      var dist = rail.scrollWidth - innerWidth + innerWidth*0.1;
+      rail.style.transform = 'translate3d(' + (-p*dist).toFixed(1) + 'px,0,0)';
+    }
+
+    /* manifesto acende palavra a palavra */
+    if (words.length){
+      var mr = manif.getBoundingClientRect();
+      var prog = (innerHeight*0.82 - mr.top) / (mr.height + innerHeight*0.22);
+      var n = Math.round(Math.min(1, Math.max(0, prog)) * words.length);
+      words.forEach(function(w,i){ w.classList.toggle('on', i < n); });
+    }
+  }
+
+  var pars = [].slice.call(document.querySelectorAll('[data-par]'));
+  var rail = document.getElementById('rail');
+
+  /* ---------- manifesto: partir em palavras ---------- */
+  var manif = document.getElementById('manif'), words = [];
+  if (manif && !reduce){
+    var out = [];
+    [].slice.call(manif.childNodes).forEach(function(node){
+      if (node.nodeType === 3){
+        node.textContent.split(/(\s+)/).forEach(function(t){
+          if (!t.trim()){ out.push(document.createTextNode(t)); return; }
+          var w = document.createElement('w'); w.textContent = t; out.push(w);
+        });
+      } else out.push(node);
+    });
+    manif.innerHTML = ''; out.forEach(function(n){ manif.appendChild(n); });
+    words = [].slice.call(manif.querySelectorAll('w'));
+  } else if (manif){
+    manif.querySelectorAll('w').forEach(function(w){ w.classList.add('on'); });
+  }
+
+  /* ---------- revelações ---------- */
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold:.18, rootMargin:'0px 0px -8% 0px' });
+  document.querySelectorAll('.rv,.rv-mask').forEach(function(el){ io.observe(el); });
+
+  /* ---------- contadores ---------- */
+  var cio = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if (!e.isIntersecting) return;
+      var el = e.target, end = parseInt(el.dataset.count,10), t0 = null, dur = 1400;
+      if (reduce){ el.textContent = end; cio.unobserve(el); return; }
+      requestAnimationFrame(function step(ts){
+        if (!t0) t0 = ts;
+        var p = Math.min(1, (ts-t0)/dur), e2 = 1-Math.pow(1-p,3);
+        el.textContent = Math.round(end*e2);
+        if (p < 1) requestAnimationFrame(step);
+      });
+      cio.unobserve(el);
+    });
+  }, { threshold:.5 });
+  document.querySelectorAll('[data-count]').forEach(function(el){ cio.observe(el); });
+
+  /* ---------- painéis que abrem ---------- */
+  var paths = [].slice.call(document.querySelectorAll('#paths .path'));
+  paths.forEach(function(p){
+    function open(){ paths.forEach(function(o){ o.classList.toggle('on', o===p); }); }
+    p.addEventListener('mouseenter', open);
+    p.addEventListener('click', open);
+  });
+
+  /* ---------- botões magnéticos ---------- */
+  if (matchMedia('(hover:hover)').matches && !reduce){
+    document.querySelectorAll('.btn').forEach(function(b){
+      b.addEventListener('mousemove', function(e){
+        var r = b.getBoundingClientRect();
+        b.style.transform = 'translate(' + ((e.clientX-r.left-r.width/2)*.18).toFixed(1) + 'px,' +
+                                           ((e.clientY-r.top-r.height/2)*.28-2).toFixed(1) + 'px)';
+      });
+      b.addEventListener('mouseleave', function(){ b.style.transform = ''; });
+    });
+  }
+
+  addEventListener('scroll', onScroll, { passive:true });
+  addEventListener('resize', onScroll);
+  onScroll();
+})();
+</script>
