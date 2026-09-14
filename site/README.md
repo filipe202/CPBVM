@@ -40,12 +40,12 @@ pais (época 2025/26) ou de fontes públicas:
 
 ## O que ainda é provisório
 
-- **Fotografias dos atletas.** As fotos de patins em `img/patim-*.jpg` e
-  `img/patins-par.jpg` são do clube. As restantes (`gala-*`, `escola-01`,
-  `atleta-03`, `treino-01`) continuam a ser de banco de imagem com licença livre,
-  tratadas na mesma paleta. As fotografias de equipa do clube existem mas mostram
-  menores — só entram com autorização da direção e das famílias.
 - **O emblema** é um desenho SVG por aproximação ao original, à espera do ficheiro real.
+- **Fotografias.** Todas as imagens do site são do clube (grupo de comunicados da
+  época 2025/26): equipa com o fato de competição, testes de nível, pódio em Alcácer
+  do Sal, gala do clube, Taça de Portimão e material. Mostram atletas menores — antes
+  de o site ficar público, a direção deve confirmar que tem a autorização de imagem
+  das famílias (habitualmente recolhida na ficha de inscrição).
 
 ## Dados pessoais
 
