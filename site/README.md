@@ -40,7 +40,9 @@ pais (época 2025/26) ou de fontes públicas:
 
 ## O que ainda é provisório
 
-- **O emblema** é um desenho SVG por aproximação ao original, à espera do ficheiro real.
+O emblema é o oficial (`img/logo.png`, recortado em círculo com transparência a
+partir do ficheiro do clube; `img/logo-128.png` para cabeçalho e rodapé).
+
 - **Fotografias.** Todas as imagens do site são do clube (grupo de comunicados da
   época 2025/26): equipa com o fato de competição, testes de nível, pódio em Alcácer
   do Sal, gala do clube, Taça de Portimão e material. Mostram atletas menores — antes
