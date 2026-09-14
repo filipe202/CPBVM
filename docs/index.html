@@ -1,3 +1,14 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Clube de Patinagem dos Bombeiros Voluntários do Montijo. Patinagem artística a partir dos 3 anos — aulas, competição e galas. Inscrições abertas.">
+<meta name="theme-color" content="#080506">
+<meta property="og:title" content="Clube de Patinagem BVM · Montijo">
+<meta property="og:description" content="Patinagem artística no quartel dos Bombeiros Voluntários do Montijo. A partir dos 3 anos.">
+<meta property="og:image" content="img/equipa-kit.jpg">
+<link rel="icon" type="image/png" href="img/logo-128.png">
 <title>Clube de Patinagem BVM · Montijo</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=Caveat:wght@600;700&display=swap">
@@ -13,7 +24,8 @@
   --ease:cubic-bezier(.2,.7,.25,1);
 }
 *{ box-sizing:border-box; }
-html{ scroll-behavior:smooth; overflow-x:clip; }
+html,body{ overflow-x:clip; }
+html{ scroll-behavior:smooth; }
 body{
   margin:0; background:var(--ink); color:var(--txt);
   font-family:'Bricolage Grotesque','Trebuchet MS',sans-serif; font-size:17px; line-height:1.6;
@@ -275,6 +287,8 @@ footer li:hover{ color:var(--gold); transform:translateX(4px); }
 /* ---- ajustes finais de telemóvel (no fim para ganharem a cascata) ---- */
 @media (max-width:700px){
   .cue{ display:none !important; }
+  .swirl{ display:none; }
+  .ticker{ width:100%; margin-left:0; transform:none; }
   .hero{ padding-bottom:64px; }
   .hero .ln:nth-child(3){ margin-top:10px; }
   .hero .ln:nth-child(3) span{ font-size:.30em !important; padding-top:0; }
@@ -321,7 +335,29 @@ footer li:hover{ color:var(--gold); transform:translateX(4px); }
 .sched div{ background:var(--ink); padding:30px 22px; }
 .sched b{ display:block; font-family:Anton,sans-serif; font-weight:400; font-size:clamp(30px,3.6vw,52px); color:var(--gold); line-height:.9; }
 @media (max-width:640px){ .sched{ grid-template-columns:1fr; } }
+
+/* galeria em telemóvel: grelha vertical em vez de scroll horizontal */
+@media (max-width:700px){
+  .sticky{ height:auto; padding-block:64px 24px; }
+  .sticky .pin{ position:static; height:auto; display:block; overflow:visible; }
+  .gal-title{ position:static; width:auto; height:auto; padding:0 22px 26px; background:none; }
+  .rail{ display:grid; grid-template-columns:1fr 1fr; gap:26px 14px; padding:14px 22px 0; transform:none !important; width:auto; }
+  .rail .pola{ width:100%; max-width:none; padding:9px 9px 26px; }
+  .pola img{ height:200px; }
+  .pola figcaption{ font-size:17px; margin-top:8px; }
+  .pola .tp{ width:70px; margin-left:-35px; height:20px; top:-10px; }
+  .rail .pola:nth-child(odd){ transform:rotate(-1.5deg); } .rail .pola:nth-child(even){ transform:rotate(1.5deg); margin-top:18px; }
+  .pola img{ height:135px; }
+  .pola figcaption{ font-size:15px; line-height:1.15; }
+  /* cabeçalho compacto */
+  .brand .nm{ font-size:17px; }
+  .brand .sb{ display:none; }
+  .brand img{ width:40px !important; height:40px !important; }
+  header{ height:64px; } :root{ --nav-h:64px; }
+}
 </style>
+</head>
+<body>
 <div id="progress"></div>
 
 <div id="intro">
@@ -699,7 +735,7 @@ footer li:hover{ color:var(--gold); transform:translateX(4px); }
     });
 
     /* galeria horizontal */
-    if (rail){
+    if (rail && innerWidth > 700){
       var st = rail.closest('.sticky').getBoundingClientRect();
       var total = st.height - innerHeight;
       var p = Math.min(1, Math.max(0, -st.top / total));
@@ -785,3 +821,6 @@ footer li:hover{ color:var(--gold); transform:translateX(4px); }
   onScroll();
 })();
 </script>
+
+</body>
+</html>
