@@ -1,0 +1,180 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap">
+  <style>
+    body{ margin:0; background:#0A0709; color:#F6F1EC;
+      font-family:Archivo,'Helvetica Neue',Helvetica,Arial,sans-serif; font-size:17px; line-height:1.7;
+      -webkit-font-smoothing:antialiased; }
+    a{ color:#E8B93C; text-decoration:none; } a:hover{ color:#FFE9A8; }
+    h1,h2,h3{ margin:0; font-family:'Instrument Serif',Georgia,'Times New Roman',serif; font-weight:400; letter-spacing:-.015em; }
+    p{ margin:0; }
+    .ey{ font-family:Archivo,Helvetica,Arial,sans-serif; font-size:11px; font-weight:600; letter-spacing:.3em;
+      text-transform:uppercase; color:#E8B93C; }
+    .mut{ color:#A79DA4; }
+    .dim{ color:#6E6670; }
+    .it{ font-style:italic; color:#E8B93C; }
+    .chip{ display:inline-block; padding:5px 12px; border:1px solid rgba(232,185,60,.28); border-radius:999px;
+      font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:#E8B93C; }
+    .chip.r{ border-color:rgba(212,16,42,.45); color:#FF7A88; }
+    .chip.g{ border-color:rgba(14,107,55,.55); color:#63C48E; }
+    .btn{ display:inline-block; padding:16px 30px; border-radius:999px; font-size:14px; font-weight:600;
+      letter-spacing:.06em; background:linear-gradient(120deg,#FFE9A8,#E8B93C 55%,#C08C24); color:#1B1206; }
+    .btn.gh{ background:none; border:1px solid rgba(246,241,236,.22); color:#F6F1EC; }
+    .hair{ height:1px; background:linear-gradient(90deg,transparent,rgba(232,185,60,.35),transparent); border:0; }
+    .ph{ background:linear-gradient(168deg,#FF3A4E 0%,#A5122A 28%,#320C14 64%,#0B0709 100%); position:relative; overflow:hidden; }
+    .ph:after{ content:''; position:absolute; left:-10%; right:-10%; top:58%; height:2px;
+      background:linear-gradient(90deg,transparent,#E8B93C,transparent); transform:rotate(-7deg); opacity:.85; }
+    .phl{ position:absolute; left:16px; bottom:14px; font-size:11px; letter-spacing:.16em; text-transform:uppercase;
+      color:rgba(255,255,255,.72); }
+    .card{ background:linear-gradient(180deg,#150F13,#0E0A0D); border:1px solid rgba(246,241,236,.08); }
+  </style>
+</helmet>
+<div style="background:#0A0709; background-image:radial-gradient(60% 40% at 82% 0%, rgba(212,16,42,.22), transparent 62%), radial-gradient(40% 30% at 8% 12%, rgba(232,185,60,.07), transparent 66%);">
+<div style="width:390px;">
+  <div style="display:flex; align-items:center; justify-content:space-between; padding:16px 20px; border-bottom:1px solid rgba(246,241,236,.07);">
+    <div style="display:flex; align-items:center; gap:10px;">
+<svg viewBox="0 0 200 200" width="38" height="38" role="img" aria-label="Emblema do Clube de Patinagem BVM Montijo" style="display:block">
+  <defs>
+    <linearGradient id="aum" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFE9A8"/><stop offset=".48" stop-color="#E8B93C"/><stop offset="1" stop-color="#A8761F"/>
+    </linearGradient>
+    <path id="tpm" d="M100,100 m-74,0 a74,74 0 1,1 148,0" fill="none"/>
+    <path id="bpm" d="M100,100 m-62,0 a62,62 0 1,0 124,0" fill="none"/>
+  </defs>
+  <circle cx="100" cy="100" r="99" fill="#08060a"/>
+  <circle cx="100" cy="100" r="95" fill="none" stroke="#0E6B37" stroke-width="5"/>
+  <circle cx="100" cy="100" r="89" fill="none" stroke="#D4102A" stroke-width="5"/>
+  <circle cx="100" cy="100" r="84.5" fill="none" stroke="url(#aum)" stroke-width="1"/>
+  <circle cx="100" cy="100" r="63" fill="none" stroke="url(#aum)" stroke-width="1" opacity=".55"/>
+  <text fill="url(#aum)" font-family="Archivo, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2.6">
+    <textPath href="#tpm" startOffset="50%" text-anchor="middle">CLUBE PATINAGEM BVM</textPath>
+  </text>
+  <text fill="url(#aum)" font-family="Archivo, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" letter-spacing="4.5">
+    <textPath href="#bpm" startOffset="50%" text-anchor="middle">MONTIJO</textPath>
+  </text>
+  <g transform="translate(100,102) scale(.60) translate(-100,-102)">
+    <g stroke="url(#aum)" stroke-width="8" stroke-linecap="round" fill="none">
+      <path d="M96,108 Q 74,103 54,78"/>
+      <path d="M96,108 L 93,148"/>
+      <path d="M96,108 L 118,90"/>
+      <path d="M118,90 Q 135,87 152,74"/>
+      <path d="M118,90 Q 100,77 80,60"/>
+      <path d="M83,154 H105"/>
+    </g>
+    <circle cx="128" cy="80" r="10" fill="url(#aum)"/>
+    <circle cx="87" cy="161" r="5" fill="url(#aum)"/>
+    <circle cx="101" cy="161" r="5" fill="url(#aum)"/>
+  </g>
+</svg>
+      <span style="font-family:Instrument Serif,Georgia,serif; font-size:16px; line-height:1.1;">Clube de Patinagem BVM</span>
+    </div>
+    <span style="width:44px; height:44px; border:1px solid rgba(246,241,236,.14); border-radius:10px; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:5px;">
+      <span style="width:18px; height:1.5px; background:#F6F1EC; display:block;"></span>
+      <span style="width:18px; height:1.5px; background:#F6F1EC; display:block;"></span>
+    </span>
+  </div>
+
+  <div style="padding:40px 20px 44px; text-align:center;">
+    <div class="ey" style="font-size:10px;">Patinagem artística · Montijo</div>
+    <h1 style="font-size:46px; line-height:1.02; margin-top:18px;">Onde a técnica encontra a <span class="it">arte</span>.</h1>
+    <p class="mut" style="font-size:16px; margin-top:18px;">Escola de patinagem e equipa de competição no Montijo, dos primeiros passos ao pódio.</p>
+    <div style="display:flex; flex-direction:column; gap:10px; margin-top:28px;">
+      <span class="btn" style="display:block; text-align:center; padding:17px;">Inscrever atleta</span>
+      <span class="btn gh" style="display:block; text-align:center; padding:17px;">Conhecer o clube</span>
+    </div>
+    <div style="position:relative; display:flex; justify-content:center; margin-top:44px;">
+      <div style="position:absolute; width:250px; height:250px; border-radius:50%; background:radial-gradient(circle, rgba(212,16,42,.45), rgba(212,16,42,0) 66%); top:-8px;"></div>
+<svg viewBox="0 0 200 200" width="234" height="234" role="img" aria-label="Emblema do Clube de Patinagem BVM Montijo" style="display:block">
+  <defs>
+    <linearGradient id="aumb" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFE9A8"/><stop offset=".48" stop-color="#E8B93C"/><stop offset="1" stop-color="#A8761F"/>
+    </linearGradient>
+    <path id="tpmb" d="M100,100 m-74,0 a74,74 0 1,1 148,0" fill="none"/>
+    <path id="bpmb" d="M100,100 m-62,0 a62,62 0 1,0 124,0" fill="none"/>
+  </defs>
+  <circle cx="100" cy="100" r="99" fill="#08060a"/>
+  <circle cx="100" cy="100" r="95" fill="none" stroke="#0E6B37" stroke-width="5"/>
+  <circle cx="100" cy="100" r="89" fill="none" stroke="#D4102A" stroke-width="5"/>
+  <circle cx="100" cy="100" r="84.5" fill="none" stroke="url(#aumb)" stroke-width="1"/>
+  <circle cx="100" cy="100" r="63" fill="none" stroke="url(#aumb)" stroke-width="1" opacity=".55"/>
+  <text fill="url(#aumb)" font-family="Archivo, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2.6">
+    <textPath href="#tpmb" startOffset="50%" text-anchor="middle">CLUBE PATINAGEM BVM</textPath>
+  </text>
+  <text fill="url(#aumb)" font-family="Archivo, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" letter-spacing="4.5">
+    <textPath href="#bpmb" startOffset="50%" text-anchor="middle">MONTIJO</textPath>
+  </text>
+  <g transform="translate(100,102) scale(.60) translate(-100,-102)">
+    <g stroke="url(#aumb)" stroke-width="8" stroke-linecap="round" fill="none">
+      <path d="M96,108 Q 74,103 54,78"/>
+      <path d="M96,108 L 93,148"/>
+      <path d="M96,108 L 118,90"/>
+      <path d="M118,90 Q 135,87 152,74"/>
+      <path d="M118,90 Q 100,77 80,60"/>
+      <path d="M83,154 H105"/>
+    </g>
+    <circle cx="128" cy="80" r="10" fill="url(#aumb)"/>
+    <circle cx="87" cy="161" r="5" fill="url(#aumb)"/>
+    <circle cx="101" cy="161" r="5" fill="url(#aumb)"/>
+  </g>
+</svg>
+    </div>
+  </div>
+
+  <div style="display:flex; gap:18px; justify-content:center; padding:14px 20px; border-block:1px solid rgba(246,241,236,.07); background:linear-gradient(90deg, rgba(212,16,42,.14), rgba(232,185,60,.12));">
+    <span class="ey" style="font-size:10px; color:rgba(246,241,236,.6);">Técnica</span><span style="color:#E8B93C; font-size:10px;">◆</span>
+    <span class="ey" style="font-size:10px; color:rgba(246,241,236,.6);">Arte</span><span style="color:#E8B93C; font-size:10px;">◆</span>
+    <span class="ey" style="font-size:10px; color:rgba(246,241,236,.6);">Equipa</span>
+  </div>
+
+  <div style="padding:44px 20px 0;">
+    <div class="ey" style="font-size:10px;">O que fazemos</div>
+    <h2 style="font-size:34px; line-height:1.06; margin-top:14px;">Três caminhos, a mesma <span class="it">pista</span>.</h2>
+    <div style="display:flex; flex-direction:column; gap:14px; margin-top:28px;">
+      <div class="card" style="padding:26px; border-radius:4px;">
+        <h3 style="font-size:22px;">Escola de Patinagem</h3>
+        <p class="mut" style="font-size:15px; margin-top:8px;">Primeiros passos e confiança sobre rodas, a partir dos [idade] anos.</p>
+      </div>
+      <div class="card" style="padding:26px; border-radius:4px; border-color:rgba(232,185,60,.22);">
+        <h3 style="font-size:22px;">Artística — Competição</h3>
+        <p class="mut" style="font-size:15px; margin-top:8px;">Treino técnico e coreográfico para provas regionais e nacionais.</p>
+      </div>
+      <div class="card" style="padding:26px; border-radius:4px;">
+        <h3 style="font-size:22px;">Grupos &amp; Exibições</h3>
+        <p class="mut" style="font-size:15px; margin-top:8px;">Coreografias de conjunto, galas e o espetáculo de fim de época.</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding:44px 20px 0;">
+    <div class="card" style="display:grid; grid-template-columns:64px 1fr; gap:18px; align-items:center; padding:18px; border-radius:4px;">
+      <div style="text-align:center; padding:10px 0; border-radius:3px; background:linear-gradient(150deg,#D4102A,#7A0C1B);">
+        <div style="font-family:Instrument Serif,Georgia,serif; font-size:24px; line-height:1;">[00]</div>
+        <div style="font-size:9px; letter-spacing:.2em; text-transform:uppercase;">[Mês]</div>
+      </div>
+      <div>
+        <h3 style="font-size:19px;">Gala de Natal do CPBVM</h3>
+        <p class="dim" style="font-size:13px; margin-top:2px;">[Pavilhão] · Montijo</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding:44px 20px 52px;">
+    <div style="border:1px solid rgba(232,185,60,.18); border-radius:6px; padding:36px 24px; text-align:center;
+      background:radial-gradient(90% 130% at 20% 0%, rgba(212,16,42,.4), transparent 62%), linear-gradient(160deg,#150F13,#0C080B);">
+      <h2 style="font-size:32px; line-height:1.08;">Inscrições <span class="it">abertas</span></h2>
+      <p class="mut" style="font-size:15px; margin-top:12px;">Aula experimental gratuita. Os patins podemos emprestar.</p>
+      <span class="btn" style="display:block; text-align:center; padding:16px; margin-top:22px;">Quero inscrever-me</span>
+    </div>
+  </div>
+</div>
+</div>
+</x-dc>
+</body>
+</html>

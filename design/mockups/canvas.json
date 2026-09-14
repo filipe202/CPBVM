@@ -1,0 +1,18 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html",          "x": 0,    "y": 0,    "w": 1440, "h": 4000, "title": "Homepage" },
+    { "file": "Sobre.dc.html",         "x": 1560, "y": 0,    "w": 1440, "h": 3100, "title": "Sobre" },
+    { "file": "EquipaTecnica.dc.html", "x": 3120, "y": 0,    "w": 1440, "h": 2900, "title": "Equipa Técnica" },
+    { "file": "MobileHome.dc.html",    "x": 4680, "y": 0,    "w": 390,  "h": 1900, "title": "Homepage · telemóvel" },
+    { "file": "Atletas.dc.html",       "x": 0,    "y": 4200, "w": 1440, "h": 2700, "title": "Atletas" },
+    { "file": "Eventos.dc.html",       "x": 1560, "y": 4200, "w": 1440, "h": 2750, "title": "Eventos" },
+    { "file": "Inscricoes.dc.html",    "x": 3120, "y": 4200, "w": 1440, "h": 3100, "title": "Inscrições" }
+  ],
+  "annotations": [
+    { "id": "nota-conteudo", "x": 0, "y": -210, "w": 940,
+      "text": "Mockups do site do CPBVM — tudo entre [parênteses retos] é um placeholder à espera de informação real: nomes da equipa técnica, datas, valores de mensalidade, morada e fotografias.\nAs fotos aparecem como painéis em degradê preto→vermelho com a linha dourada do equipamento." },
+    { "id": "nota-mobile", "x": 4680, "y": -140, "w": 390,
+      "text": "Versão telemóvel da homepage — mesma linguagem, uma coluna." }
+  ],
+  "launch": { "view": "canvas" }
+}
