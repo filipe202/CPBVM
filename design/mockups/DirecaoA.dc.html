@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Archivo:wght@400;500;600;700;800&amp;display=swap">
+  <style>
+    body{ margin:0; background:#0B0405; color:#FFF6EC; font-family:Archivo,'Helvetica Neue',Arial,sans-serif;
+      font-size:17px; line-height:1.6; -webkit-font-smoothing:antialiased; }
+    a{ color:#FFC93C; } a:hover{ color:#fff; }
+    h1,h2,h3{ margin:0; font-family:Anton,'Arial Narrow',Impact,sans-serif; font-weight:400;
+      text-transform:uppercase; line-height:.86; letter-spacing:-.012em; }
+    p{ margin:0; }
+    .out{ color:transparent; -webkit-text-stroke:2px #FFC93C; }
+    .tag{ font-family:Archivo; font-size:11.5px; font-weight:700; letter-spacing:.3em; text-transform:uppercase; }
+    .btn{ display:inline-block; padding:17px 34px; font-family:Archivo; font-size:13.5px; font-weight:800;
+      letter-spacing:.18em; text-transform:uppercase; background:#FF2E1F; color:#fff; }
+    .btn.y{ background:#FFC93C; color:#1A0B00; }
+    .grain{ position:absolute; inset:0; pointer-events:none; opacity:.5; mix-blend-mode:overlay;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  </style>
+</helmet>
+<div style="position:relative; background:#0B0405; overflow:hidden;">
+  <div style="position:absolute; left:-180px; top:-120px; width:900px; height:900px; border-radius:50%; background:radial-gradient(circle,#FF2E1F 0%, rgba(255,46,31,.25) 42%, transparent 70%); opacity:.55;"></div>
+  <div style="position:absolute; right:-220px; top:520px; width:760px; height:760px; border-radius:50%; background:radial-gradient(circle,#0E7A3C 0%, transparent 68%); opacity:.4;"></div>
+  <div class="grain"></div>
+
+  <div style="position:relative; display:flex; align-items:center; justify-content:space-between; padding:22px 60px; border-bottom:2px solid #FFC93C;">
+    <div style="display:flex; align-items:center; gap:12px;">
+<svg viewBox="0 0 200 200" width="46" height="46" role="img" aria-label="Emblema do Clube de Patinagem BVM Montijo" style="display:block">
+  <defs>
+    <path id="tpna" d="M100,100 m-77,0 a77,77 0 1,1 154,0" fill="none"/>
+    <path id="bpna" d="M100,100 m-74,0 a74,74 0 1,0 148,0" fill="none"/>
+  </defs>
+  <circle cx="100" cy="100" r="100" fill="#000000"/>
+  <circle cx="100" cy="100" r="94" fill="none" stroke="#F0401C" stroke-width="6"/>
+  <g fill="none" stroke="#0C5A34" stroke-linecap="round">
+    <path d="M100,100 m-63,0 a63,63 0 1,1 44,58" stroke-width="3.4" opacity=".95"/>
+    <path d="M100,100 m-57,0 a57,57 0 1,1 52,34" stroke-width="2.4" opacity=".8" transform="rotate(24 100 100)"/>
+    <path d="M100,100 m-52,0 a52,52 0 1,1 46,30" stroke-width="1.8" opacity=".6" transform="rotate(-38 100 100)"/>
+    <path d="M100,100 m-67,0 a67,67 0 0,1 40,-58" stroke-width="2" opacity=".55" transform="rotate(140 100 100)"/>
+  </g>
+  <g fill="#E63917">
+    <circle cx="99" cy="55" r="7.4"/>
+    <path d="M92.5 51.5c-3.4-1.2-5.6-.2-6.2 1.6-.5 1.7 1 3.2 3.6 3.3z"/>
+    <path d="M92.6 64.5c3.8-1.6 8.4-1.6 12.2.2 2.2 1 3.3 3 3.1 5.6l-1.6 22c-.2 2.4-1.6 3.7-4.2 3.9l-8.4.2c-2.6 0-4-1.2-4.2-3.6l-1.6-22.4c-.2-2.7 1-4.7 4.7-5.9z"/>
+    <path d="M104.4 68.6l3.4-3.1 12.8-13.6 2.6-3.6c1-1.4 2.6-1.7 3.9-.7 1.3 1 1.5 2.6.6 4l-3 4.2-13.6 14.6-3.6 3.3z"/>
+    <path d="M124.2 44.4l2.6-3.4c.9-1.2 2.3-1.5 3.4-.7 1.1.8 1.3 2.2.5 3.4l-2.5 3.6z"/>
+    <path d="M91.6 72.2l-4.4.4-17.6 2.1-4.2.9c-1.6.3-3-.6-3.2-2.2-.2-1.6.8-2.8 2.4-3.1l4.6-.8 18-1.9 4.3-.2z"/>
+    <path d="M65.2 69.6l-4.3.6c-1.4.2-2.6-.6-2.8-1.9-.2-1.3.7-2.4 2.1-2.6l4.2-.6z"/>
+    <path d="M89.6 92.4l12.4-.3c2.6 0 4.4 1.2 5.4 3.6l8.6 21.4c.9 2.2.4 3.9-1.5 5l-4.6 2.6-10.7 4.8c-2.6 1.1-4.8 1-6.6-.6l-9.4-8.6-8.2-8.4 3.2-4.1 9.6 7.2-4.8 8.4-6.6 10.6 6-1.6 12.4-5.2c2.3-1 3.4-2.7 3.2-5l-1-12.6z"/>
+    <path d="M97.4 122.6l3.2 20.4.8 14.2-6.2.3-1.2-14.8-2.6-19.4z"/>
+    <path d="M108.6 120.2l6.4 19.6 5 13.4-5.7 2.2-5.4-13.8-6.5-18.6z"/>
+    <path d="M87.6 155.4l10.8-.4.3 4.6-11 .4z"/>
+    <path d="M112.8 151.6l10.2-3.8 1.6 4.3-10.2 3.9z"/>
+    <circle cx="89.4" cy="163.4" r="3.2"/><circle cx="97.6" cy="163" r="3.2"/>
+    <circle cx="115.4" cy="159.6" r="3.2"/><circle cx="123.2" cy="156.8" r="3.2"/>
+  </g>
+</svg>
+      <span class="tag" style="color:#FFC93C;">CPBVM · Montijo</span>
+    </div>
+    <div style="display:flex; gap:26px;" class="tag">
+      <span>Clube</span><span>Equipa</span><span>Atletas</span><span>Agenda</span><span style="color:#FF6A4D;">Inscrições</span>
+    </div>
+  </div>
+
+  <div style="position:relative; padding:56px 60px 0;">
+    <div style="display:flex; align-items:center; gap:18px; margin-bottom:26px;">
+      <span style="height:2px; width:64px; background:#FFC93C; display:block;"></span>
+      <span class="tag" style="color:#FFF6EC;">Época 2026/27 · Patinagem artística</span>
+    </div>
+
+    <h1 style="font-size:196px; letter-spacing:-.02em;">Patinagem</h1>
+    <div style="display:flex; align-items:flex-end; gap:26px; margin-top:-14px;">
+      <h1 class="out" style="font-size:196px;">Artística</h1>
+      <div style="padding-bottom:34px;">
+        <div style="font-family:Anton; font-size:64px; color:#FF2E1F; line-height:.8;">Montijo</div>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1.1fr .9fr; gap:54px; margin-top:44px; align-items:start;">
+      <div>
+        <p style="font-size:21px; max-width:44ch; color:#E7D9CE;">Não é só andar de patins. É cair sessenta vezes, levantar sessenta e uma, e no dia da gala ouvir o pavilhão inteiro a gritar o teu nome.</p>
+        <div style="display:flex; gap:14px; margin-top:34px;">
+          <span class="btn">Aula experimental grátis</span>
+          <span class="btn y">Ver a equipa</span>
+        </div>
+        <div style="display:flex; gap:0; margin-top:54px; border-top:2px solid rgba(255,246,236,.2);">
+          <div style="flex:1; padding:22px 0;"><div style="font-family:Anton; font-size:54px; color:#FFC93C; line-height:.9;">94</div><span class="tag" style="color:#9B8B82;">Atletas</span></div>
+          <div style="flex:1; padding:22px 0; border-left:2px solid rgba(255,246,236,.2); padding-left:24px;"><div style="font-family:Anton; font-size:54px; color:#FFC93C; line-height:.9;">7</div><span class="tag" style="color:#9B8B82;">Escalões</span></div>
+          <div style="flex:1; padding:22px 0; border-left:2px solid rgba(255,246,236,.2); padding-left:24px;"><div style="font-family:Anton; font-size:54px; color:#FFC93C; line-height:.9;">14</div><span class="tag" style="color:#9B8B82;">Anos de clube</span></div>
+        </div>
+      </div>
+      <div style="position:relative; height:470px;">
+        <div style="position:absolute; right:40px; top:-90px; width:330px; height:420px; transform:rotate(-5deg); border:10px solid #FFF6EC; box-shadow:0 30px 70px rgba(0,0,0,.7);">
+          <img src="atleta-01.jpg" alt="" style="width:100%; height:100%; object-fit:cover; display:block">
+        </div>
+        <div style="position:absolute; left:0; top:150px; width:250px; height:300px; transform:rotate(6deg); border:10px solid #FF2E1F; box-shadow:0 30px 70px rgba(0,0,0,.7);">
+          <img src="gala-01.jpg" alt="" style="width:100%; height:100%; object-fit:cover; display:block">
+        </div>
+        <div style="position:absolute; right:-6px; bottom:-30px; width:132px; height:132px; border-radius:50%; background:#FFC93C; color:#1A0B00; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; transform:rotate(-12deg); font-family:Anton; line-height:.95; font-size:21px;">
+          AULA<br>GRÁTIS<br><span style="font-family:Archivo; font-size:10px; font-weight:800; letter-spacing:.16em; margin-top:5px;">SEM COMPROMISSO</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="position:relative; margin-top:70px; background:#FFC93C; color:#170A02; padding:16px 60px; display:flex; align-items:center; justify-content:space-between; font-family:Anton; font-size:26px; letter-spacing:.02em;">
+    <span>GALA DE NATAL</span><span>12 DEZ</span><span>21H00</span><span>PAVILHÃO MUNICIPAL</span><span>BILHETE 5 €</span>
+    <span style="font-family:Archivo; font-size:12px; font-weight:800; letter-spacing:.2em; border:2px solid #170A02; padding:8px 14px;">RESERVAR →</span>
+  </div>
+
+  <div style="position:relative; padding:80px 60px 0;">
+    <h2 style="font-size:78px;">O que se faz<br><span style="color:#FF2E1F;">nesta pista</span></h2>
+    <div style="margin-top:44px; border-top:2px solid rgba(255,246,236,.2);">
+      <div style="display:grid; grid-template-columns:100px 1fr 300px 60px; gap:30px; align-items:center; padding:34px 0; border-bottom:2px solid rgba(255,246,236,.2);">
+        <span style="font-family:Anton; font-size:44px; color:#FFC93C;">01</span>
+        <h3 style="font-size:52px;">Escola de patinagem</h3>
+        <p style="font-size:15px; color:#A99A90;">A partir dos 4 anos. Sem saber nada. Os patins são emprestados.</p>
+        <span style="font-family:Anton; font-size:40px; color:#FF2E1F; text-align:right;">→</span>
+      </div>
+      <div style="display:grid; grid-template-columns:100px 1fr 300px 60px; gap:30px; align-items:center; padding:34px 0; border-bottom:2px solid rgba(255,246,236,.2);">
+        <span style="font-family:Anton; font-size:44px; color:#FFC93C;">02</span>
+        <h3 style="font-size:52px;">Competição federada</h3>
+        <p style="font-size:15px; color:#A99A90;">Quatro treinos por semana, provas regionais e nacionais.</p>
+        <span style="font-family:Anton; font-size:40px; color:#FF2E1F; text-align:right;">→</span>
+      </div>
+      <div style="display:grid; grid-template-columns:100px 1fr 300px 60px; gap:30px; align-items:center; padding:34px 0; border-bottom:2px solid rgba(255,246,236,.2);">
+        <span style="font-family:Anton; font-size:44px; color:#FFC93C;">03</span>
+        <h3 style="font-size:52px;">Grupos e galas</h3>
+        <p style="font-size:15px; color:#A99A90;">Coreografias de conjunto e o espetáculo que enche o pavilhão.</p>
+        <span style="font-family:Anton; font-size:40px; color:#FF2E1F; text-align:right;">→</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="position:relative; padding:80px 60px 90px;">
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:18px;">
+      <div style="position:relative; height:260px; overflow:hidden;"><img src="treino-01.jpg" alt="" style="width:100%; height:100%; object-fit:cover; display:block"><span class="tag" style="position:absolute; left:16px; bottom:14px; color:#fff;">Treino de terça</span></div>
+      <div style="position:relative; height:260px; overflow:hidden;"><img src="atleta-05.jpg" alt="" style="width:100%; height:100%; object-fit:cover; display:block"><span class="tag" style="position:absolute; left:16px; bottom:14px; color:#fff;">Programa livre</span></div>
+      <div style="position:relative; height:260px; overflow:hidden; background:#FF2E1F; display:flex; flex-direction:column; justify-content:space-between; padding:26px;">
+        <span class="tag">Segue o clube</span>
+        <div style="font-family:Anton; font-size:40px; line-height:.9;">@cpbvm<br>montijo</div>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap">
+  <style>
+    body{ margin:0; background:#060809; color:#EAF0EE; font-family:'Space Grotesk',Menlo,monospace;
+      font-size:16.5px; line-height:1.65; -webkit-font-smoothing:antialiased; }
+    a{ color:#F2C200; } a:hover{ color:#fff; }
+    h1,h2,h3{ margin:0; font-family:Syne,'Trebuchet MS',sans-serif; font-weight:800; line-height:.94; letter-spacing:-.03em; }
+    p{ margin:0; }
+    .mono{ font-family:'Space Grotesk',monospace; font-size:11.5px; font-weight:500; letter-spacing:.26em; text-transform:uppercase; }
+    .pill{ display:inline-flex; align-items:center; gap:8px; padding:9px 16px; border:1px solid rgba(234,240,238,.22); border-radius:999px; }
+    .btn{ display:inline-flex; align-items:center; gap:10px; padding:15px 28px; border-radius:999px;
+      font-family:Syne; font-weight:800; font-size:14px; letter-spacing:.02em; background:#E11B2E; color:#fff; }
+    .btn.o{ background:transparent; border:1px solid rgba(234,240,238,.3); color:#EAF0EE; }
+  </style>
+</helmet>
+<div style="position:relative; background:
+   radial-gradient(120% 90% at 50% 8%, rgba(225,27,46,.28), transparent 60%),
+   radial-gradient(70% 60% at 88% 78%, rgba(14,122,60,.24), transparent 62%), #060809; overflow:hidden;">
+
+  <div style="position:absolute; left:50%; top:330px; transform:translateX(-50%); width:1500px; height:1500px; border-radius:50%; border:1px solid rgba(234,240,238,.07);"></div>
+  <div style="position:absolute; left:50%; top:470px; transform:translateX(-50%); width:1180px; height:1180px; border-radius:50%; border:1px solid rgba(234,240,238,.07);"></div>
+  <div style="position:absolute; left:50%; top:620px; transform:translateX(-50%); width:860px; height:860px; border-radius:50%; border:1px dashed rgba(242,194,0,.22);"></div>
+
+  <div style="position:relative; display:flex; align-items:center; justify-content:space-between; padding:26px 56px;">
+    <div style="display:flex; align-items:center; gap:12px;">
+<svg viewBox="0 0 200 200" width="44" height="44" role="img" aria-label="Emblema do Clube de Patinagem BVM Montijo" style="display:block">
+  <defs>
+    <path id="tpnb" d="M100,100 m-77,0 a77,77 0 1,1 154,0" fill="none"/>
+    <path id="bpnb" d="M100,100 m-74,0 a74,74 0 1,0 148,0" fill="none"/>
+  </defs>
+  <circle cx="100" cy="100" r="100" fill="#000000"/>
+  <circle cx="100" cy="100" r="94" fill="none" stroke="#F0401C" stroke-width="6"/>
+  <g fill="none" stroke="#0C5A34" stroke-linecap="round">
+    <path d="M100,100 m-63,0 a63,63 0 1,1 44,58" stroke-width="3.4" opacity=".95"/>
+    <path d="M100,100 m-57,0 a57,57 0 1,1 52,34" stroke-width="2.4" opacity=".8" transform="rotate(24 100 100)"/>
+    <path d="M100,100 m-52,0 a52,52 0 1,1 46,30" stroke-width="1.8" opacity=".6" transform="rotate(-38 100 100)"/>
+    <path d="M100,100 m-67,0 a67,67 0 0,1 40,-58" stroke-width="2" opacity=".55" transform="rotate(140 100 100)"/>
+  </g>
+  <g fill="#E63917">
+    <circle cx="99" cy="55" r="7.4"/>
+    <path d="M92.5 51.5c-3.4-1.2-5.6-.2-6.2 1.6-.5 1.7 1 3.2 3.6 3.3z"/>
+    <path d="M92.6 64.5c3.8-1.6 8.4-1.6 12.2.2 2.2 1 3.3 3 3.1 5.6l-1.6 22c-.2 2.4-1.6 3.7-4.2 3.9l-8.4.2c-2.6 0-4-1.2-4.2-3.6l-1.6-22.4c-.2-2.7 1-4.7 4.7-5.9z"/>
+    <path d="M104.4 68.6l3.4-3.1 12.8-13.6 2.6-3.6c1-1.4 2.6-1.7 3.9-.7 1.3 1 1.5 2.6.6 4l-3 4.2-13.6 14.6-3.6 3.3z"/>
+    <path d="M124.2 44.4l2.6-3.4c.9-1.2 2.3-1.5 3.4-.7 1.1.8 1.3 2.2.5 3.4l-2.5 3.6z"/>
+    <path d="M91.6 72.2l-4.4.4-17.6 2.1-4.2.9c-1.6.3-3-.6-3.2-2.2-.2-1.6.8-2.8 2.4-3.1l4.6-.8 18-1.9 4.3-.2z"/>
+    <path d="M65.2 69.6l-4.3.6c-1.4.2-2.6-.6-2.8-1.9-.2-1.3.7-2.4 2.1-2.6l4.2-.6z"/>
+    <path d="M89.6 92.4l12.4-.3c2.6 0 4.4 1.2 5.4 3.6l8.6 21.4c.9 2.2.4 3.9-1.5 5l-4.6 2.6-10.7 4.8c-2.6 1.1-4.8 1-6.6-.6l-9.4-8.6-8.2-8.4 3.2-4.1 9.6 7.2-4.8 8.4-6.6 10.6 6-1.6 12.4-5.2c2.3-1 3.4-2.7 3.2-5l-1-12.6z"/>
+    <path d="M97.4 122.6l3.2 20.4.8 14.2-6.2.3-1.2-14.8-2.6-19.4z"/>
+    <path d="M108.6 120.2l6.4 19.6 5 13.4-5.7 2.2-5.4-13.8-6.5-18.6z"/>
+    <path d="M87.6 155.4l10.8-.4.3 4.6-11 .4z"/>
+    <path d="M112.8 151.6l10.2-3.8 1.6 4.3-10.2 3.9z"/>
+    <circle cx="89.4" cy="163.4" r="3.2"/><circle cx="97.6" cy="163" r="3.2"/>
+    <circle cx="115.4" cy="159.6" r="3.2"/><circle cx="123.2" cy="156.8" r="3.2"/>
+  </g>
+</svg>
+      <span style="font-family:Syne; font-weight:800; font-size:17px; letter-spacing:-.02em;">CPBVM</span>
+    </div>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <span class="pill mono">Clube</span><span class="pill mono">Atletas</span><span class="pill mono">Agenda</span>
+      <span class="pill mono" style="border-color:rgba(242,194,0,.5); color:#F2C200;">Inscrições ativas</span>
+    </div>
+  </div>
+
+  <div style="position:relative; text-align:center; padding:58px 56px 0;">
+    <span class="pill mono" style="color:#F2C200; border-color:rgba(242,194,0,.4);">
+      <span style="width:7px; height:7px; border-radius:50%; background:#F2C200; display:block;"></span>Época 2026/27 em curso
+    </span>
+    <h1 style="font-size:118px; margin-top:30px;">A elegância<br>anda sobre <span style="color:#E11B2E;">rodas</span></h1>
+    <p style="font-size:19px; color:#9AA7A3; max-width:54ch; margin:26px auto 0;">Clube de patinagem artística do Montijo. Escola, competição e espetáculo — tudo à volta da mesma pista.</p>
+    <div style="display:flex; gap:12px; justify-content:center; margin-top:34px;">
+      <span class="btn">Inscrever atleta</span>
+      <span class="btn o">Ver calendário</span>
+    </div>
+  </div>
+
+  <div style="position:relative; height:640px; margin-top:30px;">
+    <svg viewBox="0 0 600 600" width="600" height="600" style="position:absolute; left:50%; top:76px; transform:translateX(-50%);" aria-hidden="true">
+      <defs><path id="ring" d="M300,300 m-268,0 a268,268 0 1,1 536,0 a268,268 0 1,1 -536,0" fill="none"/></defs>
+      <text fill="rgba(242,194,0,.75)" font-family="Space Grotesk, monospace" font-size="19" font-weight="500" letter-spacing="7.5">
+        <textPath href="#ring" startOffset="0%">CLUBE PATINAGEM BVM · MONTIJO · DESDE 2012 · CLUBE PATINAGEM BVM · MONTIJO · DESDE 2012 ·</textPath>
+      </text>
+      <circle cx="300" cy="300" r="292" fill="none" stroke="rgba(225,27,46,.35)" stroke-width="1"/>
+      <path d="M300,300 m-292,0 a292,292 0 0,1 190,-274" fill="none" stroke="#E11B2E" stroke-width="4" stroke-linecap="round"/>
+      <path d="M300,300 m292,0 a292,292 0 0,1 -150,253" fill="none" stroke="#0E7A3C" stroke-width="4" stroke-linecap="round"/>
+    </svg>
+    <div style="position:absolute; left:50%; top:196px; transform:translateX(-50%);">
+<svg viewBox="0 0 200 200" width="420" height="420" role="img" aria-label="Emblema do Clube de Patinagem BVM Montijo" style="display:block">
+  <defs>
+    <path id="tpb" d="M100,100 m-77,0 a77,77 0 1,1 154,0" fill="none"/>
+    <path id="bpb" d="M100,100 m-74,0 a74,74 0 1,0 148,0" fill="none"/>
+  </defs>
+  <circle cx="100" cy="100" r="100" fill="#000000"/>
+  <circle cx="100" cy="100" r="94" fill="none" stroke="#F0401C" stroke-width="6"/>
+  <g fill="none" stroke="#0C5A34" stroke-linecap="round">
+    <path d="M100,100 m-63,0 a63,63 0 1,1 44,58" stroke-width="3.4" opacity=".95"/>
+    <path d="M100,100 m-57,0 a57,57 0 1,1 52,34" stroke-width="2.4" opacity=".8" transform="rotate(24 100 100)"/>
+    <path d="M100,100 m-52,0 a52,52 0 1,1 46,30" stroke-width="1.8" opacity=".6" transform="rotate(-38 100 100)"/>
+    <path d="M100,100 m-67,0 a67,67 0 0,1 40,-58" stroke-width="2" opacity=".55" transform="rotate(140 100 100)"/>
+  </g>
+  <g fill="#E63917">
+    <circle cx="99" cy="55" r="7.4"/>
+    <path d="M92.5 51.5c-3.4-1.2-5.6-.2-6.2 1.6-.5 1.7 1 3.2 3.6 3.3z"/>
+    <path d="M92.6 64.5c3.8-1.6 8.4-1.6 12.2.2 2.2 1 3.3 3 3.1 5.6l-1.6 22c-.2 2.4-1.6 3.7-4.2 3.9l-8.4.2c-2.6 0-4-1.2-4.2-3.6l-1.6-22.4c-.2-2.7 1-4.7 4.7-5.9z"/>
+    <path d="M104.4 68.6l3.4-3.1 12.8-13.6 2.6-3.6c1-1.4 2.6-1.7 3.9-.7 1.3 1 1.5 2.6.6 4l-3 4.2-13.6 14.6-3.6 3.3z"/>
+    <path d="M124.2 44.4l2.6-3.4c.9-1.2 2.3-1.5 3.4-.7 1.1.8 1.3 2.2.5 3.4l-2.5 3.6z"/>
+    <path d="M91.6 72.2l-4.4.4-17.6 2.1-4.2.9c-1.6.3-3-.6-3.2-2.2-.2-1.6.8-2.8 2.4-3.1l4.6-.8 18-1.9 4.3-.2z"/>
+    <path d="M65.2 69.6l-4.3.6c-1.4.2-2.6-.6-2.8-1.9-.2-1.3.7-2.4 2.1-2.6l4.2-.6z"/>
+    <path d="M89.6 92.4l12.4-.3c2.6 0 4.4 1.2 5.4 3.6l8.6 21.4c.9 2.2.4 3.9-1.5 5l-4.6 2.6-10.7 4.8c-2.6 1.1-4.8 1-6.6-.6l-9.4-8.6-8.2-8.4 3.2-4.1 9.6 7.2-4.8 8.4-6.6 10.6 6-1.6 12.4-5.2c2.3-1 3.4-2.7 3.2-5l-1-12.6z"/>
+    <path d="M97.4 122.6l3.2 20.4.8 14.2-6.2.3-1.2-14.8-2.6-19.4z"/>
+    <path d="M108.6 120.2l6.4 19.6 5 13.4-5.7 2.2-5.4-13.8-6.5-18.6z"/>
+    <path d="M87.6 155.4l10.8-.4.3 4.6-11 .4z"/>
+    <path d="M112.8 151.6l10.2-3.8 1.6 4.3-10.2 3.9z"/>
+    <circle cx="89.4" cy="163.4" r="3.2"/><circle cx="97.6" cy="163" r="3.2"/>
+    <circle cx="115.4" cy="159.6" r="3.2"/><circle cx="123.2" cy="156.8" r="3.2"/>
+  </g>
+  <text fill="#F2C200" font-family="Archivo, Helvetica, Arial, sans-serif" font-size="17" font-weight="700" letter-spacing="1.2" stroke="#8A5A00" stroke-width=".5">
+    <textPath href="#tpb" startOffset="50%" text-anchor="middle">CLUBE PATINAGEM BVM</textPath>
+  </text>
+  <text fill="#FFFFFF" font-family="Archivo, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4">
+    <textPath href="#bpb" startOffset="50%" text-anchor="middle">MONTIJO</textPath>
+  </text>
+</svg>
+    </div>
+    <div style="position:absolute; left:190px; top:140px; width:168px; height:168px; border-radius:50%; overflow:hidden; border:2px solid rgba(242,194,0,.5);"><img src="atleta-02.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div style="position:absolute; right:186px; top:86px; width:140px; height:140px; border-radius:50%; overflow:hidden; border:2px solid rgba(225,27,46,.6);"><img src="atleta-05.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div style="position:absolute; left:250px; bottom:56px; width:132px; height:132px; border-radius:50%; overflow:hidden; border:2px solid rgba(234,240,238,.25);"><img src="escola-01.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div style="position:absolute; right:216px; bottom:40px; width:176px; height:176px; border-radius:50%; overflow:hidden; border:2px solid rgba(14,122,60,.6);"><img src="gala-01.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div style="position:absolute; left:96px; bottom:186px;" class="mono"><span style="color:#F2C200;">94</span> <span style="color:#6F7C78;">atletas</span></div>
+    <div style="position:absolute; right:104px; top:300px;" class="mono"><span style="color:#F2C200;">7</span> <span style="color:#6F7C78;">escalões</span></div>
+  </div>
+
+  <div style="position:relative; display:flex; gap:44px; align-items:center; padding:20px 56px; background:#E11B2E; transform:rotate(-1.4deg); width:110%; margin-left:-5%; white-space:nowrap; overflow:hidden;">
+    <span class="mono" style="font-size:14px;">Terça 18h30</span><span style="color:#FFD9DC;">/</span>
+    <span class="mono" style="font-size:14px;">Quinta 18h30</span><span style="color:#FFD9DC;">/</span>
+    <span class="mono" style="font-size:14px;">Sábado 10h00</span><span style="color:#FFD9DC;">/</span>
+    <span class="mono" style="font-size:14px;">Pavilhão Municipal do Montijo</span><span style="color:#FFD9DC;">/</span>
+    <span class="mono" style="font-size:14px;">Aula experimental grátis</span><span style="color:#FFD9DC;">/</span>
+    <span class="mono" style="font-size:14px;">Terça 18h30</span>
+  </div>
+
+  <div style="position:relative; padding:96px 56px 0;">
+    <div style="display:grid; grid-template-columns:auto 1fr; gap:60px; align-items:end;">
+      <h2 style="font-size:66px;">Três órbitas,<br>uma pista</h2>
+      <p style="font-size:16px; color:#9AA7A3; max-width:40ch; padding-bottom:10px;">Cada atleta entra pelo seu lado: uns ficam pelo prazer de patinar, outros levam a época inteira a preparar uma prova.</p>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; margin-top:46px;">
+      <div style="position:relative; padding:34px; border:1px solid rgba(234,240,238,.14); border-radius:22px; background:linear-gradient(170deg,rgba(234,240,238,.05),transparent);">
+        <span class="mono" style="color:#F2C200;">01 / Escola</span>
+        <h3 style="font-size:34px; margin:18px 0 12px;">Primeiros<br>metros</h3>
+        <p style="font-size:15px; color:#9AA7A3;">A partir dos 4 anos, sem experiência. Os patins emprestamos nós.</p>
+      </div>
+      <div style="position:relative; padding:34px; border:1px solid rgba(225,27,46,.45); border-radius:22px; background:linear-gradient(170deg,rgba(225,27,46,.14),transparent);">
+        <span class="mono" style="color:#F2C200;">02 / Competição</span>
+        <h3 style="font-size:34px; margin:18px 0 12px;">Provas<br>federadas</h3>
+        <p style="font-size:15px; color:#9AA7A3;">Quatro treinos por semana, exercícios de escola e programa livre.</p>
+      </div>
+      <div style="position:relative; padding:34px; border:1px solid rgba(14,122,60,.5); border-radius:22px; background:linear-gradient(170deg,rgba(14,122,60,.14),transparent);">
+        <span class="mono" style="color:#F2C200;">03 / Grupos</span>
+        <h3 style="font-size:34px; margin:18px 0 12px;">Galas e<br>conjuntos</h3>
+        <p style="font-size:15px; color:#9AA7A3;">Coreografias de equipa e o espetáculo que enche o pavilhão.</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="position:relative; padding:90px 56px 96px;">
+    <div style="display:grid; grid-template-columns:1fr auto; gap:40px; align-items:center; padding:46px 52px; border-radius:28px; border:1px solid rgba(242,194,0,.28); background:linear-gradient(120deg, rgba(225,27,46,.24), rgba(6,8,9,.2) 60%);">
+      <div>
+        <span class="mono" style="color:#F2C200;">Próximo em pista</span>
+        <h2 style="font-size:52px; margin-top:14px;">Gala de Natal · 12 dez · 21h00</h2>
+        <p style="font-size:16px; color:#9AA7A3; margin-top:12px;">Pavilhão Municipal do Montijo · bilhete 5 € · todas as turmas em palco.</p>
+      </div>
+      <span class="btn" style="padding:19px 34px;">Reservar bilhete</span>
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

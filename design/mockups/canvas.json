@@ -1,21 +1,27 @@
 {
+  "pages": [
+    { "id": "page-1", "name": "Direções" },
+    { "id": "page-2", "name": "Versão 1 (segura)" }
+  ],
   "artboards": [
-    { "file": "Main.dc.html",          "x": 0,    "y": 0,    "w": 1440, "h": 4500, "title": "Homepage" },
-    { "file": "Sobre.dc.html",         "x": 1560, "y": 0,    "w": 1440, "h": 3200, "title": "Sobre" },
-    { "file": "EquipaTecnica.dc.html", "x": 3120, "y": 0,    "w": 1440, "h": 2950, "title": "Equipa Técnica" },
-    { "file": "Atletas.dc.html",       "x": 4680, "y": 0,    "w": 1440, "h": 2800, "title": "Atletas" },
-    { "file": "Eventos.dc.html",       "x": 0,    "y": 4700, "w": 1440, "h": 3350, "title": "Eventos" },
-    { "file": "Inscricoes.dc.html",    "x": 1560, "y": 4700, "w": 1440, "h": 3200, "title": "Inscrições" },
-    { "file": "Contactos.dc.html",     "x": 3120, "y": 4700, "w": 1440, "h": 2700, "title": "Contactos" },
-    { "file": "MobileHome.dc.html",    "x": 4680, "y": 4700, "w": 390,  "h": 2800, "title": "Homepage · telemóvel" }
+    { "file": "DirecaoA.dc.html", "page": "page-1", "x": 0,    "y": 0, "w": 1440, "h": 2500, "title": "A · Cartaz de gala" },
+    { "file": "DirecaoB.dc.html", "page": "page-1", "x": 1560, "y": 0, "w": 1440, "h": 2400, "title": "B · Órbita" },
+    { "file": "DirecaoC.dc.html", "page": "page-1", "x": 3120, "y": 0, "w": 1440, "h": 2500, "title": "C · Clube de bairro" },
+
+    { "file": "Main.dc.html",          "page": "page-2", "x": 0,    "y": 0,    "w": 1440, "h": 4500, "title": "Homepage" },
+    { "file": "Sobre.dc.html",         "page": "page-2", "x": 1560, "y": 0,    "w": 1440, "h": 3200, "title": "Sobre" },
+    { "file": "EquipaTecnica.dc.html", "page": "page-2", "x": 3120, "y": 0,    "w": 1440, "h": 2950, "title": "Equipa Técnica" },
+    { "file": "Atletas.dc.html",       "page": "page-2", "x": 4680, "y": 0,    "w": 1440, "h": 2800, "title": "Atletas" },
+    { "file": "Eventos.dc.html",       "page": "page-2", "x": 0,    "y": 4700, "w": 1440, "h": 3350, "title": "Eventos" },
+    { "file": "Inscricoes.dc.html",    "page": "page-2", "x": 1560, "y": 4700, "w": 1440, "h": 3200, "title": "Inscrições" },
+    { "file": "Contactos.dc.html",     "page": "page-2", "x": 3120, "y": 4700, "w": 1440, "h": 2700, "title": "Contactos" },
+    { "file": "MobileHome.dc.html",    "page": "page-2", "x": 4680, "y": 4700, "w": 390,  "h": 2800, "title": "Homepage · telemóvel" }
   ],
   "annotations": [
-    { "id": "nota-conteudo", "x": 0, "y": -230, "w": 980,
-      "text": "Mockups do site do CPBVM. ATENÇÃO: todos os nomes, datas, horários, preços e resultados são inventados, só para se perceber o site cheio — é tudo para substituir por informação real.\nAs fotografias são de bancos de imagem com licença livre, tratadas na paleta do clube; servem de exemplo até haver fotos das atletas." },
-    { "id": "nota-logo", "x": 1560, "y": -230, "w": 700,
-      "text": "O emblema está redesenhado em SVG por aproximação ao original. Assim que o ficheiro do logo entrar no repositório, passa a ser a imagem verdadeira em todo o site." },
-    { "id": "nota-mobile", "x": 4680, "y": 4470, "w": 390,
-      "text": "Versão telemóvel da homepage — mesma linguagem, uma coluna." }
+    { "id": "nota-direcoes", "x": 0, "y": -250, "w": 1000, "page": "page-1",
+      "text": "Três direções para a identidade do site — só o topo da homepage, o suficiente para escolher.\nA · CARTAZ DE GALA: tipografia gigante, fotos inclinadas, tarja de bilhete. Energia de cartaz de espetáculo.\nB · ÓRBITA: tudo gira à volta do emblema, texto em curva, anéis e fitas. O mais invulgar dos três.\nC · CLUBE DE BAIRRO: fotos com fita-cola, letra manuscrita, quadro de avisos. O mais caloroso e humano.\nEscolhe uma (ou peça partes de várias) e eu levo-a às oito páginas." },
+    { "id": "nota-v1", "x": 0, "y": -250, "w": 980, "page": "page-2",
+      "text": "Primeira versão — elegante mas demasiado institucional. Fica aqui para comparação.\nTodos os nomes, datas, preços e resultados são inventados; as fotos são de bancos de imagem com licença livre." }
   ],
-  "launch": { "view": "canvas" }
+  "launch": { "view": "canvas", "page": "page-1" }
 }
