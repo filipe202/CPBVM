@@ -7,37 +7,48 @@
 <body>
 <x-dc>
 <helmet>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&amp;family=Caveat:wght@600;700&amp;display=swap">
   <style>
-    body{ margin:0; background:#0A0709; color:#F6F1EC;
-      font-family:Archivo,'Helvetica Neue',Helvetica,Arial,sans-serif; font-size:17px; line-height:1.7;
+    body{ margin:0; background:#0D0806; color:#F6EDE1;
+      font-family:'Bricolage Grotesque','Trebuchet MS',sans-serif; font-size:17px; line-height:1.62;
       -webkit-font-smoothing:antialiased; }
-    a{ color:#E8B93C; text-decoration:none; } a:hover{ color:#FFE9A8; }
-    h1,h2,h3{ margin:0; font-family:'Instrument Serif',Georgia,'Times New Roman',serif; font-weight:400;
-      letter-spacing:-.015em; line-height:1.1; }
+    a{ color:#E9B949; text-decoration:none; } a:hover{ color:#FFF6EC; }
+    h1,h2,h3{ margin:0; font-family:Anton,'Arial Narrow',Impact,sans-serif; font-weight:400;
+      text-transform:uppercase; line-height:.88; letter-spacing:-.012em; }
     p{ margin:0; }
-    .ey{ font-family:Archivo,Helvetica,Arial,sans-serif; font-size:11.5px; font-weight:600; letter-spacing:.28em;
-      text-transform:uppercase; color:#E8B93C; }
-    .mut{ color:#A79DA4; }
-    .dim{ color:#8C8490; }
-    .it{ font-style:italic; color:#E8B93C; }
-    .chip{ display:inline-block; padding:5px 12px; border:1px solid rgba(232,185,60,.28); border-radius:999px;
-      font-size:11.5px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:#E8B93C; }
-    .chip.r{ border-color:rgba(212,16,42,.5); color:#FF8A96; }
-    .chip.g{ border-color:rgba(14,107,55,.6); color:#6FD69A; }
-    .btn{ display:inline-block; padding:16px 30px; border-radius:999px; font-size:14px; font-weight:600;
-      letter-spacing:.06em; background:linear-gradient(120deg,#FFE9A8,#E8B93C 55%,#C08C24); color:#1B1206; }
-    .btn.gh{ background:none; border:1px solid rgba(246,241,236,.22); color:#F6F1EC; }
-    .hair{ height:1px; background:linear-gradient(90deg,transparent,rgba(232,185,60,.35),transparent); border:0; }
-    .card{ background:linear-gradient(180deg,#150F13,#0E0A0D); border:1px solid rgba(246,241,236,.08); }
-    .date{ text-align:center; padding:12px 0; border-radius:3px; background:linear-gradient(150deg,#D4102A,#7A0C1B); }
-    .date b{ display:block; font-family:'Instrument Serif',Georgia,serif; font-size:30px; line-height:1; font-weight:400; }
-    .date small{ display:block; font-size:11px; letter-spacing:.2em; text-transform:uppercase; opacity:.9; margin-top:2px; }
+    .out{ color:transparent; -webkit-text-stroke:2px #E9B949; }
+    .out-r{ color:transparent; -webkit-text-stroke:2px #FF2E1F; }
+    .lbl{ font-family:'Bricolage Grotesque',sans-serif; font-size:11.5px; font-weight:700; letter-spacing:.24em;
+      text-transform:uppercase; }
+    .hand{ font-family:Caveat,'Comic Sans MS',cursive; font-weight:700; color:#E9B949; }
+    .mut{ color:#C6B6A8; }
+    .dim{ color:#A2948A; }
+    .btn{ display:inline-flex; align-items:center; gap:10px; padding:16px 30px; border-radius:38px 34px 40px 32px;
+      font-weight:800; font-size:15px; background:#D2261F; color:#fff; }
+    .btn.k{ background:#E9B949; color:#28190C; }
+    .btn.o{ background:transparent; border:2px solid rgba(246,237,225,.28); color:#F6EDE1; }
+    .polaroid{ position:relative; background:#F6EDE1; padding:12px 12px 38px; box-shadow:0 26px 60px rgba(0,0,0,.62); }
+    .polaroid img{ width:100%; display:block; }
+    .polaroid span{ display:block; margin-top:10px; font-family:Caveat,cursive; font-weight:700; font-size:20px;
+      color:#2A1B12; text-align:center; }
+    .tape{ position:absolute; top:-13px; left:50%; margin-left:-52px; width:104px; height:26px; transform:rotate(-5deg); }
+    .note{ position:relative; background:#170F0B; border:1px solid rgba(246,237,225,.12); border-radius:14px 12px 16px 10px; padding:26px; }
+    .pin{ position:absolute; top:-9px; left:50%; margin-left:-8px; width:16px; height:16px; border-radius:50%;
+      background:#D2261F; box-shadow:0 3px 8px rgba(0,0,0,.6); }
+    .chip{ display:inline-block; padding:7px 15px; border:2px solid rgba(233,185,73,.4); border-radius:999px;
+      font-size:11.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:#E9B949; }
+    .chip.r{ border-color:rgba(255,46,31,.55); color:#FF8A76; }
+    .chip.g{ border-color:rgba(18,105,59,.7); color:#5FC98C; }
+    .grain{ position:absolute; inset:0; pointer-events:none; opacity:.42; mix-blend-mode:overlay;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
   </style>
 </helmet>
-<div style="background:#0A0709; background-image:radial-gradient(60% 40% at 82% 0%, rgba(212,16,42,.22), transparent 62%), radial-gradient(40% 30% at 8% 12%, rgba(232,185,60,.07), transparent 66%);">
-<div style="display:flex; align-items:center; justify-content:space-between; gap:32px; padding:22px 96px; border-bottom:1px solid rgba(246,241,236,.07);">
-<div style="display:flex; align-items:center; gap:14px;"><svg viewBox="0 0 200 200" width="52" height="52" role="img" aria-label="Emblema do Clube de Patinagem BVM Montijo" style="display:block">
+<div style="position:relative; background:
+   radial-gradient(85% 55% at 10% 0%, rgba(210,38,31,.30), transparent 58%),
+   radial-gradient(55% 45% at 94% 26%, rgba(233,185,73,.10), transparent 62%), #0D0806; overflow:hidden;">
+<div class="grain"></div>
+<div style="position:relative; display:flex; align-items:center; justify-content:space-between; gap:30px; padding:20px 58px; border-bottom:2px solid #E9B949;">
+<div style="display:flex; align-items:center; gap:13px;"><svg viewBox="0 0 200 200" width="50" height="50" role="img" aria-label="Emblema do Clube de Patinagem BVM Montijo" style="display:block">
   <defs>
     <path id="tpn" d="M100,100 m-77,0 a77,77 0 1,1 154,0" fill="none"/>
     <path id="bpn" d="M100,100 m-74,0 a74,74 0 1,0 148,0" fill="none"/>
@@ -67,107 +78,117 @@
     <circle cx="115.4" cy="159.6" r="3.2"/><circle cx="123.2" cy="156.8" r="3.2"/>
   </g>
 </svg>
-<div style="display:flex; flex-direction:column; line-height:1.2;">
-<span style="font-family:Instrument Serif,Georgia,serif; font-size:19px;">Clube de Patinagem BVM</span>
-<span class="ey" style="font-size:10.5px; letter-spacing:.32em;">Montijo</span>
+<div style="line-height:1.12;">
+<div style="font-family:Anton,sans-serif; font-size:21px; letter-spacing:.01em; text-transform:uppercase;">Patinagem BVM</div>
+<div class="lbl" style="color:#E9B949; font-size:10.5px;">Montijo · desde 2012</div>
 </div>
 </div>
-<div style="display:flex; align-items:center; gap:28px;"><span style="font-size:14.5px; font-weight:500; color:#A79DA4; padding-bottom:4px;">Início</span><span style="font-size:14.5px; font-weight:500; color:#F6F1EC; padding-bottom:4px;border-bottom:1px solid #E8B93C;">Sobre</span><span style="font-size:14.5px; font-weight:500; color:#A79DA4; padding-bottom:4px;">Equipa Técnica</span><span style="font-size:14.5px; font-weight:500; color:#A79DA4; padding-bottom:4px;">Atletas</span><span style="font-size:14.5px; font-weight:500; color:#A79DA4; padding-bottom:4px;">Eventos</span><span style="font-size:14.5px; font-weight:500; color:#A79DA4; padding-bottom:4px;">Contactos</span><span class="btn" style="padding:13px 24px; font-size:13px;">Inscrições abertas</span>
+<div style="display:flex; align-items:center; gap:26px;"><span class="lbl" style="color:#F6EDE1; padding-bottom:3px;">Início</span><span class="lbl" style="color:#E9B949; border-bottom:2px solid #FF2E1F; padding-bottom:3px;">O clube</span><span class="lbl" style="color:#F6EDE1; padding-bottom:3px;">Treinadores</span><span class="lbl" style="color:#F6EDE1; padding-bottom:3px;">Atletas</span><span class="lbl" style="color:#F6EDE1; padding-bottom:3px;">Agenda</span><span class="lbl" style="color:#F6EDE1; padding-bottom:3px;">Contactos</span><span class="btn k" style="padding:12px 22px; font-size:14px;">Inscrever</span>
 </div>
 </div>
-<div style="position:relative; padding:86px 96px 64px; border-bottom:1px solid rgba(246,241,236,.07);
-  background:radial-gradient(60% 120% at 82% 0%, rgba(212,16,42,.30), transparent 62%), radial-gradient(40% 80% at 6% 40%, rgba(232,185,60,.08), transparent 66%);">
-  <div class="dim" style="font-size:13px; margin-bottom:26px;">Início &nbsp;/&nbsp; Sobre</div>
-  <div class="ey" style="margin-bottom:18px;">Quem somos</div>
-  <h1 style="font-size:74px; max-width:20ch;">Um clube feito de <span class="it">horas de pista</span>.</h1>
-  <p class="mut" style="font-size:18px; max-width:56ch; margin-top:24px;">Formação, competição e comunidade. O Clube de Patinagem BVM é a casa da patinagem artística no Montijo — e um sítio onde ninguém patina sozinho.</p>
-</div>
-<div style="display:grid; grid-template-columns:1fr 1fr; gap:72px; padding:96px 96px 0; align-items:start;">
-  <div>
-    <div class="ey" style="margin-bottom:18px;">A nossa missão</div>
-    <h2 style="font-size:46px;">Ensinar a cair.<br>E a <span class="it">levantar com estilo</span>.</h2>
+<div style="position:relative; padding:52px 58px 60px;">
+  <div class="lbl" style="color:#A2948A; margin-bottom:26px;">Início &nbsp;·&nbsp; O clube</div>
+  <div class="lbl" style="color:#FF2E1F; margin-bottom:20px;">Desde 2012 no Montijo</div>
+  <h1 style="font-size:124px;">O clube</h1>
+  <h1 class="out" style="font-size:124px; margin-top:-6px;">por dentro</h1>
+  <div style="display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:end; margin-top:26px;">
+    <p style="font-size:19.5px; color:#C6B6A8; max-width:52ch;">Começámos com dezoito miúdos e duas treinadoras num pavilhão emprestado. Hoje somos noventa e quatro — e continuamos a tratar-nos todos pelo nome.</p>
+    <div class="hand" style="font-size:32px; transform:rotate(-2deg); text-align:right;">isto é uma família com patins</div>
   </div>
-  <div>
-    <p class="mut" style="font-size:17px;">Acreditamos que a patinagem artística ensina muito mais do que saltos e piruetas: ensina disciplina, paciência e a lidar com o palco. Por isso trabalhamos os dois lados — o técnico e o artístico — desde a primeira aula.</p>
-    <p class="mut" style="font-size:17px; margin-top:16px;">Cada atleta tem um plano adequado à idade e ao escalão, acompanhamento próximo da equipa técnica e uma época com objetivos claros, do treino de terça-feira à gala de fim de ano.</p>
-  </div>
+</div>
+<div style="position:relative; padding:0 58px;">
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+<div style="position:relative; overflow:hidden; background:#150E0B; height:300px;"><img src="equipa-01.jpg" alt="" style="width:100%; height:100%; object-fit:cover; display:block"><span class="lbl" style="position:absolute; left:16px; bottom:14px; color:#fff; text-shadow:0 2px 12px rgba(0,0,0,.9);">A equipa, 2026</span></div><div style="position:relative; overflow:hidden; background:#150E0B; height:300px;"><img src="gala-02.jpg" alt="" style="width:100%; height:100%; object-fit:cover; display:block"><span class="lbl" style="position:absolute; left:16px; bottom:14px; color:#fff; text-shadow:0 2px 12px rgba(0,0,0,.9);">Gala de Natal, 2025</span></div>  </div>
 </div>
 
-<div style="padding:72px 96px 0;">
-  <div style="display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px;">
-    <div class="card" style="padding:34px; border-radius:4px;">
-      <div style="font-family:Instrument Serif,Georgia,serif; font-size:44px; color:rgba(232,185,60,.55);">01</div>
-      <h3 style="font-size:25px; margin:14px 0 10px;">Rigor sem medo</h3>
-      <p class="mut" style="font-size:15.5px;">Exigimos técnica correta desde o início — porque é isso que protege as articulações e abre portas mais tarde.</p>
-    </div>
-    <div class="card" style="padding:34px; border-radius:4px;">
-      <div style="font-family:Instrument Serif,Georgia,serif; font-size:44px; color:rgba(232,185,60,.55);">02</div>
-      <h3 style="font-size:25px; margin:14px 0 10px;">Equipa acima de tudo</h3>
-      <p class="mut" style="font-size:15.5px;">Compete-se sozinho na pista, mas treina-se em grupo. Quem está há mais tempo ajuda quem chegou agora — é assim que funciona cá.</p>
-    </div>
-    <div class="card" style="padding:34px; border-radius:4px;">
-      <div style="font-family:Instrument Serif,Georgia,serif; font-size:44px; color:rgba(232,185,60,.55);">03</div>
-      <h3 style="font-size:25px; margin:14px 0 10px;">Portas abertas</h3>
-      <p class="mut" style="font-size:15.5px;">Do lazer à alta competição. Ninguém precisa de ter jeito para começar: precisa de querer voltar na semana seguinte.</p>
-    </div>
-  </div>
-</div>
-
-<div style="display:grid; grid-template-columns:.9fr 1.1fr; gap:72px; padding:104px 96px; align-items:start;">
-  <div>
-    <div class="ey" style="margin-bottom:18px;">Percurso</div>
-    <h2 style="font-size:46px;">De uma turma<br>a uma <span class="it">equipa</span>.</h2>
-<div style="margin-top:36px;"><div style="position:relative; overflow:hidden; background:#120D11; height:250px; border-radius:4px;"><img src="historia-01.jpg" alt="" style="width:100%; height:100%; object-fit:cover; display:block"><span style="position:absolute; left:16px; bottom:13px; font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.85); text-shadow:0 2px 10px rgba(0,0,0,.8);">Primeiros anos do clube</span></div></div>  </div>
-  <div style="padding-left:28px; border-left:1px solid rgba(232,185,60,.25);">
-    <div style="margin-bottom:34px;">
-      <div style="font-family:Instrument Serif,Georgia,serif; font-size:30px; color:#E8B93C;">2012</div>
-      <h3 style="font-size:22px; margin:2px 0 6px;">Fundação do clube</h3>
-      <p class="mut" style="font-size:15.5px;">Um grupo de pais e duas treinadoras abrem as primeiras turmas: 18 atletas, dois treinos por semana.</p>
-    </div>
-    <div style="margin-bottom:34px;">
-      <div style="font-family:Instrument Serif,Georgia,serif; font-size:30px; color:#E8B93C;">2015</div>
-      <h3 style="font-size:22px; margin:2px 0 6px;">Primeira equipa de competição</h3>
-      <p class="mut" style="font-size:15.5px;">Cinco atletas federadas e a estreia em prova oficial, no Campeonato Regional de Setúbal.</p>
-    </div>
-    <div style="margin-bottom:34px;">
-      <div style="font-family:Instrument Serif,Georgia,serif; font-size:30px; color:#E8B93C;">2019</div>
-      <h3 style="font-size:22px; margin:2px 0 6px;">Primeiro pódio nacional</h3>
-      <p class="mut" style="font-size:15.5px;">Terceiro lugar em conjuntos no Encontro Nacional — o primeiro troféu a entrar na vitrina.</p>
-    </div>
-    <div style="margin-bottom:34px;">
-      <div style="font-family:Instrument Serif,Georgia,serif; font-size:30px; color:#E8B93C;">2023</div>
-      <h3 style="font-size:22px; margin:2px 0 6px;">Casa nova</h3>
-      <p class="mut" style="font-size:15.5px;">O clube passa a treinar no Pavilhão Municipal do Montijo e duplica o número de turmas.</p>
-    </div>
+<div style="position:relative; padding:84px 58px 0;">
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start;">
+    <h2 style="font-size:72px;">Ensinar a cair.<br><span class="out-r" style="-webkit-text-stroke:2px #FF2E1F;">E a levantar</span><br>com estilo.</h2>
     <div>
-      <div style="font-family:Instrument Serif,Georgia,serif; font-size:30px; color:#E8B93C;">Hoje</div>
-      <h3 style="font-size:22px; margin:2px 0 6px;">94 atletas em 7 escalões</h3>
-      <p class="mut" style="font-size:15.5px;">Competição federada, escola de patinagem e uma gala anual que enche a sala.</p>
-    </div>
-  </div>
-</div>
-
-<div style="padding:0 96px 104px;">
-  <div class="card" style="display:grid; grid-template-columns:1.15fr .85fr; gap:56px; align-items:center; padding:56px; border-radius:6px;">
-    <div>
-      <div class="ey" style="margin-bottom:18px;">Identidade</div>
-      <h2 style="font-size:44px;">Preto, vermelho<br>e uma linha <span class="it">dourada</span>.</h2>
-      <p class="mut" style="font-size:16.5px; margin-top:22px;">O equipamento de competição segue o emblema: o preto do fundo, o vermelho em degradé dos anéis e a linha dourada da patinadora. Cada atleta recebe-o ao entrar para a equipa de competição.</p>
-      <div style="display:flex; gap:12px; margin-top:28px;">
-        <span style="width:44px; height:44px; border-radius:50%; background:#0A0709; border:1px solid rgba(246,241,236,.2);"></span>
-        <span style="width:44px; height:44px; border-radius:50%; background:linear-gradient(140deg,#FF3A4E,#8E0F21);"></span>
-        <span style="width:44px; height:44px; border-radius:50%; background:linear-gradient(140deg,#FFE9A8,#C08C24);"></span>
-        <span style="width:44px; height:44px; border-radius:50%; background:#0E6B37;"></span>
+      <p class="mut" style="font-size:18px;">A patinagem artística ensina muito mais do que saltos e piruetas: ensina disciplina, paciência e a lidar com o palco. Por isso trabalhamos os dois lados — o técnico e o artístico — desde a primeira aula.</p>
+      <p class="mut" style="font-size:18px; margin-top:16px;">Cada atleta tem um plano adequado à idade e ao escalão, acompanhamento próximo da equipa técnica e uma época com objetivos claros, do treino de terça à gala de dezembro.</p>
+      <div style="display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin-top:30px;">
+        <div class="note" style="transform:rotate(-1deg); padding:20px;"><div style="font-family:Anton,sans-serif; font-size:32px; color:#E9B949;">01</div><div style="font-weight:800; margin-top:6px;">Rigor sem medo</div><p class="dim" style="font-size:14px; margin-top:4px;">Técnica correta desde o início.</p></div>
+        <div class="note" style="transform:rotate(1.2deg); padding:20px;"><div style="font-family:Anton,sans-serif; font-size:32px; color:#E9B949;">02</div><div style="font-weight:800; margin-top:6px;">Equipa primeiro</div><p class="dim" style="font-size:14px; margin-top:4px;">Quem está há mais tempo ajuda quem chega.</p></div>
+        <div class="note" style="transform:rotate(-.6deg); padding:20px;"><div style="font-family:Anton,sans-serif; font-size:32px; color:#E9B949;">03</div><div style="font-weight:800; margin-top:6px;">Portas abertas</div><p class="dim" style="font-size:14px; margin-top:4px;">Do lazer à alta competição.</p></div>
       </div>
     </div>
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
-<div style="position:relative; overflow:hidden; background:#120D11; height:230px; border-radius:4px;"><img src="equipamento-01.jpg" alt="" style="width:100%; height:100%; object-fit:cover; display:block"></div><div style="position:relative; overflow:hidden; background:#120D11; height:230px; border-radius:4px;"><img src="equipamento-02.jpg" alt="" style="width:100%; height:100%; object-fit:cover; display:block"></div>    </div>
   </div>
 </div>
-<div style="border-top:1px solid rgba(246,241,236,.07); background:#080608; padding:72px 96px 40px;">
-<div style="display:grid; grid-template-columns:1.5fr 1fr 1fr 1.2fr; gap:56px;">
+
+<div style="margin-top:84px;">
+<div style="position:relative; background:#E9B949; color:#170A02; padding:15px 58px; display:flex; align-items:center; justify-content:space-between; gap:24px; font-family:Anton,sans-serif; font-size:25px; letter-spacing:.01em; text-transform:uppercase; white-space:nowrap;"><span>94 atletas</span><span>7 escalões</span><span>6 treinadores</span><span>3 treinos por semana</span><span>14 anos de clube</span></div></div>
+
+<div style="position:relative; padding:84px 58px 0;">
+  <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:40px; margin-bottom:46px;">
+    <h2 style="font-size:72px;">Como aqui<br><span style="color:#FF2E1F;">chegámos</span></h2>
+    <span class="hand" style="font-size:30px; transform:rotate(-2deg);">catorze épocas, sempre no Montijo</span>
+  </div>
+  <div style="position:relative; border-top:3px solid rgba(233,185,73,.45); padding-top:40px;">
+    <div style="display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:18px;">
+      <div class="note" style="transform:rotate(-1.6deg);"><span class="pin"></span>
+        <div style="font-family:Anton,sans-serif; font-size:40px; color:#E9B949;">2012</div>
+        <div style="font-weight:800; margin-top:6px;">Nasce o clube</div>
+        <p class="dim" style="font-size:14.5px; margin-top:6px;">Um grupo de pais e duas treinadoras abrem as primeiras turmas: 18 atletas.</p>
+      </div>
+      <div class="note" style="transform:rotate(1.2deg); margin-top:22px;"><span class="pin" style="background:#E9B949;"></span>
+        <div style="font-family:Anton,sans-serif; font-size:40px; color:#E9B949;">2015</div>
+        <div style="font-weight:800; margin-top:6px;">Primeira equipa</div>
+        <p class="dim" style="font-size:14.5px; margin-top:6px;">Cinco atletas federadas e a estreia no Campeonato Regional de Setúbal.</p>
+      </div>
+      <div class="note" style="transform:rotate(-.8deg);"><span class="pin" style="background:#12693B;"></span>
+        <div style="font-family:Anton,sans-serif; font-size:40px; color:#E9B949;">2019</div>
+        <div style="font-weight:800; margin-top:6px;">Primeiro pódio</div>
+        <p class="dim" style="font-size:14.5px; margin-top:6px;">Terceiro lugar em conjuntos no Encontro Nacional — o troféu ainda está na vitrina.</p>
+      </div>
+      <div class="note" style="transform:rotate(1.6deg); margin-top:22px;"><span class="pin"></span>
+        <div style="font-family:Anton,sans-serif; font-size:40px; color:#E9B949;">2023</div>
+        <div style="font-weight:800; margin-top:6px;">Casa nova</div>
+        <p class="dim" style="font-size:14.5px; margin-top:6px;">Passámos para o Pavilhão Municipal e duplicámos as turmas.</p>
+      </div>
+      <div class="note" style="transform:rotate(-1deg); background:#E9B949; border-color:transparent;"><span class="pin" style="background:#0D0806;"></span>
+        <div style="font-family:Anton,sans-serif; font-size:40px; color:#28190C;">Hoje</div>
+        <div style="font-weight:800; margin-top:6px; color:#28190C;">94 atletas</div>
+        <p style="font-size:14.5px; margin-top:6px; color:#4A3620;">Sete escalões, competição federada e uma gala que esgota.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="position:relative; padding:88px 58px 0;">
+  <div style="display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:center;">
+    <div>
+      <span class="lbl" style="color:#FF2E1F;">Identidade</span>
+      <h2 style="font-size:70px; margin-top:16px;">Preto, vermelho<br>e uma linha<br><span style="color:#E9B949;">dourada</span>.</h2>
+      <p class="mut" style="font-size:17.5px; margin-top:20px; max-width:46ch;">O equipamento de competição sai do emblema: o preto do fundo, o vermelho em degradé dos anéis e a linha dourada da patinadora. Cada atleta recebe-o ao entrar para a equipa de competição.</p>
+      <div style="display:flex; gap:12px; margin-top:26px;">
+        <span style="width:52px; height:52px; border-radius:50%; background:#0D0806; border:2px solid rgba(246,237,225,.25);"></span>
+        <span style="width:52px; height:52px; border-radius:50%; background:linear-gradient(140deg,#FF3A2A,#7C0E12);"></span>
+        <span style="width:52px; height:52px; border-radius:50%; background:linear-gradient(140deg,#FFE9A8,#C08C24);"></span>
+        <span style="width:52px; height:52px; border-radius:50%; background:#12693B;"></span>
+      </div>
+      <div style="display:flex; align-items:center; gap:12px; margin-top:22px;">
+<svg width="58" height="34" viewBox="0 0 58 34" fill="none" stroke="#E9B949" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M3 5c14 20 34 25 51 22"/><path d="M46 20l8 7-11 4"/></svg>        <span class="hand" style="font-size:26px;">as cores do emblema, desde o primeiro dia</span>
+      </div>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+<div class="polaroid" style="transform:rotate(-3deg); "><span class="tape" style="background:rgba(233,185,73,.45)"></span><img src="equipamento-01.jpg" alt="" style="height:250px; object-fit:cover;"><span>Fato de competição</span></div><div class="polaroid" style="transform:rotate(3deg); margin-top:24px;"><span class="tape" style="background:rgba(210,38,31,.5)"></span><img src="equipamento-02.jpg" alt="" style="height:250px; object-fit:cover;"><span>Programa livre</span></div>    </div>
+  </div>
+</div>
+
+<div style="position:relative; padding:88px 58px 92px;">
+  <div style="border-radius:24px 20px 26px 18px; padding:56px; background:linear-gradient(140deg,#D2261F,#6E0C10); display:grid; grid-template-columns:1fr auto; gap:40px; align-items:center;">
+    <div>
+      <h2 style="font-size:56px;">Queres fazer parte disto?</h2>
+      <p style="font-size:18px; color:#FFE3DF; margin-top:12px; max-width:46ch;">A aula experimental é grátis e não obriga a nada. Vem ver como é um treino.</p>
+    </div>
+    <span class="btn k" style="padding:19px 34px;">Marcar aula grátis</span>
+  </div>
+</div>
+<div style="position:relative; border-top:2px solid #E9B949; background:#0A0605; padding:64px 58px 34px;">
+<div style="display:grid; grid-template-columns:1.4fr 1fr 1fr 1.1fr; gap:48px;">
 <div>
-<div style="display:flex; align-items:center; gap:14px; margin-bottom:20px;"><svg viewBox="0 0 200 200" width="56" height="56" role="img" aria-label="Emblema do Clube de Patinagem BVM Montijo" style="display:block">
+<div style="display:flex; align-items:center; gap:14px;"><svg viewBox="0 0 200 200" width="62" height="62" role="img" aria-label="Emblema do Clube de Patinagem BVM Montijo" style="display:block">
   <defs>
     <path id="tpf" d="M100,100 m-77,0 a77,77 0 1,1 154,0" fill="none"/>
     <path id="bpf" d="M100,100 m-74,0 a74,74 0 1,0 148,0" fill="none"/>
@@ -197,35 +218,36 @@
     <circle cx="115.4" cy="159.6" r="3.2"/><circle cx="123.2" cy="156.8" r="3.2"/>
   </g>
 </svg>
-<span style="font-family:Instrument Serif,Georgia,serif; font-size:21px;">Clube de Patinagem BVM</span>
+<div style="font-family:Anton,sans-serif; font-size:34px; line-height:.9; text-transform:uppercase;">Patinagem<br>BVM</div>
 </div>
-<p class="mut" style="font-size:15px; max-width:34ch;">Patinagem artística no Montijo desde 2012. Formação, competição e espetáculo — com a mesma equipa desde o primeiro dia sobre patins.</p>
-<div style="display:flex; gap:10px; margin-top:22px;">
-<span style="width:40px; height:40px; border-radius:50%; border:1px solid rgba(246,241,236,.14); display:flex; align-items:center; justify-content:center;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#E8B93C" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#E8B93C" stroke="none"/></svg></span>
-<span style="width:40px; height:40px; border-radius:50%; border:1px solid rgba(246,241,236,.14); display:flex; align-items:center; justify-content:center;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#E8B93C" stroke-width="1.6" aria-hidden="true"><path d="M14 8h2.5V4.5H14c-2.2 0-3.5 1.4-3.5 3.6V10H8v3.5h2.5V21H14v-7.5h2.6l.4-3.5H14V8.4c0-.3.2-.4.5-.4z"/></svg></span>
-<span style="width:40px; height:40px; border-radius:50%; border:1px solid rgba(246,241,236,.14); display:flex; align-items:center; justify-content:center;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#E8B93C" stroke-width="1.6" aria-hidden="true"><path d="M4 6.5h16v11H4z"/><path d="M4 7l8 6 8-6"/></svg></span>
+<p class="mut" style="font-size:15.5px; max-width:33ch; margin-top:20px;">Clube de patinagem artística do Montijo. Escola, competição e a gala que enche o pavilhão todos os dezembros desde 2012.</p>
+<div class="hand" style="font-size:26px; margin-top:16px;">aparece num sábado!</div>
+</div>
+<div>
+<div class="lbl" style="color:#E9B949; margin-bottom:16px;">O clube</div>
+<div style="display:flex; flex-direction:column; gap:10px; font-size:15.5px; color:#C6B6A8;">
+<span>Quem somos</span><span>Treinadores</span><span>Atletas</span><span>Direção</span><span>Galeria</span>
 </div>
 </div>
 <div>
-<div class="ey" style="margin-bottom:18px;">Clube</div>
-<div style="display:flex; flex-direction:column; gap:11px; font-size:15px; color:#A79DA4;">
-<span>Sobre o clube</span><span>Equipa técnica</span><span>Atletas</span><span>Direção</span><span>Galeria</span>
+<div class="lbl" style="color:#E9B949; margin-bottom:16px;">Patinar</div>
+<div style="display:flex; flex-direction:column; gap:10px; font-size:15.5px; color:#C6B6A8;">
+<span>Escola de patinagem</span><span>Competição</span><span>Agenda</span><span>Inscrições</span><span>Mensalidades</span>
 </div>
 </div>
 <div>
-<div class="ey" style="margin-bottom:18px;">Atividade</div>
-<div style="display:flex; flex-direction:column; gap:11px; font-size:15px; color:#A79DA4;">
-<span>Escola de patinagem</span><span>Competição</span><span>Eventos</span><span>Inscrições</span><span>Mensalidades</span>
+<div class="lbl" style="color:#E9B949; margin-bottom:16px;">Encontrar-nos</div>
+<div style="display:flex; flex-direction:column; gap:10px; font-size:15.5px; color:#C6B6A8;">
+<span>Pavilhão Municipal do Montijo</span><span>Rua das Palmeiras 12, 2870-355</span><span>geral@cpbvm.pt</span><span>212 345 678</span>
+</div>
+<div style="display:flex; gap:9px; margin-top:18px;">
+<span style="width:40px; height:40px; border-radius:50%; border:2px solid rgba(246,237,225,.18); display:flex; align-items:center; justify-content:center; color:#E9B949;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span>
+<span style="width:40px; height:40px; border-radius:50%; border:2px solid rgba(246,237,225,.18); display:flex; align-items:center; justify-content:center; color:#E9B949;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M14 8h2.5V4.5H14c-2.2 0-3.5 1.4-3.5 3.6V10H8v3.5h2.5V21H14v-7.5h2.6l.4-3.5H14V8.4c0-.3.2-.4.5-.4z"/></svg></span>
+<span style="width:40px; height:40px; border-radius:50%; border:2px solid rgba(246,237,225,.18); display:flex; align-items:center; justify-content:center; color:#E9B949;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 6.5h16v11H4z"/><path d="M4 7l8 6 8-6"/></svg></span>
 </div>
 </div>
-<div>
-<div class="ey" style="margin-bottom:18px;">Contactos</div>
-<div style="display:flex; flex-direction:column; gap:11px; font-size:15px; color:#A79DA4;">
-<span>Pavilhão Municipal do Montijo</span><span>2870-355 Montijo</span><span>geral@cpbvm.pt</span><span>212 345 678</span>
 </div>
-</div>
-</div>
-<div style="display:flex; justify-content:space-between; align-items:center; margin-top:56px; padding-top:26px; border-top:1px solid rgba(246,241,236,.07); font-size:13px; color:#8C8490;">
+<div style="display:flex; justify-content:space-between; align-items:center; margin-top:46px; padding-top:22px; border-top:1px solid rgba(246,237,225,.12); font-size:13.5px; color:#A2948A;">
 <span>© 2026 Clube de Patinagem BVM · Montijo</span>
 <span>Política de privacidade · Estatutos · Filiado na Federação de Patinagem de Portugal</span>
 </div>

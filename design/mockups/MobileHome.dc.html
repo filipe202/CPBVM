@@ -7,37 +7,48 @@
 <body>
 <x-dc>
 <helmet>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&amp;family=Caveat:wght@600;700&amp;display=swap">
   <style>
-    body{ margin:0; background:#0A0709; color:#F6F1EC;
-      font-family:Archivo,'Helvetica Neue',Helvetica,Arial,sans-serif; font-size:17px; line-height:1.7;
+    body{ margin:0; background:#0D0806; color:#F6EDE1;
+      font-family:'Bricolage Grotesque','Trebuchet MS',sans-serif; font-size:17px; line-height:1.62;
       -webkit-font-smoothing:antialiased; }
-    a{ color:#E8B93C; text-decoration:none; } a:hover{ color:#FFE9A8; }
-    h1,h2,h3{ margin:0; font-family:'Instrument Serif',Georgia,'Times New Roman',serif; font-weight:400;
-      letter-spacing:-.015em; line-height:1.1; }
+    a{ color:#E9B949; text-decoration:none; } a:hover{ color:#FFF6EC; }
+    h1,h2,h3{ margin:0; font-family:Anton,'Arial Narrow',Impact,sans-serif; font-weight:400;
+      text-transform:uppercase; line-height:.88; letter-spacing:-.012em; }
     p{ margin:0; }
-    .ey{ font-family:Archivo,Helvetica,Arial,sans-serif; font-size:11.5px; font-weight:600; letter-spacing:.28em;
-      text-transform:uppercase; color:#E8B93C; }
-    .mut{ color:#A79DA4; }
-    .dim{ color:#8C8490; }
-    .it{ font-style:italic; color:#E8B93C; }
-    .chip{ display:inline-block; padding:5px 12px; border:1px solid rgba(232,185,60,.28); border-radius:999px;
-      font-size:11.5px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:#E8B93C; }
-    .chip.r{ border-color:rgba(212,16,42,.5); color:#FF8A96; }
-    .chip.g{ border-color:rgba(14,107,55,.6); color:#6FD69A; }
-    .btn{ display:inline-block; padding:16px 30px; border-radius:999px; font-size:14px; font-weight:600;
-      letter-spacing:.06em; background:linear-gradient(120deg,#FFE9A8,#E8B93C 55%,#C08C24); color:#1B1206; }
-    .btn.gh{ background:none; border:1px solid rgba(246,241,236,.22); color:#F6F1EC; }
-    .hair{ height:1px; background:linear-gradient(90deg,transparent,rgba(232,185,60,.35),transparent); border:0; }
-    .card{ background:linear-gradient(180deg,#150F13,#0E0A0D); border:1px solid rgba(246,241,236,.08); }
-    .date{ text-align:center; padding:12px 0; border-radius:3px; background:linear-gradient(150deg,#D4102A,#7A0C1B); }
-    .date b{ display:block; font-family:'Instrument Serif',Georgia,serif; font-size:30px; line-height:1; font-weight:400; }
-    .date small{ display:block; font-size:11px; letter-spacing:.2em; text-transform:uppercase; opacity:.9; margin-top:2px; }
+    .out{ color:transparent; -webkit-text-stroke:2px #E9B949; }
+    .out-r{ color:transparent; -webkit-text-stroke:2px #FF2E1F; }
+    .lbl{ font-family:'Bricolage Grotesque',sans-serif; font-size:11.5px; font-weight:700; letter-spacing:.24em;
+      text-transform:uppercase; }
+    .hand{ font-family:Caveat,'Comic Sans MS',cursive; font-weight:700; color:#E9B949; }
+    .mut{ color:#C6B6A8; }
+    .dim{ color:#A2948A; }
+    .btn{ display:inline-flex; align-items:center; gap:10px; padding:16px 30px; border-radius:38px 34px 40px 32px;
+      font-weight:800; font-size:15px; background:#D2261F; color:#fff; }
+    .btn.k{ background:#E9B949; color:#28190C; }
+    .btn.o{ background:transparent; border:2px solid rgba(246,237,225,.28); color:#F6EDE1; }
+    .polaroid{ position:relative; background:#F6EDE1; padding:12px 12px 38px; box-shadow:0 26px 60px rgba(0,0,0,.62); }
+    .polaroid img{ width:100%; display:block; }
+    .polaroid span{ display:block; margin-top:10px; font-family:Caveat,cursive; font-weight:700; font-size:20px;
+      color:#2A1B12; text-align:center; }
+    .tape{ position:absolute; top:-13px; left:50%; margin-left:-52px; width:104px; height:26px; transform:rotate(-5deg); }
+    .note{ position:relative; background:#170F0B; border:1px solid rgba(246,237,225,.12); border-radius:14px 12px 16px 10px; padding:26px; }
+    .pin{ position:absolute; top:-9px; left:50%; margin-left:-8px; width:16px; height:16px; border-radius:50%;
+      background:#D2261F; box-shadow:0 3px 8px rgba(0,0,0,.6); }
+    .chip{ display:inline-block; padding:7px 15px; border:2px solid rgba(233,185,73,.4); border-radius:999px;
+      font-size:11.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:#E9B949; }
+    .chip.r{ border-color:rgba(255,46,31,.55); color:#FF8A76; }
+    .chip.g{ border-color:rgba(18,105,59,.7); color:#5FC98C; }
+    .grain{ position:absolute; inset:0; pointer-events:none; opacity:.42; mix-blend-mode:overlay;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
   </style>
 </helmet>
-<div style="background:#0A0709; background-image:radial-gradient(60% 40% at 82% 0%, rgba(212,16,42,.22), transparent 62%), radial-gradient(40% 30% at 8% 12%, rgba(232,185,60,.07), transparent 66%);">
-<div style="width:390px;">
-  <div style="display:flex; align-items:center; justify-content:space-between; padding:14px 20px; border-bottom:1px solid rgba(246,241,236,.07);">
+<div style="position:relative; background:
+   radial-gradient(85% 55% at 10% 0%, rgba(210,38,31,.30), transparent 58%),
+   radial-gradient(55% 45% at 94% 26%, rgba(233,185,73,.10), transparent 62%), #0D0806; overflow:hidden;">
+<div class="grain"></div>
+<div style="width:390px; position:relative;">
+  <div style="display:flex; align-items:center; justify-content:space-between; padding:14px 18px; border-bottom:2px solid #E9B949;">
     <div style="display:flex; align-items:center; gap:10px;">
 <svg viewBox="0 0 200 200" width="42" height="42" role="img" aria-label="Emblema do Clube de Patinagem BVM Montijo" style="display:block">
   <defs>
@@ -69,120 +80,93 @@
     <circle cx="115.4" cy="159.6" r="3.2"/><circle cx="123.2" cy="156.8" r="3.2"/>
   </g>
 </svg>
-      <span style="font-family:Instrument Serif,Georgia,serif; font-size:16px; line-height:1.15;">Clube de Patinagem BVM</span>
+      <div style="line-height:1.1;">
+        <div style="font-family:Anton,sans-serif; font-size:17px; text-transform:uppercase;">Patinagem BVM</div>
+        <div class="lbl" style="color:#E9B949; font-size:9.5px;">Montijo</div>
+      </div>
     </div>
-    <span style="width:44px; height:44px; border:1px solid rgba(246,241,236,.14); border-radius:10px; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:4px; flex:none;">
-      <span style="width:18px; height:1.5px; background:#F6F1EC; display:block;"></span>
-      <span style="width:18px; height:1.5px; background:#F6F1EC; display:block;"></span>
-      <span style="width:18px; height:1.5px; background:#F6F1EC; display:block;"></span>
+    <span style="width:44px; height:44px; border:2px solid rgba(246,237,225,.2); border-radius:10px; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:4px; flex:none;">
+      <span style="width:18px; height:2px; background:#E9B949; display:block;"></span>
+      <span style="width:18px; height:2px; background:#E9B949; display:block;"></span>
+      <span style="width:18px; height:2px; background:#E9B949; display:block;"></span>
     </span>
   </div>
 
-  <div style="padding:38px 20px 42px; text-align:center;">
-    <div class="ey" style="font-size:11px;">Patinagem artística · Montijo</div>
-    <h1 style="font-size:46px; margin-top:18px;">Onde a técnica encontra a <span class="it">arte</span>.</h1>
-    <p class="mut" style="font-size:16px; margin-top:18px;">Escola de patinagem e equipa de competição no Montijo, dos primeiros passos ao pódio.</p>
-    <div style="display:flex; flex-direction:column; gap:10px; margin-top:28px;">
-      <span class="btn" style="display:block; text-align:center; padding:17px;">Inscrever atleta</span>
-      <span class="btn gh" style="display:block; text-align:center; padding:17px;">Conhecer o clube</span>
+  <div style="padding:30px 18px 0;">
+    <div class="lbl" style="color:#FF2E1F;">Época 2026/27 · inscrições abertas</div>
+    <h1 style="font-size:70px; margin-top:16px;">Patinagem</h1>
+    <h1 class="out" style="font-size:70px; -webkit-text-stroke:1.6px #E9B949;">Artística</h1>
+    <div style="font-family:Anton,sans-serif; font-size:34px; color:#FF2E1F; text-transform:uppercase; line-height:1;">Montijo</div>
+    <p class="mut" style="font-size:16.5px; margin-top:16px;">Não é só andar de patins. É cair sessenta vezes, levantar sessenta e uma, e ouvir o pavilhão a gritar o teu nome.</p>
+    <div class="hand" style="font-size:30px; transform:rotate(-3deg); margin-top:10px;">aqui ninguém patina sozinho</div>
+    <div style="display:flex; flex-direction:column; gap:10px; margin-top:24px;">
+      <span class="btn" style="justify-content:center; padding:17px;">Marcar aula grátis</span>
+      <span class="btn o" style="justify-content:center; padding:17px;">Conhecer o clube</span>
     </div>
-    <div style="position:relative; display:flex; justify-content:center; margin-top:40px;">
-      <div style="position:absolute; width:240px; height:240px; border-radius:50%; background:radial-gradient(circle, rgba(212,16,42,.45), rgba(212,16,42,0) 66%); top:-4px;"></div>
-<svg viewBox="0 0 200 200" width="228" height="228" role="img" aria-label="Emblema do Clube de Patinagem BVM Montijo" style="display:block">
-  <defs>
-    <path id="tpmb" d="M100,100 m-77,0 a77,77 0 1,1 154,0" fill="none"/>
-    <path id="bpmb" d="M100,100 m-74,0 a74,74 0 1,0 148,0" fill="none"/>
-  </defs>
-  <circle cx="100" cy="100" r="100" fill="#000000"/>
-  <circle cx="100" cy="100" r="94" fill="none" stroke="#F0401C" stroke-width="6"/>
-  <g fill="none" stroke="#0C5A34" stroke-linecap="round">
-    <path d="M100,100 m-63,0 a63,63 0 1,1 44,58" stroke-width="3.4" opacity=".95"/>
-    <path d="M100,100 m-57,0 a57,57 0 1,1 52,34" stroke-width="2.4" opacity=".8" transform="rotate(24 100 100)"/>
-    <path d="M100,100 m-52,0 a52,52 0 1,1 46,30" stroke-width="1.8" opacity=".6" transform="rotate(-38 100 100)"/>
-    <path d="M100,100 m-67,0 a67,67 0 0,1 40,-58" stroke-width="2" opacity=".55" transform="rotate(140 100 100)"/>
-  </g>
-  <g fill="#E63917">
-    <circle cx="99" cy="55" r="7.4"/>
-    <path d="M92.5 51.5c-3.4-1.2-5.6-.2-6.2 1.6-.5 1.7 1 3.2 3.6 3.3z"/>
-    <path d="M92.6 64.5c3.8-1.6 8.4-1.6 12.2.2 2.2 1 3.3 3 3.1 5.6l-1.6 22c-.2 2.4-1.6 3.7-4.2 3.9l-8.4.2c-2.6 0-4-1.2-4.2-3.6l-1.6-22.4c-.2-2.7 1-4.7 4.7-5.9z"/>
-    <path d="M104.4 68.6l3.4-3.1 12.8-13.6 2.6-3.6c1-1.4 2.6-1.7 3.9-.7 1.3 1 1.5 2.6.6 4l-3 4.2-13.6 14.6-3.6 3.3z"/>
-    <path d="M124.2 44.4l2.6-3.4c.9-1.2 2.3-1.5 3.4-.7 1.1.8 1.3 2.2.5 3.4l-2.5 3.6z"/>
-    <path d="M91.6 72.2l-4.4.4-17.6 2.1-4.2.9c-1.6.3-3-.6-3.2-2.2-.2-1.6.8-2.8 2.4-3.1l4.6-.8 18-1.9 4.3-.2z"/>
-    <path d="M65.2 69.6l-4.3.6c-1.4.2-2.6-.6-2.8-1.9-.2-1.3.7-2.4 2.1-2.6l4.2-.6z"/>
-    <path d="M89.6 92.4l12.4-.3c2.6 0 4.4 1.2 5.4 3.6l8.6 21.4c.9 2.2.4 3.9-1.5 5l-4.6 2.6-10.7 4.8c-2.6 1.1-4.8 1-6.6-.6l-9.4-8.6-8.2-8.4 3.2-4.1 9.6 7.2-4.8 8.4-6.6 10.6 6-1.6 12.4-5.2c2.3-1 3.4-2.7 3.2-5l-1-12.6z"/>
-    <path d="M97.4 122.6l3.2 20.4.8 14.2-6.2.3-1.2-14.8-2.6-19.4z"/>
-    <path d="M108.6 120.2l6.4 19.6 5 13.4-5.7 2.2-5.4-13.8-6.5-18.6z"/>
-    <path d="M87.6 155.4l10.8-.4.3 4.6-11 .4z"/>
-    <path d="M112.8 151.6l10.2-3.8 1.6 4.3-10.2 3.9z"/>
-    <circle cx="89.4" cy="163.4" r="3.2"/><circle cx="97.6" cy="163" r="3.2"/>
-    <circle cx="115.4" cy="159.6" r="3.2"/><circle cx="123.2" cy="156.8" r="3.2"/>
-  </g>
-  <text fill="#F2C200" font-family="Archivo, Helvetica, Arial, sans-serif" font-size="17" font-weight="700" letter-spacing="1.2" stroke="#8A5A00" stroke-width=".5">
-    <textPath href="#tpmb" startOffset="50%" text-anchor="middle">CLUBE PATINAGEM BVM</textPath>
-  </text>
-  <text fill="#FFFFFF" font-family="Archivo, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4">
-    <textPath href="#bpmb" startOffset="50%" text-anchor="middle">MONTIJO</textPath>
-  </text>
-</svg>
-    </div>
-    <div style="display:flex; justify-content:center; gap:34px; margin-top:34px; padding-top:22px; border-top:1px solid rgba(246,241,236,.08);">
-      <div><div style="font-family:Instrument Serif,Georgia,serif; font-size:30px; color:#E8B93C; line-height:1;">94</div><div class="dim" style="font-size:11px; letter-spacing:.16em; text-transform:uppercase; margin-top:5px;">Atletas</div></div>
-      <div><div style="font-family:Instrument Serif,Georgia,serif; font-size:30px; color:#E8B93C; line-height:1;">7</div><div class="dim" style="font-size:11px; letter-spacing:.16em; text-transform:uppercase; margin-top:5px;">Escalões</div></div>
-      <div><div style="font-family:Instrument Serif,Georgia,serif; font-size:30px; color:#E8B93C; line-height:1;">2012</div><div class="dim" style="font-size:11px; letter-spacing:.16em; text-transform:uppercase; margin-top:5px;">Desde</div></div>
+    <div style="position:relative; height:330px; margin-top:28px;">
+<div class="polaroid" style="transform:rotate(-4deg); position:absolute; right:0; top:0; width:215px;"><span class="tape" style="background:rgba(233,185,73,.45)"></span><img src="atleta-01.jpg" alt="" style="height:230px; object-fit:cover;"><span>Beatriz, Cadetes</span></div><div class="polaroid" style="transform:rotate(6deg); position:absolute; left:0; top:120px; width:180px;"><span class="tape" style="background:rgba(210,38,31,.5)"></span><img src="gala-01.jpg" alt="" style="height:150px; object-fit:cover;"><span>Gala de Natal</span></div>    </div>
+    <div style="display:flex; margin-top:10px; border-top:3px solid rgba(246,237,225,.18);">
+      <div style="flex:1; padding:16px 0;"><div style="font-family:Anton,sans-serif; font-size:40px; color:#E9B949; line-height:.9;">94</div><span class="lbl dim" style="font-size:10.5px;">Atletas</span></div>
+      <div style="flex:1; padding:16px 0 16px 16px; border-left:3px solid rgba(246,237,225,.18);"><div style="font-family:Anton,sans-serif; font-size:40px; color:#E9B949; line-height:.9;">7</div><span class="lbl dim" style="font-size:10.5px;">Escalões</span></div>
+      <div style="flex:1; padding:16px 0 16px 16px; border-left:3px solid rgba(246,237,225,.18);"><div style="font-family:Anton,sans-serif; font-size:40px; color:#E9B949; line-height:.9;">14</div><span class="lbl dim" style="font-size:10.5px;">Anos</span></div>
     </div>
   </div>
 
-  <div style="display:flex; justify-content:center; align-items:center; gap:14px; padding:13px 20px; border-block:1px solid rgba(246,241,236,.07); background:linear-gradient(90deg, rgba(212,16,42,.14), rgba(232,185,60,.12));">
-<span class="ey" style="font-size:11px; color:rgba(246,241,236,.62);">Técnica</span><svg width="7" height="7" viewBox="0 0 10 10" aria-hidden="true" style="display:block"><path d="M5 0l5 5-5 5-5-5z" fill="#E8B93C"/></svg><span class="ey" style="font-size:11px; color:rgba(246,241,236,.62);">Arte</span><svg width="7" height="7" viewBox="0 0 10 10" aria-hidden="true" style="display:block"><path d="M5 0l5 5-5 5-5-5z" fill="#E8B93C"/></svg><span class="ey" style="font-size:11px; color:rgba(246,241,236,.62);">Equipa</span>  </div>
+  <div style="margin-top:26px; background:#E9B949; color:#170A02; padding:13px 18px; display:flex; justify-content:space-between; font-family:Anton,sans-serif; font-size:17px; text-transform:uppercase;">
+    <span>Gala de Natal</span><span>12 dez</span><span>21h00</span>
+  </div>
 
-  <div style="padding:42px 20px 0;">
-    <div class="ey" style="font-size:11px;">O que fazemos</div>
-    <h2 style="font-size:34px; margin-top:14px;">Três caminhos, a mesma <span class="it">pista</span>.</h2>
-    <div style="display:flex; flex-direction:column; gap:14px; margin-top:26px;">
-      <div class="card" style="padding:26px; border-radius:4px;">
-        <h3 style="font-size:22px;">Escola de Patinagem</h3>
-        <p class="mut" style="font-size:15px; margin-top:8px;">Primeiros passos e confiança sobre rodas, a partir dos 4 anos.</p>
+  <div style="padding:36px 18px 0;">
+    <h2 style="font-size:44px;">O que se faz<br><span style="color:#FF2E1F;">nesta pista</span></h2>
+    <div style="margin-top:24px; border-top:3px solid rgba(246,237,225,.18);">
+      <div style="display:flex; gap:16px; align-items:center; padding:20px 0; border-bottom:3px solid rgba(246,237,225,.18);">
+        <span style="font-family:Anton,sans-serif; font-size:30px; color:#E9B949;">01</span>
+        <div><h3 style="font-size:26px;">Escola de patinagem</h3><p class="dim" style="font-size:14px; margin-top:4px;">A partir dos 4 anos.</p></div>
       </div>
-      <div class="card" style="padding:26px; border-radius:4px; border-color:rgba(232,185,60,.22);">
-        <h3 style="font-size:22px;">Artística — Competição</h3>
-        <p class="mut" style="font-size:15px; margin-top:8px;">Treino técnico e coreográfico para provas regionais e nacionais.</p>
+      <div style="display:flex; gap:16px; align-items:center; padding:20px 0; border-bottom:3px solid rgba(246,237,225,.18);">
+        <span style="font-family:Anton,sans-serif; font-size:30px; color:#E9B949;">02</span>
+        <div><h3 style="font-size:26px;">Competição</h3><p class="dim" style="font-size:14px; margin-top:4px;">Quatro treinos por semana.</p></div>
       </div>
-      <div class="card" style="padding:26px; border-radius:4px;">
-        <h3 style="font-size:22px;">Grupos e Exibições</h3>
-        <p class="mut" style="font-size:15px; margin-top:8px;">Coreografias de conjunto, galas e o espetáculo de fim de época.</p>
+      <div style="display:flex; gap:16px; align-items:center; padding:20px 0; border-bottom:3px solid rgba(246,237,225,.18);">
+        <span style="font-family:Anton,sans-serif; font-size:30px; color:#E9B949;">03</span>
+        <div><h3 style="font-size:26px;">Grupos e galas</h3><p class="dim" style="font-size:14px; margin-top:4px;">O espetáculo de dezembro.</p></div>
       </div>
     </div>
   </div>
 
-  <div style="padding:42px 20px 0;">
-    <div class="ey" style="font-size:11px;">Galeria</div>
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:16px;">
-<div style="position:relative; overflow:hidden; background:#120D11; height:130px; border-radius:4px;"><img src="gala-01.jpg" alt="" style="width:100%; height:100%; object-fit:cover; display:block"></div><div style="position:relative; overflow:hidden; background:#120D11; height:130px; border-radius:4px;"><img src="atleta-02.jpg" alt="" style="width:100%; height:100%; object-fit:cover; display:block"></div><div style="position:relative; overflow:hidden; background:#120D11; height:130px; border-radius:4px;"><img src="escola-01.jpg" alt="" style="width:100%; height:100%; object-fit:cover; display:block"></div><div style="position:relative; overflow:hidden; background:#120D11; height:130px; border-radius:4px;"><img src="patins-01.jpg" alt="" style="width:100%; height:100%; object-fit:cover; display:block"></div>    </div>
-  </div>
-
-  <div style="padding:42px 20px 0;">
-    <div class="ey" style="font-size:11px; margin-bottom:16px;">Próximo evento</div>
-    <div class="card" style="display:grid; grid-template-columns:64px 1fr; gap:18px; align-items:center; padding:18px; border-radius:4px;">
-      <div class="date" style="padding:10px 0;"><b style="font-size:24px;">12</b><small style="font-size:10px;">Dez</small></div>
-      <div>
-        <h3 style="font-size:19px;">Gala de Natal do CPBVM</h3>
-        <p class="dim" style="font-size:13px; margin-top:2px;">Pavilhão Municipal · 21h00</p>
+  <div style="padding:36px 18px 0;">
+    <h2 style="font-size:40px;">Quadro de <span style="color:#E9B949;">avisos</span></h2>
+    <div style="display:flex; flex-direction:column; gap:16px; margin-top:22px;">
+      <div class="note" style="transform:rotate(-1deg);"><span class="pin"></span>
+        <div class="lbl" style="color:#FF2E1F;">17 out</div>
+        <h3 style="font-size:24px; margin-top:8px;">Torneio de abertura</h3>
+        <p class="dim" style="font-size:14px; margin-top:6px;">Pavilhão do Bonfim, Setúbal. Autocarro às 8h00.</p>
+      </div>
+      <div class="note" style="transform:rotate(1.2deg); background:#E9B949; border-color:transparent;"><span class="pin" style="background:#0D0806;"></span>
+        <div class="lbl" style="color:#7A3B12;">Todo o ano</div>
+        <h3 style="font-size:24px; margin-top:8px; color:#28190C;">Aula experimental</h3>
+        <p style="font-size:14px; margin-top:6px; color:#4A3620;">Grátis, sem compromisso. Basta aparecer com meias altas.</p>
       </div>
     </div>
   </div>
 
-  <div style="padding:42px 20px 48px;">
-    <div style="border:1px solid rgba(232,185,60,.18); border-radius:6px; padding:36px 24px; text-align:center;
-      background:radial-gradient(90% 130% at 20% 0%, rgba(212,16,42,.4), transparent 62%), linear-gradient(160deg,#150F13,#0C080B);">
-      <h2 style="font-size:32px;">Inscrições <span class="it">abertas</span></h2>
-      <p class="mut" style="font-size:15px; margin-top:12px;">Aula experimental gratuita. Os patins podemos emprestar.</p>
-      <span class="btn" style="display:block; text-align:center; padding:16px; margin-top:22px;">Quero inscrever-me</span>
+  <div style="padding:36px 18px 0;">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+<div class="polaroid" style="transform:rotate(-2deg); "><span class="tape" style="background:rgba(233,185,73,.45)"></span><img src="treino-01.jpg" alt="" style="height:130px; object-fit:cover;"><span>Treino de terça</span></div><div class="polaroid" style="transform:rotate(2.4deg); margin-top:18px;"><span class="tape" style="background:rgba(233,185,73,.45)"></span><img src="patins-01.jpg" alt="" style="height:130px; object-fit:cover;"><span>Os patins</span></div><div class="polaroid" style="transform:rotate(1.4deg); "><span class="tape" style="background:rgba(233,185,73,.45)"></span><img src="equipa-01.jpg" alt="" style="height:130px; object-fit:cover;"><span>A equipa</span></div><div class="polaroid" style="transform:rotate(-3deg); margin-top:16px;"><span class="tape" style="background:rgba(210,38,31,.5)"></span><img src="gala-03.jpg" alt="" style="height:130px; object-fit:cover;"><span>Fim de época</span></div>    </div>
+  </div>
+
+  <div style="padding:40px 18px 44px;">
+    <div style="border-radius:22px 18px 24px 16px; padding:34px 24px; text-align:center; background:linear-gradient(140deg,#D2261F,#6E0C10);">
+      <h2 style="font-size:40px;">Vem experimentar num sábado.</h2>
+      <p style="font-size:15.5px; color:#FFE3DF; margin-top:12px;">Os patins são por nossa conta.</p>
+      <span class="btn k" style="justify-content:center; padding:16px; margin-top:20px; display:flex;">Marcar aula grátis</span>
+      <div class="hand" style="font-size:26px; margin-top:14px; color:#FFE08A;">até já!</div>
     </div>
   </div>
 
-  <div style="border-top:1px solid rgba(246,241,236,.07); background:#080608; padding:36px 20px 28px;">
+  <div style="border-top:2px solid #E9B949; background:#0A0605; padding:32px 18px 26px;">
     <div style="display:flex; align-items:center; gap:12px;">
-<svg viewBox="0 0 200 200" width="44" height="44" role="img" aria-label="Emblema do Clube de Patinagem BVM Montijo" style="display:block">
+<svg viewBox="0 0 200 200" width="46" height="46" role="img" aria-label="Emblema do Clube de Patinagem BVM Montijo" style="display:block">
   <defs>
     <path id="tpmf" d="M100,100 m-77,0 a77,77 0 1,1 154,0" fill="none"/>
     <path id="bpmf" d="M100,100 m-74,0 a74,74 0 1,0 148,0" fill="none"/>
@@ -212,13 +196,13 @@
     <circle cx="115.4" cy="159.6" r="3.2"/><circle cx="123.2" cy="156.8" r="3.2"/>
   </g>
 </svg>
-      <span style="font-family:Instrument Serif,Georgia,serif; font-size:17px;">Clube de Patinagem BVM</span>
+      <div style="font-family:Anton,sans-serif; font-size:24px; line-height:.9; text-transform:uppercase;">Patinagem<br>BVM</div>
     </div>
-    <div style="display:flex; flex-wrap:wrap; gap:10px 22px; margin-top:22px; font-size:14.5px; color:#A79DA4;">
-      <span>Sobre</span><span>Equipa técnica</span><span>Atletas</span><span>Eventos</span><span>Inscrições</span><span>Contactos</span>
+    <div style="display:flex; flex-wrap:wrap; gap:10px 20px; margin-top:20px;" class="lbl">
+      <span>O clube</span><span>Treinadores</span><span>Atletas</span><span>Agenda</span><span>Inscrições</span><span>Contactos</span>
     </div>
-    <p class="dim" style="font-size:13px; margin-top:22px;">Pavilhão Municipal do Montijo · geral@cpbvm.pt · 212 345 678</p>
-    <p class="dim" style="font-size:12.5px; margin-top:14px;">© 2026 Clube de Patinagem BVM</p>
+    <p class="dim" style="font-size:13.5px; margin-top:18px;">Pavilhão Municipal do Montijo · geral@cpbvm.pt · 212 345 678</p>
+    <p class="dim" style="font-size:12.5px; margin-top:12px;">© 2026 Clube de Patinagem BVM</p>
   </div>
 </div>
 </div>

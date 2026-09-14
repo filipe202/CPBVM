@@ -7,37 +7,48 @@
 <body>
 <x-dc>
 <helmet>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&amp;family=Caveat:wght@600;700&amp;display=swap">
   <style>
-    body{ margin:0; background:#0A0709; color:#F6F1EC;
-      font-family:Archivo,'Helvetica Neue',Helvetica,Arial,sans-serif; font-size:17px; line-height:1.7;
+    body{ margin:0; background:#0D0806; color:#F6EDE1;
+      font-family:'Bricolage Grotesque','Trebuchet MS',sans-serif; font-size:17px; line-height:1.62;
       -webkit-font-smoothing:antialiased; }
-    a{ color:#E8B93C; text-decoration:none; } a:hover{ color:#FFE9A8; }
-    h1,h2,h3{ margin:0; font-family:'Instrument Serif',Georgia,'Times New Roman',serif; font-weight:400;
-      letter-spacing:-.015em; line-height:1.1; }
+    a{ color:#E9B949; text-decoration:none; } a:hover{ color:#FFF6EC; }
+    h1,h2,h3{ margin:0; font-family:Anton,'Arial Narrow',Impact,sans-serif; font-weight:400;
+      text-transform:uppercase; line-height:.88; letter-spacing:-.012em; }
     p{ margin:0; }
-    .ey{ font-family:Archivo,Helvetica,Arial,sans-serif; font-size:11.5px; font-weight:600; letter-spacing:.28em;
-      text-transform:uppercase; color:#E8B93C; }
-    .mut{ color:#A79DA4; }
-    .dim{ color:#8C8490; }
-    .it{ font-style:italic; color:#E8B93C; }
-    .chip{ display:inline-block; padding:5px 12px; border:1px solid rgba(232,185,60,.28); border-radius:999px;
-      font-size:11.5px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:#E8B93C; }
-    .chip.r{ border-color:rgba(212,16,42,.5); color:#FF8A96; }
-    .chip.g{ border-color:rgba(14,107,55,.6); color:#6FD69A; }
-    .btn{ display:inline-block; padding:16px 30px; border-radius:999px; font-size:14px; font-weight:600;
-      letter-spacing:.06em; background:linear-gradient(120deg,#FFE9A8,#E8B93C 55%,#C08C24); color:#1B1206; }
-    .btn.gh{ background:none; border:1px solid rgba(246,241,236,.22); color:#F6F1EC; }
-    .hair{ height:1px; background:linear-gradient(90deg,transparent,rgba(232,185,60,.35),transparent); border:0; }
-    .card{ background:linear-gradient(180deg,#150F13,#0E0A0D); border:1px solid rgba(246,241,236,.08); }
-    .date{ text-align:center; padding:12px 0; border-radius:3px; background:linear-gradient(150deg,#D4102A,#7A0C1B); }
-    .date b{ display:block; font-family:'Instrument Serif',Georgia,serif; font-size:30px; line-height:1; font-weight:400; }
-    .date small{ display:block; font-size:11px; letter-spacing:.2em; text-transform:uppercase; opacity:.9; margin-top:2px; }
+    .out{ color:transparent; -webkit-text-stroke:2px #E9B949; }
+    .out-r{ color:transparent; -webkit-text-stroke:2px #FF2E1F; }
+    .lbl{ font-family:'Bricolage Grotesque',sans-serif; font-size:11.5px; font-weight:700; letter-spacing:.24em;
+      text-transform:uppercase; }
+    .hand{ font-family:Caveat,'Comic Sans MS',cursive; font-weight:700; color:#E9B949; }
+    .mut{ color:#C6B6A8; }
+    .dim{ color:#A2948A; }
+    .btn{ display:inline-flex; align-items:center; gap:10px; padding:16px 30px; border-radius:38px 34px 40px 32px;
+      font-weight:800; font-size:15px; background:#D2261F; color:#fff; }
+    .btn.k{ background:#E9B949; color:#28190C; }
+    .btn.o{ background:transparent; border:2px solid rgba(246,237,225,.28); color:#F6EDE1; }
+    .polaroid{ position:relative; background:#F6EDE1; padding:12px 12px 38px; box-shadow:0 26px 60px rgba(0,0,0,.62); }
+    .polaroid img{ width:100%; display:block; }
+    .polaroid span{ display:block; margin-top:10px; font-family:Caveat,cursive; font-weight:700; font-size:20px;
+      color:#2A1B12; text-align:center; }
+    .tape{ position:absolute; top:-13px; left:50%; margin-left:-52px; width:104px; height:26px; transform:rotate(-5deg); }
+    .note{ position:relative; background:#170F0B; border:1px solid rgba(246,237,225,.12); border-radius:14px 12px 16px 10px; padding:26px; }
+    .pin{ position:absolute; top:-9px; left:50%; margin-left:-8px; width:16px; height:16px; border-radius:50%;
+      background:#D2261F; box-shadow:0 3px 8px rgba(0,0,0,.6); }
+    .chip{ display:inline-block; padding:7px 15px; border:2px solid rgba(233,185,73,.4); border-radius:999px;
+      font-size:11.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:#E9B949; }
+    .chip.r{ border-color:rgba(255,46,31,.55); color:#FF8A76; }
+    .chip.g{ border-color:rgba(18,105,59,.7); color:#5FC98C; }
+    .grain{ position:absolute; inset:0; pointer-events:none; opacity:.42; mix-blend-mode:overlay;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
   </style>
 </helmet>
-<div style="background:#0A0709; background-image:radial-gradient(60% 40% at 82% 0%, rgba(212,16,42,.22), transparent 62%), radial-gradient(40% 30% at 8% 12%, rgba(232,185,60,.07), transparent 66%);">
-<div style="display:flex; align-items:center; justify-content:space-between; gap:32px; padding:22px 96px; border-bottom:1px solid rgba(246,241,236,.07);">
-<div style="display:flex; align-items:center; gap:14px;"><svg viewBox="0 0 200 200" width="52" height="52" role="img" aria-label="Emblema do Clube de Patinagem BVM Montijo" style="display:block">
+<div style="position:relative; background:
+   radial-gradient(85% 55% at 10% 0%, rgba(210,38,31,.30), transparent 58%),
+   radial-gradient(55% 45% at 94% 26%, rgba(233,185,73,.10), transparent 62%), #0D0806; overflow:hidden;">
+<div class="grain"></div>
+<div style="position:relative; display:flex; align-items:center; justify-content:space-between; gap:30px; padding:20px 58px; border-bottom:2px solid #E9B949;">
+<div style="display:flex; align-items:center; gap:13px;"><svg viewBox="0 0 200 200" width="50" height="50" role="img" aria-label="Emblema do Clube de Patinagem BVM Montijo" style="display:block">
   <defs>
     <path id="tpn" d="M100,100 m-77,0 a77,77 0 1,1 154,0" fill="none"/>
     <path id="bpn" d="M100,100 m-74,0 a74,74 0 1,0 148,0" fill="none"/>
@@ -67,87 +78,88 @@
     <circle cx="115.4" cy="159.6" r="3.2"/><circle cx="123.2" cy="156.8" r="3.2"/>
   </g>
 </svg>
-<div style="display:flex; flex-direction:column; line-height:1.2;">
-<span style="font-family:Instrument Serif,Georgia,serif; font-size:19px;">Clube de Patinagem BVM</span>
-<span class="ey" style="font-size:10.5px; letter-spacing:.32em;">Montijo</span>
+<div style="line-height:1.12;">
+<div style="font-family:Anton,sans-serif; font-size:21px; letter-spacing:.01em; text-transform:uppercase;">Patinagem BVM</div>
+<div class="lbl" style="color:#E9B949; font-size:10.5px;">Montijo · desde 2012</div>
 </div>
 </div>
-<div style="display:flex; align-items:center; gap:28px;"><span style="font-size:14.5px; font-weight:500; color:#A79DA4; padding-bottom:4px;">Início</span><span style="font-size:14.5px; font-weight:500; color:#A79DA4; padding-bottom:4px;">Sobre</span><span style="font-size:14.5px; font-weight:500; color:#A79DA4; padding-bottom:4px;">Equipa Técnica</span><span style="font-size:14.5px; font-weight:500; color:#A79DA4; padding-bottom:4px;">Atletas</span><span style="font-size:14.5px; font-weight:500; color:#A79DA4; padding-bottom:4px;">Eventos</span><span style="font-size:14.5px; font-weight:500; color:#F6F1EC; padding-bottom:4px;border-bottom:1px solid #E8B93C;">Contactos</span><span class="btn" style="padding:13px 24px; font-size:13px;">Inscrições abertas</span>
+<div style="display:flex; align-items:center; gap:26px;"><span class="lbl" style="color:#F6EDE1; padding-bottom:3px;">Início</span><span class="lbl" style="color:#F6EDE1; padding-bottom:3px;">O clube</span><span class="lbl" style="color:#F6EDE1; padding-bottom:3px;">Treinadores</span><span class="lbl" style="color:#F6EDE1; padding-bottom:3px;">Atletas</span><span class="lbl" style="color:#F6EDE1; padding-bottom:3px;">Agenda</span><span class="lbl" style="color:#E9B949; border-bottom:2px solid #FF2E1F; padding-bottom:3px;">Contactos</span><span class="btn k" style="padding:12px 22px; font-size:14px;">Inscrever</span>
 </div>
 </div>
-<div style="position:relative; padding:86px 96px 64px; border-bottom:1px solid rgba(246,241,236,.07);
-  background:radial-gradient(60% 120% at 82% 0%, rgba(212,16,42,.30), transparent 62%), radial-gradient(40% 80% at 6% 40%, rgba(232,185,60,.08), transparent 66%);">
-  <div class="dim" style="font-size:13px; margin-bottom:26px;">Início &nbsp;/&nbsp; Contactos</div>
-  <div class="ey" style="margin-bottom:18px;">Falar connosco</div>
-  <h1 style="font-size:74px; max-width:20ch;">Estamos no <span class="it">Pavilhão Municipal</span> do Montijo.</h1>
-  <p class="mut" style="font-size:18px; max-width:56ch; margin-top:24px;">Aparece num treino, liga ou escreve. Respondemos a todas as mensagens em 48 horas — e às urgentes bem mais depressa.</p>
+<div style="position:relative; padding:52px 58px 60px;">
+  <div class="lbl" style="color:#A2948A; margin-bottom:26px;">Início &nbsp;·&nbsp; Contactos</div>
+  <div class="lbl" style="color:#FF2E1F; margin-bottom:20px;">Pavilhão Municipal do Montijo</div>
+  <h1 style="font-size:124px;">Passa por</h1>
+  <h1 class="out" style="font-size:124px; margin-top:-6px;">cá</h1>
+  <div style="display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:end; margin-top:26px;">
+    <p style="font-size:19.5px; color:#C6B6A8; max-width:52ch;">Aparece num treino, liga ou escreve. Respondemos a tudo em 48 horas — e às urgências bem mais depressa.</p>
+    <div class="hand" style="font-size:32px; transform:rotate(-2deg); text-align:right;">a porta está aberta</div>
+  </div>
 </div>
-<div style="display:grid; grid-template-columns:1fr 1fr; gap:56px; padding:88px 96px 0; align-items:start;">
-  <div>
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
-      <div class="card" style="padding:30px; border-radius:4px;">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E8B93C" stroke-width="1.5" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 10-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
-        <div class="ey" style="margin:16px 0 8px;">Morada</div>
-        <p style="font-size:15.5px;">Pavilhão Municipal do Montijo<br>Rua das Palmeiras 12<br>2870-355 Montijo</p>
-      </div>
-      <div class="card" style="padding:30px; border-radius:4px;">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E8B93C" stroke-width="1.5" aria-hidden="true"><path d="M4 6.5h16v11H4z"/><path d="M4 7l8 6 8-6"/></svg>
-        <div class="ey" style="margin:16px 0 8px;">Contactos</div>
-        <p style="font-size:15.5px;">geral@cpbvm.pt<br>212 345 678<br>963 214 587</p>
-      </div>
-      <div class="card" style="padding:30px; border-radius:4px;">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E8B93C" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>
-        <div class="ey" style="margin:16px 0 8px;">Treinos</div>
-        <p style="font-size:15.5px;">Terça e quinta · 18h30–20h00<br>Sábado · 10h00–13h00</p>
-      </div>
-      <div class="card" style="padding:30px; border-radius:4px;">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E8B93C" stroke-width="1.5" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9.5h18M8 3v3M16 3v3"/></svg>
-        <div class="ey" style="margin:16px 0 8px;">Secretaria</div>
-        <p style="font-size:15.5px;">Terça e quinta · 18h00–20h00<br>Sábado · 10h00–12h00</p>
-      </div>
+<div style="position:relative; padding:0 58px;">
+  <div style="display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:20px;">
+    <div class="note" style="transform:rotate(-1.2deg);"><span class="pin"></span>
+      <div class="lbl" style="color:#FF2E1F;">Morada</div>
+      <p style="font-size:16.5px; margin-top:10px;">Pavilhão Municipal do Montijo<br>Rua das Palmeiras 12<br>2870-355 Montijo</p>
     </div>
-<div style="margin-top:20px;"><div style="position:relative; overflow:hidden; background:#120D11; height:260px; border-radius:4px;"><img src="treino-01.jpg" alt="" style="width:100%; height:100%; object-fit:cover; display:block"><span style="position:absolute; left:16px; bottom:13px; font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.85); text-shadow:0 2px 10px rgba(0,0,0,.8);">Pavilhão Municipal do Montijo</span></div></div>  </div>
-
-  <div class="card" style="padding:48px; border-radius:6px; background:radial-gradient(90% 120% at 90% 0%, rgba(212,16,42,.24), transparent 62%), linear-gradient(160deg,#150F13,#0C080B);">
-    <div class="ey" style="margin-bottom:16px;">Mensagem</div>
-    <h2 style="font-size:36px; margin-bottom:30px;">Escreve-nos</h2>
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
-<div><div style="font-size:11.5px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:#A79DA4; margin-bottom:9px;">Nome</div><div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:15px 18px; border:1px solid rgba(246,241,236,.13); border-radius:3px; background:rgba(246,241,236,.03); font-size:15px; color:#8C8490;"><span>João Almeida</span></div></div><div><div style="font-size:11.5px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:#A79DA4; margin-bottom:9px;">E-mail</div><div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:15px 18px; border:1px solid rgba(246,241,236,.13); border-radius:3px; background:rgba(246,241,236,.03); font-size:15px; color:#8C8490;"><span>joao.almeida@exemplo.pt</span></div></div>    </div>
-    <div style="margin-top:20px;">
-<div><div style="font-size:11.5px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:#A79DA4; margin-bottom:9px;">Assunto</div><div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:15px 18px; border:1px solid rgba(246,241,236,.13); border-radius:3px; background:rgba(246,241,236,.03); font-size:15px; color:#8C8490;"><span>Horários da escola de patinagem</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E8B93C" stroke-width="1.8" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></div></div>    </div>
-    <div style="margin-top:20px;">
-      <div style="font-size:11.5px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:#A79DA4; margin-bottom:9px;">Mensagem</div>
-      <div style="padding:15px 18px; height:150px; border:1px solid rgba(246,241,236,.13); border-radius:3px; background:rgba(246,241,236,.03); font-size:15px; color:#8C8490;">Boa tarde. O meu filho tem 7 anos e queria perceber se ainda há vagas na turma de sábado.</div>
+    <div class="note" style="transform:rotate(1deg);"><span class="pin" style="background:#E9B949;"></span>
+      <div class="lbl" style="color:#FF2E1F;">Falar connosco</div>
+      <p style="font-size:16.5px; margin-top:10px;">geral@cpbvm.pt<br>212 345 678<br>963 214 587</p>
     </div>
-    <div style="margin-top:28px;"><span class="btn" style="display:block; text-align:center;">Enviar mensagem</span></div>
+    <div class="note" style="transform:rotate(-.6deg);"><span class="pin" style="background:#12693B;"></span>
+      <div class="lbl" style="color:#FF2E1F;">Treinos</div>
+      <p style="font-size:16.5px; margin-top:10px;">Terça e quinta · 18h30–20h00<br>Sábado · 10h00–13h00</p>
+    </div>
+    <div class="note" style="transform:rotate(1.5deg);"><span class="pin"></span>
+      <div class="lbl" style="color:#FF2E1F;">Secretaria</div>
+      <p style="font-size:16.5px; margin-top:10px;">Terça e quinta · 18h00–20h00<br>Sábado · 10h00–12h00</p>
+    </div>
   </div>
 </div>
 
-<div style="padding:88px 96px 104px;">
-  <div class="card" style="display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; padding:56px; border-radius:6px;">
+<div style="position:relative; padding:80px 58px 0;">
+  <div style="display:grid; grid-template-columns:1.05fr .95fr; gap:50px; align-items:start;">
     <div>
-      <div class="ey" style="margin-bottom:18px;">Como chegar</div>
-      <h2 style="font-size:40px;">A dois minutos<br>do <span class="it">centro</span>.</h2>
-      <p class="mut" style="font-size:16px; margin-top:20px;">O pavilhão fica junto ao parque municipal, com estacionamento à porta. Carreiras 431 e 437 param a 200 metros; de barco, são 15 minutos a pé do Terminal Fluvial do Montijo.</p>
-    </div>
-    <div style="position:relative; height:280px; border-radius:4px; overflow:hidden; border:1px solid rgba(246,241,236,.1); background:
-      repeating-linear-gradient(0deg, rgba(246,241,236,.05) 0 1px, transparent 1px 46px),
-      repeating-linear-gradient(90deg, rgba(246,241,236,.05) 0 1px, transparent 1px 46px),
-      linear-gradient(150deg,#171016,#0B080B);">
-      <div style="position:absolute; left:0; right:0; top:44%; height:10px; background:rgba(232,185,60,.14); transform:rotate(-8deg);"></div>
-      <div style="position:absolute; top:0; bottom:0; left:36%; width:8px; background:rgba(246,241,236,.06);"></div>
-      <div style="position:absolute; left:52%; top:40%; transform:translate(-50%,-50%); display:flex; flex-direction:column; align-items:center; gap:8px;">
-        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#E8B93C" stroke-width="1.6" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 10-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
-        <span style="font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; color:#F6F1EC;">Pavilhão Municipal</span>
+      <h2 style="font-size:70px;">Como se<br><span style="color:#FF2E1F;">chega cá</span></h2>
+      <p class="mut" style="font-size:17px; margin-top:18px; max-width:46ch;">O pavilhão fica junto ao parque municipal, com estacionamento à porta. As carreiras 431 e 437 param a 200 metros; de barco, são quinze minutos a pé do Terminal Fluvial.</p>
+      <div style="position:relative; height:330px; margin-top:26px; border:3px solid rgba(246,237,225,.18); overflow:hidden; background:
+        repeating-linear-gradient(0deg, rgba(246,237,225,.05) 0 1px, transparent 1px 48px),
+        repeating-linear-gradient(90deg, rgba(246,237,225,.05) 0 1px, transparent 1px 48px),
+        linear-gradient(150deg,#1A110C,#0B0705);">
+        <div style="position:absolute; left:0; right:0; top:46%; height:12px; background:rgba(233,185,73,.16); transform:rotate(-7deg);"></div>
+        <div style="position:absolute; top:0; bottom:0; left:34%; width:9px; background:rgba(246,237,225,.06);"></div>
+        <div style="position:absolute; left:52%; top:42%; transform:translate(-50%,-50%); display:flex; flex-direction:column; align-items:center; gap:8px;">
+          <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#FF2E1F" stroke-width="1.8" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 10-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+          <span class="lbl">Pavilhão Municipal</span>
+        </div>
+        <span class="hand" style="position:absolute; right:26px; bottom:20px; font-size:26px; transform:rotate(-4deg);">é já ali!</span>
       </div>
-      <span class="dim" style="position:absolute; left:16px; bottom:13px; font-size:12px;">Mapa interativo no site final</span>
+    </div>
+
+    <div style="position:relative; background:#F6EDE1; color:#2A1B12; padding:44px; border-radius:10px 8px 12px 7px; box-shadow:0 30px 70px rgba(0,0,0,.6); transform:rotate(.5deg);">
+      <span class="tape" style="background:rgba(233,185,73,.55); top:-14px; left:46px; margin-left:0;"></span>
+      <div class="lbl" style="color:#B4471E;">Escreve-nos</div>
+      <h2 style="font-size:46px; margin:12px 0 26px; color:#2A1B12;">Manda recado</h2>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px;">
+<div><div class="lbl" style="color:#7A6552; margin-bottom:8px;">Nome</div><div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 16px; border:2px solid #D9CBB8; border-radius:8px 7px 9px 6px; background:#FFFBF3; font-size:15.5px; color:#4A3620;"><span>João Almeida</span></div></div><div><div class="lbl" style="color:#7A6552; margin-bottom:8px;">E-mail</div><div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 16px; border:2px solid #D9CBB8; border-radius:8px 7px 9px 6px; background:#FFFBF3; font-size:15.5px; color:#4A3620;"><span>joao.almeida@exemplo.pt</span></div></div>      </div>
+      <div style="margin-top:18px;">
+<div><div class="lbl" style="color:#7A6552; margin-bottom:8px;">Assunto</div><div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 16px; border:2px solid #D9CBB8; border-radius:8px 7px 9px 6px; background:#FFFBF3; font-size:15.5px; color:#4A3620;"><span>Horários da escola de patinagem</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B4471E" stroke-width="2.2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></div></div>      </div>
+      <div style="margin-top:18px;">
+        <div class="lbl" style="color:#7A6552; margin-bottom:8px;">Mensagem</div>
+        <div style="padding:14px 16px; height:190px; border:2px solid #D9CBB8; border-radius:8px 7px 9px 6px; background:#FFFBF3; font-size:15.5px; color:#4A3620;">Boa tarde. O meu filho tem 7 anos e queria perceber se ainda há vagas na turma de sábado. Obrigado!</div>
+      </div>
+      <div style="margin-top:26px;"><span class="btn" style="display:block; text-align:center; justify-content:center;">Enviar mensagem</span></div>
     </div>
   </div>
 </div>
-<div style="border-top:1px solid rgba(246,241,236,.07); background:#080608; padding:72px 96px 40px;">
-<div style="display:grid; grid-template-columns:1.5fr 1fr 1fr 1.2fr; gap:56px;">
+
+<div style="margin-top:88px;">
+<div style="position:relative; background:#E9B949; color:#170A02; padding:15px 58px; display:flex; align-items:center; justify-content:space-between; gap:24px; font-family:Anton,sans-serif; font-size:25px; letter-spacing:.01em; text-transform:uppercase; white-space:nowrap;"><span>geral@cpbvm.pt</span><span>212 345 678</span><span>@cpbvmmontijo</span><span>Rua das Palmeiras 12, Montijo</span></div></div>
+<div style="height:92px;"></div>
+<div style="position:relative; border-top:2px solid #E9B949; background:#0A0605; padding:64px 58px 34px;">
+<div style="display:grid; grid-template-columns:1.4fr 1fr 1fr 1.1fr; gap:48px;">
 <div>
-<div style="display:flex; align-items:center; gap:14px; margin-bottom:20px;"><svg viewBox="0 0 200 200" width="56" height="56" role="img" aria-label="Emblema do Clube de Patinagem BVM Montijo" style="display:block">
+<div style="display:flex; align-items:center; gap:14px;"><svg viewBox="0 0 200 200" width="62" height="62" role="img" aria-label="Emblema do Clube de Patinagem BVM Montijo" style="display:block">
   <defs>
     <path id="tpf" d="M100,100 m-77,0 a77,77 0 1,1 154,0" fill="none"/>
     <path id="bpf" d="M100,100 m-74,0 a74,74 0 1,0 148,0" fill="none"/>
@@ -177,35 +189,36 @@
     <circle cx="115.4" cy="159.6" r="3.2"/><circle cx="123.2" cy="156.8" r="3.2"/>
   </g>
 </svg>
-<span style="font-family:Instrument Serif,Georgia,serif; font-size:21px;">Clube de Patinagem BVM</span>
+<div style="font-family:Anton,sans-serif; font-size:34px; line-height:.9; text-transform:uppercase;">Patinagem<br>BVM</div>
 </div>
-<p class="mut" style="font-size:15px; max-width:34ch;">Patinagem artística no Montijo desde 2012. Formação, competição e espetáculo — com a mesma equipa desde o primeiro dia sobre patins.</p>
-<div style="display:flex; gap:10px; margin-top:22px;">
-<span style="width:40px; height:40px; border-radius:50%; border:1px solid rgba(246,241,236,.14); display:flex; align-items:center; justify-content:center;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#E8B93C" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#E8B93C" stroke="none"/></svg></span>
-<span style="width:40px; height:40px; border-radius:50%; border:1px solid rgba(246,241,236,.14); display:flex; align-items:center; justify-content:center;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#E8B93C" stroke-width="1.6" aria-hidden="true"><path d="M14 8h2.5V4.5H14c-2.2 0-3.5 1.4-3.5 3.6V10H8v3.5h2.5V21H14v-7.5h2.6l.4-3.5H14V8.4c0-.3.2-.4.5-.4z"/></svg></span>
-<span style="width:40px; height:40px; border-radius:50%; border:1px solid rgba(246,241,236,.14); display:flex; align-items:center; justify-content:center;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#E8B93C" stroke-width="1.6" aria-hidden="true"><path d="M4 6.5h16v11H4z"/><path d="M4 7l8 6 8-6"/></svg></span>
+<p class="mut" style="font-size:15.5px; max-width:33ch; margin-top:20px;">Clube de patinagem artística do Montijo. Escola, competição e a gala que enche o pavilhão todos os dezembros desde 2012.</p>
+<div class="hand" style="font-size:26px; margin-top:16px;">aparece num sábado!</div>
+</div>
+<div>
+<div class="lbl" style="color:#E9B949; margin-bottom:16px;">O clube</div>
+<div style="display:flex; flex-direction:column; gap:10px; font-size:15.5px; color:#C6B6A8;">
+<span>Quem somos</span><span>Treinadores</span><span>Atletas</span><span>Direção</span><span>Galeria</span>
 </div>
 </div>
 <div>
-<div class="ey" style="margin-bottom:18px;">Clube</div>
-<div style="display:flex; flex-direction:column; gap:11px; font-size:15px; color:#A79DA4;">
-<span>Sobre o clube</span><span>Equipa técnica</span><span>Atletas</span><span>Direção</span><span>Galeria</span>
+<div class="lbl" style="color:#E9B949; margin-bottom:16px;">Patinar</div>
+<div style="display:flex; flex-direction:column; gap:10px; font-size:15.5px; color:#C6B6A8;">
+<span>Escola de patinagem</span><span>Competição</span><span>Agenda</span><span>Inscrições</span><span>Mensalidades</span>
 </div>
 </div>
 <div>
-<div class="ey" style="margin-bottom:18px;">Atividade</div>
-<div style="display:flex; flex-direction:column; gap:11px; font-size:15px; color:#A79DA4;">
-<span>Escola de patinagem</span><span>Competição</span><span>Eventos</span><span>Inscrições</span><span>Mensalidades</span>
+<div class="lbl" style="color:#E9B949; margin-bottom:16px;">Encontrar-nos</div>
+<div style="display:flex; flex-direction:column; gap:10px; font-size:15.5px; color:#C6B6A8;">
+<span>Pavilhão Municipal do Montijo</span><span>Rua das Palmeiras 12, 2870-355</span><span>geral@cpbvm.pt</span><span>212 345 678</span>
+</div>
+<div style="display:flex; gap:9px; margin-top:18px;">
+<span style="width:40px; height:40px; border-radius:50%; border:2px solid rgba(246,237,225,.18); display:flex; align-items:center; justify-content:center; color:#E9B949;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span>
+<span style="width:40px; height:40px; border-radius:50%; border:2px solid rgba(246,237,225,.18); display:flex; align-items:center; justify-content:center; color:#E9B949;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M14 8h2.5V4.5H14c-2.2 0-3.5 1.4-3.5 3.6V10H8v3.5h2.5V21H14v-7.5h2.6l.4-3.5H14V8.4c0-.3.2-.4.5-.4z"/></svg></span>
+<span style="width:40px; height:40px; border-radius:50%; border:2px solid rgba(246,237,225,.18); display:flex; align-items:center; justify-content:center; color:#E9B949;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 6.5h16v11H4z"/><path d="M4 7l8 6 8-6"/></svg></span>
 </div>
 </div>
-<div>
-<div class="ey" style="margin-bottom:18px;">Contactos</div>
-<div style="display:flex; flex-direction:column; gap:11px; font-size:15px; color:#A79DA4;">
-<span>Pavilhão Municipal do Montijo</span><span>2870-355 Montijo</span><span>geral@cpbvm.pt</span><span>212 345 678</span>
 </div>
-</div>
-</div>
-<div style="display:flex; justify-content:space-between; align-items:center; margin-top:56px; padding-top:26px; border-top:1px solid rgba(246,241,236,.07); font-size:13px; color:#8C8490;">
+<div style="display:flex; justify-content:space-between; align-items:center; margin-top:46px; padding-top:22px; border-top:1px solid rgba(246,237,225,.12); font-size:13.5px; color:#A2948A;">
 <span>© 2026 Clube de Patinagem BVM · Montijo</span>
 <span>Política de privacidade · Estatutos · Filiado na Federação de Patinagem de Portugal</span>
 </div>
