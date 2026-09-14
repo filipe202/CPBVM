@@ -1,17 +1,20 @@
 {
   "artboards": [
-    { "file": "Main.dc.html",          "x": 0,    "y": 0,    "w": 1440, "h": 4000, "title": "Homepage" },
-    { "file": "Sobre.dc.html",         "x": 1560, "y": 0,    "w": 1440, "h": 3100, "title": "Sobre" },
-    { "file": "EquipaTecnica.dc.html", "x": 3120, "y": 0,    "w": 1440, "h": 2900, "title": "Equipa Técnica" },
-    { "file": "MobileHome.dc.html",    "x": 4680, "y": 0,    "w": 390,  "h": 1900, "title": "Homepage · telemóvel" },
-    { "file": "Atletas.dc.html",       "x": 0,    "y": 4200, "w": 1440, "h": 2700, "title": "Atletas" },
-    { "file": "Eventos.dc.html",       "x": 1560, "y": 4200, "w": 1440, "h": 2750, "title": "Eventos" },
-    { "file": "Inscricoes.dc.html",    "x": 3120, "y": 4200, "w": 1440, "h": 3100, "title": "Inscrições" }
+    { "file": "Main.dc.html",          "x": 0,    "y": 0,    "w": 1440, "h": 4500, "title": "Homepage" },
+    { "file": "Sobre.dc.html",         "x": 1560, "y": 0,    "w": 1440, "h": 3200, "title": "Sobre" },
+    { "file": "EquipaTecnica.dc.html", "x": 3120, "y": 0,    "w": 1440, "h": 2950, "title": "Equipa Técnica" },
+    { "file": "Atletas.dc.html",       "x": 4680, "y": 0,    "w": 1440, "h": 2800, "title": "Atletas" },
+    { "file": "Eventos.dc.html",       "x": 0,    "y": 4700, "w": 1440, "h": 3350, "title": "Eventos" },
+    { "file": "Inscricoes.dc.html",    "x": 1560, "y": 4700, "w": 1440, "h": 3200, "title": "Inscrições" },
+    { "file": "Contactos.dc.html",     "x": 3120, "y": 4700, "w": 1440, "h": 2700, "title": "Contactos" },
+    { "file": "MobileHome.dc.html",    "x": 4680, "y": 4700, "w": 390,  "h": 2800, "title": "Homepage · telemóvel" }
   ],
   "annotations": [
-    { "id": "nota-conteudo", "x": 0, "y": -210, "w": 940,
-      "text": "Mockups do site do CPBVM — tudo entre [parênteses retos] é um placeholder à espera de informação real: nomes da equipa técnica, datas, valores de mensalidade, morada e fotografias.\nAs fotos aparecem como painéis em degradê preto→vermelho com a linha dourada do equipamento." },
-    { "id": "nota-mobile", "x": 4680, "y": -140, "w": 390,
+    { "id": "nota-conteudo", "x": 0, "y": -230, "w": 980,
+      "text": "Mockups do site do CPBVM. ATENÇÃO: todos os nomes, datas, horários, preços e resultados são inventados, só para se perceber o site cheio — é tudo para substituir por informação real.\nAs fotografias são de bancos de imagem com licença livre, tratadas na paleta do clube; servem de exemplo até haver fotos das atletas." },
+    { "id": "nota-logo", "x": 1560, "y": -230, "w": 700,
+      "text": "O emblema está redesenhado em SVG por aproximação ao original. Assim que o ficheiro do logo entrar no repositório, passa a ser a imagem verdadeira em todo o site." },
+    { "id": "nota-mobile", "x": 4680, "y": 4470, "w": 390,
       "text": "Versão telemóvel da homepage — mesma linguagem, uma coluna." }
   ],
   "launch": { "view": "canvas" }
