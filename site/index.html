@@ -117,7 +117,7 @@ nav a:hover::after, nav a.active::after{ width:100%; }
 .hero .wrap{ position:relative; z-index:2; width:min(100% - 44px, 1440px); }
 .hero h1{ font-size:clamp(58px, 13.2vw, 205px); }
 .hero .ln{ display:block; overflow:hidden; }
-.hero .ln span{ display:block; transform:translateY(105%); animation:up 1.05s var(--ease) forwards; }
+.hero .ln span{ display:block; transform:translateY(105%); animation:up 1.05s var(--ease) forwards; padding-top:.08em; }
 .hero .ln:nth-child(2) span{ animation-delay:.1s; }
 .hero .ln:nth-child(3) span{ animation-delay:.2s; padding-top:.16em; }
 @media (max-width:700px){
@@ -163,7 +163,7 @@ section{ position:relative; }
 .rv.in{ opacity:1; transform:none; }
 .rv.d1{ transition-delay:.1s; } .rv.d2{ transition-delay:.2s; } .rv.d3{ transition-delay:.3s; }
 .rv-mask{ overflow:hidden; display:block; }
-.rv-mask > *{ transform:translateY(100%); transition:transform 1s var(--ease); display:block; }
+.rv-mask > *{ transform:translateY(100%); transition:transform 1s var(--ease); display:block; padding-top:.1em; }
 .rv-mask.in > *{ transform:none; }
 
 /* manifesto com palavras que acendem */
@@ -415,9 +415,10 @@ footer li:hover{ color:var(--gold); transform:translateX(4px); }
     </a>
     <nav id="nav">
       <a href="#clube">O clube</a>
+      <a href="#epoca">A época</a>
       <a href="#aulas">Aulas</a>
-      <a href="#grupos">Grupos</a>
-      <a href="#palmares">Palmarés</a>
+      <a href="#cidade">Na cidade</a>
+      <a href="#mensalidades">Mensalidades</a>
       <a href="#contactos">Contactos</a>
       <a class="btn k sm" href="#contactos">Vem patinar!</a>
     </nav>
@@ -475,17 +476,17 @@ footer li:hover{ color:var(--gold); transform:translateX(4px); }
     </h1>
     <div class="hero-foot">
       <div>
-        <p>Somos o clube de patinagem do quartel. Aulas a partir dos 3 anos, patins emprestados na aula experimental e inscrições abertas para a época 2026/27.</p>
+        <p>Somos o clube de patinagem do quartel. Cinco grupos de treino, a partir dos 3 anos, e uma equipa que em dezembro venceu a Taça Cidade de Portimão.</p>
         <div class="hand" style="font-size:clamp(24px,2.6vw,34px); margin-top:12px; transform:rotate(-2deg); display:inline-block">mais do que um desporto, uma paixão sobre rodas!</div>
         <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:20px;">
           <a class="btn" href="#contactos">Vem patinar!</a>
-          <a class="btn o" href="#aulas">Ver horários</a>
+          <a class="btn o" href="#epoca">Ver a época</a>
         </div>
       </div>
       <div class="stats">
-        <div><b>3<span style="font-size:.5em">+</span></b><span class="lbl dim">Anos de idade</span></div>
+        <div><b>1.º</b><span class="lbl dim">Portimão · equipas</span></div>
+        <div><b data-count="5">0</b><span class="lbl dim">Grupos</span></div>
         <div><b data-count="2022">2000</b><span class="lbl dim">Desde</span></div>
-        <div><b data-count="3">0</b><span class="lbl dim">Treinos / semana</span></div>
       </div>
     </div>
   </div>
@@ -493,8 +494,8 @@ footer li:hover{ color:var(--gold); transform:translateX(4px); }
 </section>
 
 <div class="ticker"><div class="run">
-  <span>Inscrições abertas 2026/27 <em style="font-style:normal;color:#B4120C">◆</em> A partir dos 3 anos <em style="font-style:normal;color:#B4120C">◆</em> Aula experimental com patins incluídos <em style="font-style:normal;color:#B4120C">◆</em> Vem patinar! <em style="font-style:normal;color:#B4120C">◆</em></span>
-  <span>Inscrições abertas 2026/27 <em style="font-style:normal;color:#B4120C">◆</em> A partir dos 3 anos <em style="font-style:normal;color:#B4120C">◆</em> Aula experimental com patins incluídos <em style="font-style:normal;color:#B4120C">◆</em> Vem patinar! <em style="font-style:normal;color:#B4120C">◆</em></span>
+  <span>Inscrições abertas 2026/27 <em style="font-style:normal;color:#B4120C">◆</em> A partir dos 3 anos <em style="font-style:normal;color:#B4120C">◆</em> Patins na aula experimental <em style="font-style:normal;color:#B4120C">◆</em> Vem patinar! <em style="font-style:normal;color:#B4120C">◆</em></span>
+  <span>Inscrições abertas 2026/27 <em style="font-style:normal;color:#B4120C">◆</em> A partir dos 3 anos <em style="font-style:normal;color:#B4120C">◆</em> Patins na aula experimental <em style="font-style:normal;color:#B4120C">◆</em> Vem patinar! <em style="font-style:normal;color:#B4120C">◆</em></span>
 </div></div>
 
 <section id="clube" class="pad">
@@ -507,28 +508,65 @@ footer li:hover{ color:var(--gold); transform:translateX(4px); }
   </svg>
   <div class="wrap" style="position:relative; z-index:1">
     <div class="eyebrow lbl">O clube</div>
-    <p class="manifesto" id="manif">Nascemos no quartel dos <w class="hi">Bombeiros Voluntários do Montijo</w> em setembro de 2022. O vermelho e o verde são os da casa. A pista é <w class="hi">nossa</w>.</p>
+    <p class="manifesto" id="manif">Nascemos no quartel dos <w class="hi">Bombeiros Voluntários do Montijo</w> em 2022. Em quatro épocas passámos de duas turmas a <w class="hi">cinco grupos</w> de treino.</p>
     <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:26px; margin-top:56px;">
       <div class="rv">
-        <div style="font-family:Anton,sans-serif; font-size:54px; color:var(--gold); line-height:.9">2022</div>
-        <h3 style="font-size:26px; margin-top:12px">Do quartel para a pista</h3>
-        <p class="mut" style="margin-top:10px; font-size:15.5px">O clube é constituído a 13 de setembro, na Avenida dos Bombeiros Voluntários. Começam as primeiras turmas.</p>
+        <div style="font-family:Anton,sans-serif; font-size:54px; color:var(--gold); line-height:.9">3</div>
+        <h3 style="font-size:26px; margin-top:12px">Pavilhões</h3>
+        <p class="mut" style="margin-top:10px; font-size:15.5px">O quartel dos Bombeiros, o pavilhão da Escola Joaquim Serra e o Pavilhão Municipal n.º 1. Onde houver pista, treinamos.</p>
       </div>
       <div class="rv d1">
-        <div style="font-family:Anton,sans-serif; font-size:54px; color:var(--gold); line-height:.9">2023</div>
-        <h3 style="font-size:26px; margin-top:12px">Primeira época de torneios</h3>
-        <p class="mut" style="margin-top:10px; font-size:15.5px">Barreiro e Portimão logo no primeiro ano: seis pódios individuais no Torneio Amizade e 2.º lugar por equipas em Portimão.</p>
+        <div style="font-family:Anton,sans-serif; font-size:54px; color:var(--gold); line-height:.9">5</div>
+        <h3 style="font-size:26px; margin-top:12px">Grupos de treino</h3>
+        <p class="mut" style="margin-top:10px; font-size:15.5px">Dos primeiros passos à competição federada. O Grupo 5 abriu em setembro — e continuamos a crescer.</p>
       </div>
       <div class="rv d2">
-        <div style="font-family:Anton,sans-serif; font-size:54px; color:var(--gold); line-height:.9">2025</div>
-        <h3 style="font-size:26px; margin-top:12px">A Federação vem ao Montijo</h3>
-        <p class="mut" style="margin-top:10px; font-size:15.5px">O clube recebe o programa de observação de talentos da Federação (OIST), dois dias de patinagem livre e solo dance no Pavilhão Municipal.</p>
+        <div style="font-family:Anton,sans-serif; font-size:54px; color:var(--gold); line-height:.9">100<span style="font-size:.6em">%</span></div>
+        <h3 style="font-size:26px; margin-top:12px">Nos testes de nível</h3>
+        <p class="mut" style="margin-top:10px; font-size:15.5px">Nos 3.ºs Testes Distritais levámos 17 atletas aos níveis I a V. Passaram todas.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="aulas" class="pad" style="padding-top:0">
+<section id="epoca" class="pad" style="padding-top:0">
+  <div class="wrap">
+    <div style="display:flex; flex-wrap:wrap; gap:20px; align-items:flex-end; justify-content:space-between; margin-bottom:42px">
+      <div class="rv-mask"><h2 class="h2">A época<br><span style="color:var(--gold)">2025/26</span></h2></div>
+      <span class="hand" style="font-size:30px; transform:rotate(2deg)">e ainda mal começámos</span>
+    </div>
+    <div class="palm">
+      <article class="rv" style="border-color:var(--gold); background:linear-gradient(160deg, rgba(240,196,69,.12), transparent)">
+        <div class="yr" style="font-size:78px">1.º</div>
+        <h3 style="font-size:28px; margin-top:14px">XVI Taça Cidade de Portimão</h3>
+        <p class="dim" style="font-size:14.5px; margin-top:6px">20 e 21 de dezembro · 22 atletas em prova</p>
+        <div class="medals"><span class="medal o">Vencedores por equipas</span></div>
+        <p class="mut" style="font-size:15px; margin-top:16px">Doze subidas ao pódio em oito escalões, da Iniciação aos Juvenis. Em 2023 tínhamos trazido de Portimão o segundo lugar; dois anos depois voltámos para ganhar.</p>
+      </article>
+      <article class="rv d1">
+        <div class="yr">2.º</div>
+        <h3 style="font-size:28px; margin-top:14px">Torneio Aberto APS</h3>
+        <p class="dim" style="font-size:14.5px; margin-top:6px">Outubro · 1.ª e 2.ª parte · Montijo e Paio Pires</p>
+        <div class="medals"><span class="medal p">2.º entre 24 clubes</span></div>
+        <p class="mut" style="font-size:15px; margin-top:16px">Segundo lugar na classificação acumulada por equipas, com a pontuação a vir sobretudo dos atletas de formação. A primeira parte disputou-se em casa, no Pavilhão n.º 1.</p>
+      </article>
+      <article class="rv d2">
+        <div class="yr">6.º</div>
+        <h3 style="font-size:28px; margin-top:14px">Torneio Intercalar</h3>
+        <p class="dim" style="font-size:14.5px; margin-top:6px">Junho · 3.ª parte · 23 clubes</p>
+        <div class="medals"><span class="medal b">Escalão de formação</span></div>
+        <p class="mut" style="font-size:15px; margin-top:16px">Sexto lugar por equipas quase só com atletas de formação — algumas a patinar há doze meses, outras há nove. É por isto que nos orgulhamos deste resultado tanto como dos primeiros lugares.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="ticker green"><div class="run">
+  <span>Torneio Cidade do Montijo ◆ Festival de Patinagem BVM ◆ Gala do clube ◆ Gala APS ◆ Taça Cidade de Portimão ◆ Testes distritais ◆</span>
+  <span>Torneio Cidade do Montijo ◆ Festival de Patinagem BVM ◆ Gala do clube ◆ Gala APS ◆ Taça Cidade de Portimão ◆ Testes distritais ◆</span>
+</div></div>
+
+<section id="aulas" class="pad">
   <div class="wrap">
     <div class="rv-mask"><h2 class="h2">Três caminhos,<br><span style="color:var(--red-hot)">a mesma pista</span></h2></div>
     <div class="paths" style="margin-top:46px" id="paths">
@@ -544,28 +582,23 @@ footer li:hover{ color:var(--gold); transform:translateX(4px); }
         <img src="img/atleta-03.jpg" alt="">
         <div class="body">
           <span class="n">02</span>
-          <h3>Patinagem artística</h3>
-          <p>Patinagem livre e solo dance, com desenvolvimento em cada etapa. Torneios com a Associação de Patinagem de Setúbal e a Federação.</p>
+          <h3>Competição federada</h3>
+          <p>Patinagem livre, testes de nível e torneios da Associação de Patinagem de Setúbal, da Iniciação aos Juvenis. Inscrição na Federação com exame médico desportivo.</p>
         </div>
       </article>
       <article class="path">
         <img src="img/gala-01.jpg" alt="">
         <div class="body">
           <span class="n">03</span>
-          <h3>Exibições</h3>
-          <p>Estrelitas, Benjamins e Dreams on Wheels em palco — no pavilhão, no Alegro Montijo no Dia Mundial da Criança, onde a cidade nos chamar.</p>
+          <h3>Galas e festivais</h3>
+          <p>A gala do clube, a Gala APS que fecha a época e o nosso Festival de Patinagem — dias em que o pavilhão se enche e a equipa patina para a cidade.</p>
         </div>
       </article>
     </div>
   </div>
 </section>
 
-<div class="ticker green"><div class="run">
-  <span>Segundas 18h45–21h45 ◆ Quartas 18h45–21h45 ◆ Sábados 11h00–12h00 ◆ Pavilhão dos Bombeiros Voluntários do Montijo ◆</span>
-  <span>Segundas 18h45–21h45 ◆ Quartas 18h45–21h45 ◆ Sábados 11h00–12h00 ◆ Pavilhão dos Bombeiros Voluntários do Montijo ◆</span>
-</div></div>
-
-<section class="pad">
+<section class="pad" style="padding-top:0">
   <div class="wrap">
     <div style="display:flex; flex-wrap:wrap; gap:20px; align-items:flex-end; justify-content:space-between; margin-bottom:40px">
       <div class="rv-mask"><h2 class="h2">O que se leva<br><span style="color:var(--gold)">daqui</span></h2></div>
@@ -584,43 +617,43 @@ footer li:hover{ color:var(--gold); transform:translateX(4px); }
 <section id="galeria" class="sticky">
   <div class="pin">
     <div class="gal-title">
-      <div class="eyebrow lbl">Galeria</div>
-      <h2 class="h2" style="font-size:clamp(36px,6vw,86px)">A época,<br>por dentro</h2>
-      <p class="dim" style="font-size:13px; margin-top:14px; max-width:30ch">Fotografias provisórias — as do clube entram aqui.</p>
+      <div class="eyebrow lbl">O material</div>
+      <h2 class="h2" style="font-size:clamp(36px,6vw,86px)">Bota, chassis,<br>quatro rodas</h2>
+      <p class="dim" style="font-size:13px; margin-top:14px; max-width:32ch">Fotografias do clube. As dos atletas entram assim que a direção autorizar.</p>
     </div>
     <div class="rail" id="rail">
-      <figure class="pola"><span class="tp"></span><img src="img/treino-01.jpg" alt=""><figcaption>Treino de segunda</figcaption></figure>
-      <figure class="pola"><span class="tp"></span><img src="img/atleta-01.jpg" alt=""><figcaption>Programa livre</figcaption></figure>
-      <figure class="pola"><span class="tp"></span><img src="img/patins-01.jpg" alt=""><figcaption>Patins emprestados</figcaption></figure>
-      <figure class="pola"><span class="tp"></span><img src="img/gala-03.jpg" alt=""><figcaption>Exibição</figcaption></figure>
-      <figure class="pola"><span class="tp"></span><img src="img/atleta-02.jpg" alt=""><figcaption>Solo dance</figcaption></figure>
-      <figure class="pola"><span class="tp"></span><img src="img/gala-02.jpg" alt=""><figcaption>Dreams on Wheels</figcaption></figure>
-      <figure class="pola"><span class="tp"></span><img src="img/atleta-07.jpg" alt=""><figcaption>Estrelitas</figcaption></figure>
+      <figure class="pola"><span class="tp"></span><img src="img/patim-perfil.jpg" alt=""><figcaption>Bota de artística</figcaption></figure>
+      <figure class="pola"><span class="tp"></span><img src="img/patim-roda.jpg" alt=""><figcaption>Rodas de pista</figcaption></figure>
+      <figure class="pola"><span class="tp"></span><img src="img/patim-frente.jpg" alt=""><figcaption>Pronto para entrar</figcaption></figure>
+      <figure class="pola"><span class="tp"></span><img src="img/patins-par.jpg" alt=""><figcaption>O par completo</figcaption></figure>
+      <figure class="pola"><span class="tp"></span><img src="img/patim-chassis.jpg" alt=""><figcaption>Chassis e travão</figcaption></figure>
+      <figure class="pola"><span class="tp"></span><img src="img/patim-bota.jpg" alt=""><figcaption>Atacar com jeito</figcaption></figure>
+      <figure class="pola"><span class="tp"></span><img src="img/treino-01.jpg" alt=""><figcaption>Dia de treino</figcaption></figure>
     </div>
   </div>
 </section>
 
-<section id="grupos" class="pad">
+<section id="cidade" class="pad">
   <div class="wrap">
     <div style="display:flex; flex-wrap:wrap; gap:20px; align-items:flex-end; justify-content:space-between; margin-bottom:42px">
-      <div class="rv-mask"><h2 class="h2">Os nossos<br><span style="color:var(--gold)">grupos</span></h2></div>
-      <span class="hand" style="font-size:30px; transform:rotate(-2deg)">três nomes que a cidade já conhece</span>
+      <div class="rv-mask"><h2 class="h2">O clube<br><span style="color:var(--gold)">na cidade</span></h2></div>
+      <span class="hand" style="font-size:30px; transform:rotate(-2deg)">o Montijo conhece-nos</span>
     </div>
     <div class="groups">
       <article class="group k rv"><span class="stripe" style="background:var(--gold)"></span>
-        <span class="lbl" style="color:var(--gold)">Os mais pequenos</span>
-        <div class="big" style="margin-top:14px">Estre-<br>litas</div>
-        <p class="mut" style="margin-top:16px; font-size:15.5px">A porta de entrada, a partir dos 3 anos. As primeiras voltas, as primeiras quedas e as primeiras exibições — foram os Estrelitas a abrir o Dia Mundial da Criança no Alegro.</p>
+        <span class="lbl" style="color:var(--gold)">Junho · Festas de São Pedro</span>
+        <div class="big" style="margin-top:14px">Patins<br>na rua</div>
+        <p class="mut" style="margin-top:16px; font-size:15.5px">Todos os anos levamos os atletas às festas da cidade: na Praça do Coreto ao sábado e no átrio da igreja ao domingo, de patins calçados, a mostrar a modalidade a quem passa.</p>
       </article>
       <article class="group r rv d1"><span class="stripe" style="background:var(--red)"></span>
-        <span class="lbl" style="color:var(--red-hot)">O passo seguinte</span>
-        <div class="big" style="margin-top:14px">Benja-<br>mins</div>
-        <p class="mut" style="margin-top:16px; font-size:15.5px">Já com técnica para contar uma música do princípio ao fim. É daqui que saem as primeiras idas a torneio.</p>
+        <span class="lbl" style="color:var(--red-hot)">Com a Câmara</span>
+        <div class="big" style="margin-top:14px">Desporto<br>na rua</div>
+        <p class="mut" style="margin-top:16px; font-size:15.5px">No ringue do Parque Municipal e no Alegro no Dia Mundial da Criança. A patinagem sai do pavilhão e vai ter com a cidade.</p>
       </article>
       <article class="group g rv d2"><span class="stripe" style="background:var(--green)"></span>
-        <span class="lbl" style="color:#5FC98C">O grupo de exibição</span>
-        <div class="big" style="margin-top:14px">Dreams<br>on Wheels</div>
-        <p class="mut" style="margin-top:16px; font-size:15.5px">O nome que fecha as galas. Coreografia de conjunto, o vermelho e o verde do quartel em pista e a sala a levantar-se no fim.</p>
+        <span class="lbl" style="color:#5FC98C">RTP2 · Zig Zag</span>
+        <div class="big" style="margin-top:14px">A minha<br>cena</div>
+        <p class="mut" style="margin-top:16px; font-size:15.5px">O programa filmou um episódio no pavilhão dos Bombeiros com uma atleta do clube. A nossa pista passou na televisão — e as miúdas não falaram de outra coisa durante semanas.</p>
       </article>
     </div>
   </div>
@@ -629,64 +662,41 @@ footer li:hover{ color:var(--gold); transform:translateX(4px); }
 <section class="gala">
   <div class="bg" data-par="0.22"><img src="img/gala-01.jpg" alt=""></div>
   <div class="wrap">
-    <div class="eyebrow lbl">Portimão · dezembro de 2023</div>
-    <div class="rv-mask"><h2 class="h2">2.º lugar<br>por equipas</h2></div>
-    <p class="mut" style="max-width:48ch; margin-top:20px; font-size:18px">XIV Torneio da Cidade de Portimão, no primeiro ano de competição do clube. Três primeiros lugares, quatro segundos e dois terceiros — e a viagem de volta com o pavilhão inteiro a cantar no autocarro.</p>
+    <div class="eyebrow lbl">Organizado por nós</div>
+    <div class="rv-mask"><h2 class="h2">O nosso<br>calendário</h2></div>
+    <p class="mut" style="max-width:48ch; margin-top:20px; font-size:18px">Não vamos só a torneios: também os fazemos. O Torneio Cidade do Montijo e o Festival de Patinagem BVM trazem clubes de todo o distrito ao Pavilhão n.º 1 — e a gala do clube junta atletas, treinadoras e famílias à mesma mesa.</p>
     <div class="gala-info">
-      <div><span class="lbl dim">Ouro</span><b>3</b></div>
-      <div><span class="lbl dim">Prata</span><b>4</b></div>
-      <div><span class="lbl dim">Bronze</span><b>2</b></div>
-      <div><span class="lbl dim">Por equipas</span><b>2.º</b></div>
+      <div><span class="lbl dim">Outubro</span><b>Torneio Aberto</b></div>
+      <div><span class="lbl dim">Novembro</span><b>Cidade do Montijo</b></div>
+      <div><span class="lbl dim">Dezembro</span><b>Gala do clube</b></div>
+      <div><span class="lbl dim">Janeiro</span><b>Festival BVM</b></div>
     </div>
   </div>
 </section>
 
-<section id="palmares" class="pad">
+<section id="mensalidades" class="pad">
   <div class="wrap">
-    <div style="display:flex; flex-wrap:wrap; gap:20px; align-items:flex-end; justify-content:space-between; margin-bottom:42px">
-      <div class="rv-mask"><h2 class="h2">Palmarés</h2></div>
-      <span class="hand" style="font-size:30px; transform:rotate(2deg)">e isto foi só o começo</span>
-    </div>
-    <div class="palm">
-      <article class="rv">
-        <div class="yr">2023</div>
-        <h3 style="font-size:28px; margin-top:14px">Torneio Amizade</h3>
-        <p class="dim" style="font-size:14.5px; margin-top:6px">Pavilhão do Fabril, Barreiro · 25 de novembro</p>
-        <div class="medals"><span class="medal o">4 × ouro</span><span class="medal p">2 × prata</span></div>
-        <p class="mut" style="font-size:15px; margin-top:16px">Seis pódios em categorias individuais na primeira saída oficial do clube.</p>
-      </article>
-      <article class="rv d1">
-        <div class="yr">2023</div>
-        <h3 style="font-size:28px; margin-top:14px">XIV Torneio da Cidade de Portimão</h3>
-        <p class="dim" style="font-size:14.5px; margin-top:6px">Portimão · 8 e 9 de dezembro</p>
-        <div class="medals"><span class="medal o">3 × ouro</span><span class="medal p">4 × prata</span><span class="medal b">2 × bronze</span></div>
-        <p class="mut" style="font-size:15px; margin-top:16px">Segundo lugar na classificação por equipas, entre clubes de todo o país.</p>
-      </article>
-      <article class="rv d2">
-        <div class="yr">2025</div>
-        <h3 style="font-size:28px; margin-top:14px">Anfitriões do OIST</h3>
-        <p class="dim" style="font-size:14.5px; margin-top:6px">Pavilhão Municipal n.º 1 do Montijo · 18 e 19 de abril</p>
-        <div class="medals"><span class="medal o">Patinagem livre</span><span class="medal p">Solo dance</span></div>
-        <p class="mut" style="font-size:15px; margin-top:16px">A Federação escolheu o Montijo para o programa de observação e seleção de talentos. Organização do clube, elogiada pela Associação.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="pad" style="padding-top:0">
-  <div class="wrap">
-    <div class="coach">
-      <div class="rv">
-        <figure class="pola" style="width:min(100%,380px); transform:rotate(-2deg)"><span class="tp"></span><img src="img/treinador-01.jpg" alt="" style="height:380px"><figcaption>Cristina Oliveira, treinadora</figcaption></figure>
+    <div class="eyebrow lbl">Mensalidades</div>
+    <div class="rv-mask"><h2 class="h2">Quanto custa</h2></div>
+    <p class="mut" style="max-width:54ch; margin-top:18px; font-size:17.5px">O valor depende do grupo de treino. Paga-se até ao dia 10 de cada mês — e agosto, por norma, não se paga.</p>
+    <div class="prices" style="margin-top:42px">
+      <div class="price rv">
+        <h3 style="font-size:30px">Grupo 1</h3>
+        <p class="dim" style="font-size:14.5px; margin-top:6px">Iniciação · os mais novos</p>
+        <div class="v">36 €</div><span class="lbl dim">por mês</span>
       </div>
-      <div class="rv d1">
-        <div class="eyebrow lbl">Quem treina</div>
-        <h2 class="h2" style="font-size:clamp(40px,5.6vw,80px)">Cristina<br>Oliveira</h2>
-        <p class="quote" style="margin-top:22px">"Estamos incrivelmente orgulhosos dos nossos atletas."</p>
-        <p class="mut" style="margin-top:18px; max-width:46ch">Treinadora do clube desde o primeiro dia. Foi com ela que os Estrelitas deram as primeiras voltas e que a equipa trouxe de Portimão o segundo lugar logo na estreia.</p>
-        <p class="dim" style="margin-top:12px; font-size:14px">Declaração à Câmara Municipal do Montijo, dezembro de 2023.</p>
+      <div class="price rv d1">
+        <h3 style="font-size:30px">Grupo 2</h3>
+        <p class="dim" style="font-size:14.5px; margin-top:6px">O passo seguinte</p>
+        <div class="v">38 €</div><span class="lbl dim">por mês</span>
+      </div>
+      <div class="price hot rv d2"><span class="tag lbl">Competição</span>
+        <h3 style="font-size:30px">Grupos 3, 4 e 5</h3>
+        <p class="dim" style="font-size:14.5px; margin-top:6px">Treino e torneios federados</p>
+        <div class="v">40 €</div><span class="lbl dim">por mês</span>
       </div>
     </div>
+    <p class="dim" style="font-size:15px; margin-top:22px">Irmãos a patinar ao mesmo tempo têm 10 % de desconto no segundo. Para competir é preciso exame médico desportivo — é o que permite a inscrição na Federação e o seguro desportivo.</p>
   </div>
 </section>
 
@@ -694,12 +704,13 @@ footer li:hover{ color:var(--gold); transform:translateX(4px); }
   <div class="wrap">
     <div class="eyebrow lbl">Inscrições abertas · época 2026/27</div>
     <div class="rv-mask"><h2 class="h2">Vem patinar!</h2></div>
-    <p class="mut" style="max-width:56ch; margin-top:18px; font-size:18px">A partir dos 3 anos, sem experiência nenhuma. Marca a aula experimental — os patins são por nossa conta — e aparece no pavilhão numa segunda, numa quarta ou num sábado.</p>
+    <p class="mut" style="max-width:56ch; margin-top:18px; font-size:18px">A partir dos 3 anos, sem experiência nenhuma. Marca a aula experimental — os patins são por nossa conta — e aparece no pavilhão.</p>
     <div class="sched rv" style="margin-top:40px">
       <div><span class="lbl dim">Segundas</span><b>18h45–21h45</b></div>
       <div><span class="lbl dim">Quartas</span><b>18h45–21h45</b></div>
-      <div><span class="lbl dim">Sábados</span><b>11h00–12h00</b></div>
+      <div><span class="lbl dim">Sábados</span><b>manhã</b></div>
     </div>
+    <p class="dim" style="font-size:14.5px; margin-top:14px">Cada grupo tem o seu horário dentro destas janelas, entre o pavilhão dos Bombeiros, a Escola Joaquim Serra e o Pavilhão n.º 1.</p>
     <div class="contact" style="margin-top:22px">
       <a class="rv" href="tel:+351917200871"><span class="lbl dim">Telefone · 19h–21h</span><b>917 200 871</b><span class="dim" style="font-size:14px">ou 914 177 105</span></a>
       <a class="rv d1" href="mailto:clubepatinagembvm@gmail.com"><span class="lbl dim">E-mail</span><b class="mail">clubepatinagembvm@gmail.com</b></a>
@@ -717,7 +728,7 @@ footer li:hover{ color:var(--gold); transform:translateX(4px); }
       <a class="btn k" href="tel:+351917200871">917 200 871</a>
       <a class="btn o" href="mailto:clubepatinagembvm@gmail.com" style="border-color:rgba(255,255,255,.5)">Escrever ao clube</a>
     </div>
-    <div class="hand" style="font-size:32px; margin-top:22px; color:#FFE08A">até já!</div>
+    <div class="hand" style="font-size:32px; margin-top:22px; color:#FFE08A">seguimos juntos!</div>
   </div>
 </section>
 
@@ -768,11 +779,11 @@ footer li:hover{ color:var(--gold); transform:translateX(4px); }
         </div>
         <p class="mut" style="font-size:15px; max-width:34ch; margin-top:18px">Clube de Patinagem dos Bombeiros Voluntários do Montijo. Patinagem artística desde 2022, a partir dos 3 anos.</p>
       </div>
-      <div><h4 class="lbl">O clube</h4><ul><li><a href="#clube">Quem somos</a></li><li><a href="#grupos">Grupos</a></li><li><a href="#palmares">Palmarés</a></li><li><a href="#galeria">Galeria</a></li></ul></div>
-      <div><h4 class="lbl">Patinar</h4><ul><li><a href="#aulas">Aulas</a></li><li><a href="#contactos">Horários</a></li><li><a href="#contactos">Inscrições</a></li><li><a href="https://www.instagram.com/clubepatinagem.bvm" target="_blank" rel="noopener">Instagram</a></li></ul></div>
+      <div><h4 class="lbl">O clube</h4><ul><li><a href="#clube">Quem somos</a></li><li><a href="#epoca">A época</a></li><li><a href="#cidade">Na cidade</a></li><li><a href="#galeria">Galeria</a></li></ul></div>
+      <div><h4 class="lbl">Patinar</h4><ul><li><a href="#aulas">Aulas</a></li><li><a href="#mensalidades">Mensalidades</a></li><li><a href="#contactos">Horários</a></li><li><a href="https://www.instagram.com/clubepatinagem.bvm" target="_blank" rel="noopener">Instagram</a></li></ul></div>
       <div><h4 class="lbl">Encontrar-nos</h4><ul><li>Pavilhão dos Bombeiros Voluntários do Montijo</li><li>Av. Bombeiros Voluntários do Montijo, 2870-219</li><li>clubepatinagembvm@gmail.com</li><li>917 200 871 · 914 177 105</li></ul></div>
     </div>
-    <div class="fbig">Vem patinar</div>
+    <div class="fbig">Seguimos juntos</div>
     <div style="display:flex; flex-wrap:wrap; gap:10px 24px; justify-content:space-between; margin-top:34px; padding-top:20px; border-top:1px solid rgba(247,239,227,.12); font-size:13px; color:var(--dim)">
       <span>© 2026 Clube de Patinagem dos Bombeiros Voluntários do Montijo</span>
       <span>Associação de Patinagem de Setúbal · Federação de Patinagem de Portugal</span>
