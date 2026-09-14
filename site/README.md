@@ -21,9 +21,22 @@ Por omissão carrega Anton, Bricolage Grotesque e Caveat do Google Fonts. Para
 alojamento sem dependências externas, troca esse `<link>` por
 `<link rel="stylesheet" href="fonts.css">` — os ficheiros `.woff2` já estão em `fonts/`.
 
-## Avisos
+## Fontes da informação
 
-- **Todo o conteúdo é fictício**: nomes, datas, mensalidades, resultados e contactos.
+Tudo o que o site afirma sobre o clube vem de fontes públicas ou dos cartazes do
+próprio clube:
+
+- Cartazes do clube (época 2026/27): horários, idade mínima, contactos, morada,
+  Instagram, "Mais do que um desporto, uma paixão sobre rodas!".
+- Câmara Municipal do Montijo (notícias de dez. 2023 e do Dia Mundial da Criança):
+  treinadora Cristina Oliveira, Torneio Amizade (Barreiro) e XIV Torneio da Cidade
+  de Portimão, grupos Estrelitas / Benjamins / Dreams on Wheels.
+- Associação de Patinagem de Setúbal: OIST 2025 no Montijo, 18–19 de abril.
+- Registo (Iberinform): constituição a 13 de setembro de 2022, morada e código postal.
+
+## O que ainda é provisório
+
 - **As fotografias** vêm de bancos de imagem com licença livre (Openverse/Wikimedia),
-  tratadas na paleta do clube. São para substituir por fotografias do CPBVM.
+  tratadas na paleta do clube. São para substituir por fotografias do clube.
 - **O emblema** é um desenho SVG por aproximação ao original, à espera do ficheiro real.
+- Descrições dos grupos (idades) e das disciplinas são inferidas — confirmar com o clube.
